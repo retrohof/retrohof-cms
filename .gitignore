@@ -262,4 +262,4 @@ src/Retrohof.Blazor.Server/Logs/*
 src/Retrohof.Blazor.Server.Tiered/Logs/*
 
 # Use abp install-libs to restore.
-**/wwwroot/libs/*
+#**/wwwroot/libs/*
