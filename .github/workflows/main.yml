@@ -25,9 +25,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: Run migrations
-        run: dotnet run -- "${{ secrets.CONNECTION_STRING }}" # Set your connection string as a secret in your repository settings
-        working-directory: ./src/Retrohof.DbMigrator # Replace with your project name
+      #- name: Run migrations
+      #  run: dotnet run -- "${{ secrets.CONNECTION_STRING }}" # Set your connection string as a secret in your repository settings
+      #  working-directory: ./src/Retrohof.DbMigrator # Replace with your project name
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
