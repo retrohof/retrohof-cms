@@ -1,4 +1,4 @@
-﻿using Retrohof.Localization;
+using Retrohof.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -12,6 +12,8 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Volo.CmsKit;
+using Volo.Abp.BlobStoring.Database;
 
 namespace Retrohof;
 
@@ -25,7 +27,9 @@ namespace Retrohof;
     typeof(AbpSettingManagementDomainSharedModule),
     typeof(AbpTenantManagementDomainSharedModule)    
     )]
-public class RetrohofDomainSharedModule : AbpModule
+[DependsOn(typeof(CmsKitDomainSharedModule))]
+    [DependsOn(typeof(BlobStoringDatabaseDomainSharedModule))]
+    public class RetrohofDomainSharedModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

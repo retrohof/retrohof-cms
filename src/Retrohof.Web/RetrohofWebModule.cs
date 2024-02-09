@@ -42,6 +42,9 @@ using Volo.Abp.VirtualFileSystem;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System;
+using Volo.CmsKit.Web;
+using Volo.Abp.BlobStoring;
+using Volo.Abp.BlobStoring.Database;
 
 namespace Retrohof.Web;
 
@@ -58,7 +61,8 @@ namespace Retrohof.Web;
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
     )]
-public class RetrohofWebModule : AbpModule
+[DependsOn(typeof(CmsKitWebModule))]
+    public class RetrohofWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -179,6 +183,16 @@ public class RetrohofWebModule : AbpModule
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
+
+
+        Configure<AbpBlobStoringOptions>(options =>
+        {
+            options.Containers.ConfigureDefault(container =>
+            {
+                container.UseDatabase();
+            });
+        });
+
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
