@@ -1,10 +1,17 @@
 ﻿using Volo.Abp.Ui.Branding;
 using Volo.Abp.DependencyInjection;
+using Volo.Abp.MultiTenancy;
 
 namespace Retrohof.Web;
 
 [Dependency(ReplaceServices = true)]
 public class RetrohofBrandingProvider : DefaultBrandingProvider
 {
-    public override string AppName => "Retrohof";
+    private readonly ICurrentTenant _currentTenant;
+    public override string AppName => _currentTenant.Name ?? "CustomHost";
+
+    public RetrohofBrandingProvider(ICurrentTenant currentTenant)
+    {
+        _currentTenant = currentTenant;
+    }
 }
