@@ -12,6 +12,8 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.CmsKit.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
+using Volo.Abp.TenantManagement;
+using Retrohof.TenantManagement;
 
 namespace Retrohof.EntityFrameworkCore;
 
@@ -25,11 +27,11 @@ namespace Retrohof.EntityFrameworkCore;
     typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
-    typeof(AbpFeatureManagementEntityFrameworkCoreModule)
-    )]
-[DependsOn(typeof(CmsKitEntityFrameworkCoreModule))]
-    [DependsOn(typeof(BlobStoringDatabaseEntityFrameworkCoreModule))]
-    public class RetrohofEntityFrameworkCoreModule : AbpModule
+    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(CmsKitEntityFrameworkCoreModule),
+    typeof(BlobStoringDatabaseEntityFrameworkCoreModule)
+)]
+public class RetrohofEntityFrameworkCoreModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -43,6 +45,8 @@ namespace Retrohof.EntityFrameworkCore;
                 /* Remove "includeAllEntities: true" to create
                  * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
+            options.AddRepository<Tenant, HostTenantRepository>();
+
         });
 
         Configure<AbpDbContextOptions>(options =>
@@ -51,13 +55,5 @@ namespace Retrohof.EntityFrameworkCore;
                  * See also RetrohofMigrationsDbContextFactory for EF Core tooling. */
             options.UseSqlServer();
         });
-
-        //Configure<AbpBlobStoringOptions>(options =>
-        //{
-        //    options.Containers.ConfigureDefault(container =>
-        //    {
-        //        container.UseDatabase();
-        //    });
-        //});
     }
 }

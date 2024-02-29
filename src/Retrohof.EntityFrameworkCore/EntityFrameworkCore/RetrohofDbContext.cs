@@ -117,16 +117,7 @@ public class RetrohofDbContext :
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
 
-        /* Configure your own tables/entities inside here */
-
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(RetrohofConsts.DbTablePrefix + "YourEntities", RetrohofConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
-
         builder.ConfigureCmsKit();
         builder.ConfigureBlobStoring();
-        }
+    }
 }
