@@ -45,6 +45,8 @@ using System;
 using Volo.CmsKit.Web;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.Database;
+using Retrohof.TenantManagement;
+using Volo.Abp.MultiTenancy;
 
 namespace Retrohof.Web;
 
@@ -184,8 +186,13 @@ namespace Retrohof.Web;
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
+        ConfigureBlobDatabaseStorage();
+        ConfigureTenantResolvers();
 
+    }
 
+    private void ConfigureBlobDatabaseStorage()
+    {
         Configure<AbpBlobStoringOptions>(options =>
         {
             options.Containers.ConfigureDefault(container =>
@@ -193,7 +200,15 @@ namespace Retrohof.Web;
                 container.UseDatabase();
             });
         });
+    }
 
+    private void ConfigureTenantResolvers()
+    {
+        Configure<AbpTenantResolveOptions>(options =>
+        {
+            options.TenantResolvers.Clear();
+            options.TenantResolvers.Add(new HostTenantResolveContributor());
+        });
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
