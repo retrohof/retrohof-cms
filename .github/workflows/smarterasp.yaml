@@ -20,9 +20,12 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-        working-directory: ./src/Retrohof.Web # Replace with your project name
+      # - name: dotnet publish
+      #  run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      #  working-directory: ./src/Retrohof.Web # Replace with your project name
+
+      - name: Publish
+        run: dotnet publish ./src/Retrohof.Web/Retrohof.Web.csproj --configuration Release --framework net8.0 --output ./publish --runtime win-x86 --self-contained true -p:PublishTrimmed=false -p:PublishSingleFile=false
   
       - name: Generate authserver.pfx
         run: dotnet dev-certs https -v -ep ${{env.DOTNET_ROOT}}/myapp/authserver.pfx -p dcd3262A45! # Replace with your password
@@ -44,3 +47,5 @@ jobs:
           server-computer-name: 'https://win6046.site4now.net:8172' # ${{ secrets.SERVER_COMPUTER_NAME }}
           server-username: 'boner28-003' # ${{ secrets.SERVER_USERNAME }}
           server-password: 'dcd3262S45!' # ${{ secrets.SERVER_PASSWORD }}
+          target-path: 'retrohof'
+          target-delete: true
