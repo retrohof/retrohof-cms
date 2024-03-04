@@ -1,0 +1,46 @@
+name: Build, publish and deploy project to Simply
+
+on: [push]
+
+jobs:
+  build_and_deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+          include-prerelease: true
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        working-directory: ./src/Retrohof.Web # Replace with your project name
+  
+      - name: Generate authserver.pfx
+        run: dotnet dev-certs https -v -ep ${{env.DOTNET_ROOT}}/myapp/authserver.pfx -p dcd3262A45! # Replace with your password
+
+      - name: Test with .NET
+        run: dotnet test
+        
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+
+      - name: Deploy to Simply
+        uses: jahbenjah/SmarterASP.NET-web-deploy@1.0.0.alpha.8
+        with:
+          website-name: 'http://boner28-003-site5.ctempurl.com' # ${{ secrets.WEBSITE_NAME }}
+          server-computer-name: 'https://win6046.site4now.net:8172' # ${{ secrets.SERVER_COMPUTER_NAME }}
+          server-username: 'boner28-003' # ${{ secrets.SERVER_USERNAME }}
+          server-password: 'dcd3262S45!' # ${{ secrets.SERVER_PASSWORD }}
