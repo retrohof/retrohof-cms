@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  
+  
+
+  <PropertyGroup><LangVersion>latest</LangVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyName>Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic</AssemblyName>
+    <PackageId>Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic</PackageId>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <IsPackable>true</IsPackable>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Index.cshtml.cs" />
+    <Compile Remove="Pages\RetrohofPageModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Localization\Default\ar.json" />
+    <Content Remove="Localization\Default\cs.json" />
+    <Content Remove="Localization\Default\de.json" />
+    <Content Remove="Localization\Default\en-GB.json" />
+    <Content Remove="Localization\Default\en.json" />
+    <Content Remove="Localization\Default\es.json" />
+    <Content Remove="Localization\Default\fi.json" />
+    <Content Remove="Localization\Default\fr.json" />
+    <Content Remove="Localization\Default\hi.json" />
+    <Content Remove="Localization\Default\hr.json" />
+    <Content Remove="Localization\Default\hu.json" />
+    <Content Remove="Localization\Default\is.json" />
+    <Content Remove="Localization\Default\it.json" />
+    <Content Remove="Localization\Default\nl.json" />
+    <Content Remove="Localization\Default\pl-PL.json" />
+    <Content Remove="Localization\Default\pt-BR.json" />
+    <Content Remove="Localization\Default\ro-RO.json" />
+    <Content Remove="Localization\Default\ru.json" />
+    <Content Remove="Localization\Default\sk.json" />
+    <Content Remove="Localization\Default\sl.json" />
+    <Content Remove="Localization\Default\tr.json" />
+    <Content Remove="Localization\Default\vi.json" />
+    <Content Remove="Localization\Default\zh-Hans.json" />
+    <Content Remove="Localization\Default\zh-Hant.json" />
+    <Content Remove="Pages\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Index.css" />
+    <None Remove="Pages\Index.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Default\ar.json" />
+    <EmbeddedResource Include="Localization\Default\cs.json" />
+    <EmbeddedResource Include="Localization\Default\de.json" />
+    <EmbeddedResource Include="Localization\Default\en-GB.json" />
+    <EmbeddedResource Include="Localization\Default\en.json" />
+    <EmbeddedResource Include="Localization\Default\es.json" />
+    <EmbeddedResource Include="Localization\Default\fi.json" />
+    <EmbeddedResource Include="Localization\Default\fr.json" />
+    <EmbeddedResource Include="Localization\Default\hi.json" />
+    <EmbeddedResource Include="Localization\Default\hr.json" />
+    <EmbeddedResource Include="Localization\Default\hu.json" />
+    <EmbeddedResource Include="Localization\Default\is.json" />
+    <EmbeddedResource Include="Localization\Default\it.json" />
+    <EmbeddedResource Include="Localization\Default\nl.json" />
+    <EmbeddedResource Include="Localization\Default\pl-PL.json" />
+    <EmbeddedResource Include="Localization\Default\pt-BR.json" />
+    <EmbeddedResource Include="Localization\Default\ro-RO.json" />
+    <EmbeddedResource Include="Localization\Default\ru.json" />
+    <EmbeddedResource Include="Localization\Default\sk.json" />
+    <EmbeddedResource Include="Localization\Default\sl.json" />
+    <EmbeddedResource Include="Localization\Default\tr.json" />
+    <EmbeddedResource Include="Localization\Default\vi.json" />
+    <EmbeddedResource Include="Localization\Default\zh-Hans.json" />
+    <EmbeddedResource Include="Localization\Default\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" VersionOverride="8.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" VersionOverride="8.0.3" />
+  </ItemGroup>
+
+</Project>

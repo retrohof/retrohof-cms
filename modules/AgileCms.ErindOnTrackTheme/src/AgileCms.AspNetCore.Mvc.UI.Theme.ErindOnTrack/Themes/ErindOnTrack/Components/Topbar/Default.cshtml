@@ -1,0 +1,64 @@
+﻿@using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Themes.ErindOnTrack.Components.Toolbar
+@using Volo.Abp.UI.Navigation
+@* @model ApplicationMenu *@
+
+<div id="top-bar" class="transparent-topbar" data-bs-theme="not-dark">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-12 col-md-auto">
+
+                <div class="top-links">
+
+                    <ul class="top-links-container">
+                        <li class="top-links-item"><a href="~/">Home</a></li>
+                        <li class="top-links-item"><a href="~/Contact">Contact</a></li>
+                        @(await Component.InvokeAsync<MainNavbarToolbarViewComponent>())
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-auto">
+
+                <ul id="top-social">
+                    <li><a href="#" class="h-bg-facebook"><span class="ts-icon"><i class="fa-brands fa-facebook-f"></i></span><span class="ts-text">Facebook</span></a></li>
+                    @*<li><a href="#" class="h-bg-x-twitter"><span class="ts-icon"><i class="fa-brands fa-x-twitter"></i></span><span class="ts-text">Twitter</span></a></li> *@
+                    @*<li><a href="#" class="h-bg-pinterest"><span class="ts-icon"><i class="fa-brands fa-pinterest-p"></i></span><span class="ts-text">Pinterest</span></a></li> *@
+                    <li><a href="#" class="h-bg-instagram"><span class="ts-icon"><i class="fa-brands fa-instagram"></i></span><span class="ts-text">Instagram</span></a></li>
+                    <li><a href="tel:+1.11.85412542" class="h-bg-call"><span class="ts-icon"><i class="fa-solid fa-phone"></i></span><span class="ts-text">+1.11.85412542</span></a></li>
+                    <li><a href="mailto:info@ErindOnTrack.com" class="h-bg-email3"><span class="ts-icon"><i class="bi-envelope-fill"></i></span><span class="ts-text">info@ErindOnTrack.com</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* @foreach (var menuItem in Model.Items)
+{
+    var elementId = string.IsNullOrEmpty(menuItem.ElementId) ? string.Empty : $"id=\"{menuItem.ElementId}\"";
+    var cssClass = string.IsNullOrEmpty(menuItem.CssClass) ? string.Empty : menuItem.CssClass;
+    var disabled = menuItem.IsDisabled ? "disabled" : string.Empty;
+    var url = string.IsNullOrEmpty(menuItem.Url) ? "#" : Url.IsLocalUrl(menuItem.Url) ? Url.Content(menuItem.Url.EnsureStartsWith('~')) : menuItem.Url;
+    if (menuItem.IsLeaf)
+    {
+        if (menuItem.Url != null)
+        {
+            <li class="menu-item sub-menu">
+                <a class="menu-link" href="@url"><div>@menuItem.DisplayName</div></a>
+            </li>
+        }
+    }
+    else
+    {
+		<li class="menu-item sub-menu">
+            <a class="menu-link" href="#" onclick="checkboxClick(this);"><div>@menuItem.DisplayName</div></a>
+            <ul class="sub-menu-container not-dark" style="">
+                @foreach (var childMenuItem in menuItem.Items)
+                {
+                    @await Html.PartialAsync("~/Themes/ErindOnTrack/Components/Topbar/_MenuItem.cshtml", childMenuItem)
+                }
+            </ul>
+
+			<button class="sub-menu-trigger fa-solid fa-chevron-right"><span class="visually-hidden">Open Sub-Menu</span></button>
+		</li>
+    }
+} *@

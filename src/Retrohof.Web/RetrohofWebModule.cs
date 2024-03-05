@@ -15,28 +15,17 @@ using Volo.Abp;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.Localization;
-using Volo.Abp.AspNetCore.Mvc.UI;
-using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
-using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity.Web;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.Web;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.OpenIddict;
 using Volo.Abp.UI.Navigation.Urls;
-using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using System.Security.Cryptography.X509Certificates;
@@ -47,6 +36,14 @@ using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.Database;
 using Retrohof.TenantManagement;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas;
+using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
+using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
+using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Bundling;
 
 namespace Retrohof.Web;
 
@@ -58,6 +55,8 @@ namespace Retrohof.Web;
     typeof(AbpIdentityWebModule),
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAccountWebOpenIddictModule),
+    typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
+    typeof(AgileCmsNetCoreMvcUICanvasThemeModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpTenantManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -236,7 +235,14 @@ namespace Retrohof.Web;
                 BasicThemeBundles.Styles.Global,
                 bundle =>
                 {
-                    bundle.AddFiles("/global-styles.css");
+                    //bundle.AddFiles("/global-styles.css");
+                }
+            );
+            options.StyleBundles.Configure(
+                CanvasThemeBundles.Styles.Global,
+                bundle =>
+                {
+                    //bundle.AddFiles("/global-styles.css");
                 }
             );
         });

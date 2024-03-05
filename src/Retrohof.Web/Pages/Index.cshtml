@@ -1,20 +1,37 @@
 ﻿@page
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Retrohof.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
+@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+
 @model Retrohof.Web.Pages.IndexModel
 @inject IHtmlLocalizer<RetrohofResource> L
+@inject IBrandingProvider Branding
 @inject ICurrentUser CurrentUser
+@inject IThemeManager ThemeManager
+@{
+    var name = Branding.AppName;
+    Layout = (name == "Local EOT" || name == "Erind OnTrack") ? ThemeManager.CurrentTheme.GetLayout(ErindOnTrackLayouts.Application)
+    : (name == "Local RH" || name == "RetroHof Ltd") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application) 
+    : (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(CanvasLayouts.Application)
+    : (name == "Local WBL" || name == "WBL") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application)
+    : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application);
+}
+
 @section styles {
-<abp-style src="/Pages/Index.css" />
+    <abp-style src="/Pages/Index.css" />
 }
-@section scripts {
+@* @section scripts {
 <abp-script src="/Pages/Index.js" />
-}
+} *@
+
 <div class="container">
     <div class="p-5 text-center">
         <div class="d-inline-block bg-success text-white p-1 h5 rounded mb-4 " role="alert">
-            <h5 class="m-1"> <i class="fas fa-rocket"></i> Congratulations, <strong>Retrohof</strong> is successfully running!</h5>
+            <h5 class="m-1"> <i class="fas fa-rocket"></i> Congratulations, <strong>@Branding.AppName</strong> is successfully running!</h5>
         </div>
         <h1>Welcome to the Application</h1>
 
