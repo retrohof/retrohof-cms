@@ -27,6 +27,17 @@
 
   <ItemGroup>
     <Compile Remove="CanvasLayouts.cs" />
+    <Compile Remove="Pages\CanvasPageModel.cs" />
+    <Compile Remove="Pages\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Index.css" />
+    <None Remove="Pages\Index.js" />
   </ItemGroup>
 
   <ItemGroup>
