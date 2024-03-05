@@ -19,25 +19,22 @@
 
   <ItemGroup>
     <Compile Remove="Localization\MdwCmsKit\**" />
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Views\**" />
     <Content Remove="Localization\MdwCmsKit\**" />
+    <Content Remove="Pages\**" />
+    <Content Remove="Views\**" />
     <Content Remove="wwwroot\**\*.*" />
     <EmbeddedResource Remove="Localization\MdwCmsKit\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Views\**" />
     <None Remove="Localization\MdwCmsKit\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="CanvasLayouts.cs" />
-    <Compile Remove="Pages\CanvasPageModel.cs" />
-    <Compile Remove="Pages\Index.cshtml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Pages\Index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Pages\Index.css" />
-    <None Remove="Pages\Index.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,10 +45,6 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="8.0.3" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="8.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Volo.BasicTheme\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj" />
   </ItemGroup>
 
 </Project>

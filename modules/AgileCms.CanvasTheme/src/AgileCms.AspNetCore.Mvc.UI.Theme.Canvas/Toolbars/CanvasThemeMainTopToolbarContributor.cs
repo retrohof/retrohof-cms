@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
 
 namespace AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.Toolbars;
@@ -13,7 +12,7 @@ public class CanvasThemeMainTopToolbarContributor : IToolbarContributor
             return;
         }
 
-        if (!(context.Theme is BasicTheme))
+        if (!(context.Theme is CanvasTheme))
         {
             return;
         }

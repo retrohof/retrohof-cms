@@ -19,14 +19,22 @@
 
   <ItemGroup>
     <Compile Remove="Localization\MdwCmsKit\**" />
+    <Compile Remove="Pages\**" />
     <Compile Remove="Themes\ErindOnTrackErindOnTrack\**" />
+    <Compile Remove="Views\**" />
     <Content Remove="Localization\MdwCmsKit\**" />
+    <Content Remove="Pages\**" />
     <Content Remove="Themes\ErindOnTrackErindOnTrack\**" />
+    <Content Remove="Views\**" />
     <Content Remove="wwwroot\**\*.*" />
     <EmbeddedResource Remove="Localization\MdwCmsKit\**" />
+    <EmbeddedResource Remove="Pages\**" />
     <EmbeddedResource Remove="Themes\ErindOnTrackErindOnTrack\**" />
+    <EmbeddedResource Remove="Views\**" />
     <None Remove="Localization\MdwCmsKit\**" />
+    <None Remove="Pages\**" />
     <None Remove="Themes\ErindOnTrackErindOnTrack\**" />
+    <None Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +49,6 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="8.0.3" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="8.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Volo.BasicTheme\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj" />
   </ItemGroup>
 
 </Project>

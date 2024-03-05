@@ -1,13 +1,17 @@
-﻿using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
-using Volo.Abp.AspNetCore.Mvc.UI.Theming;
+﻿using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 using Volo.Abp.DependencyInjection;
 
 namespace AgileCms.AspNetCore.Mvc.UI.Theme.Canvas;
 
 [ThemeName(Name)]
-public class CanvasTheme : BasicTheme, ITransientDependency
+public class CanvasTheme : ITheme, ITransientDependency
 {
-    public new const string Name = "Canvas";
+    public const string Name = "Canvas";
+
+    public string GetLayout(string name, bool fallbackToDefault = true)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public interface ICanvasTheme : ITheme, ITransientDependency
