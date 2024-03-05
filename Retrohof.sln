@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retrohof.Domain", "src\Retr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic", "modules\Volo.BasicTheme\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj", "{F4DBCAA7-CC78-424C-8F86-3C8171FB7382}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Volo.BasicTheme", "Volo.BasicTheme", "{6F8E3851-4F6C-49EE-80B3-9B0E47BAF413}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Volo", "Volo", "{6F8E3851-4F6C-49EE-80B3-9B0E47BAF413}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{42FAF81D-812A-4489-8BDD-4169A211DA06}"
 EndProject
@@ -31,11 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retrohof.HttpApi.Client", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retrohof.DbMigrator", "src\Retrohof.DbMigrator\Retrohof.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgileCms.CanvasTheme", "AgileCms.CanvasTheme", "{C44B0197-75CF-4E71-AB76-6011B697E4D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Canvas", "Canvas", "{C44B0197-75CF-4E71-AB76-6011B697E4D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileCms.AspNetCore.Mvc.UI.Theme.Canvas", "modules\AgileCms.CanvasTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.Canvas\AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.csproj", "{75FCE85F-1FF3-42A8-86B3-963440C747B3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgileCms.ErindOnTrackTheme", "AgileCms.ErindOnTrackTheme", "{B2387AFB-5028-4C69-A680-AA64FF5A9C53}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ErindOnTrack", "ErindOnTrack", "{B2387AFB-5028-4C69-A680-AA64FF5A9C53}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack", "modules\AgileCms.ErindOnTrackTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.csproj", "{890C7029-9F24-4F28-8B41-4EA863B6207F}"
 EndProject
