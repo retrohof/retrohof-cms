@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mdw", "Mdw", "{D2BDDE55-A20
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileCms.AspNetCore.Mvc.UI.Theme.Mdw", "modules\AgileCms.MdwTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack\AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.csproj", "{0B041A32-38FC-4735-A979-58F0098C987D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wbl", "Wbl", "{3FCA7043-63C6-41C6-915C-2A0D8D7F174F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileCms.AspNetCore.Mvc.UI.Theme.Wbl", "modules\AgileCms.WblTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.Wbl\AgileCms.AspNetCore.Mvc.UI.Theme.Wbl.csproj", "{380A8CBD-05F8-4457-8B3B-F32FEB071169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +107,10 @@ Global
 		{0B041A32-38FC-4735-A979-58F0098C987D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B041A32-38FC-4735-A979-58F0098C987D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B041A32-38FC-4735-A979-58F0098C987D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380A8CBD-05F8-4457-8B3B-F32FEB071169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380A8CBD-05F8-4457-8B3B-F32FEB071169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380A8CBD-05F8-4457-8B3B-F32FEB071169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380A8CBD-05F8-4457-8B3B-F32FEB071169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +133,8 @@ Global
 		{9A8C9D0E-ADF2-489C-8C09-E92DB3E53C89} = {1F2B28CA-66B6-4746-86FC-E672FEBFD3A3}
 		{D2BDDE55-A202-4623-B1A2-372A392F74C9} = {42FAF81D-812A-4489-8BDD-4169A211DA06}
 		{0B041A32-38FC-4735-A979-58F0098C987D} = {D2BDDE55-A202-4623-B1A2-372A392F74C9}
+		{3FCA7043-63C6-41C6-915C-2A0D8D7F174F} = {42FAF81D-812A-4489-8BDD-4169A211DA06}
+		{380A8CBD-05F8-4457-8B3B-F32FEB071169} = {3FCA7043-63C6-41C6-915C-2A0D8D7F174F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
