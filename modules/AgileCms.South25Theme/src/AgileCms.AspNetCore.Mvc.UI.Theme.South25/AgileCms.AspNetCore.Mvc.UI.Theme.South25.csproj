@@ -18,6 +18,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="Pages\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="South25Layouts.cs" />
   </ItemGroup>
 

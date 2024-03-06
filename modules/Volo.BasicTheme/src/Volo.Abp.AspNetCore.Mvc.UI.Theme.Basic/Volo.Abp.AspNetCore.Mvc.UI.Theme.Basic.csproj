@@ -21,12 +21,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="Pages\**" />
+    <Content Remove="Views\**" />
     <Content Remove="wwwroot\**\*.*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Pages\Index.cshtml.cs" />
-    <Compile Remove="Pages\RetrohofPageModel.cs" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,14 +57,6 @@
     <Content Remove="Localization\Default\vi.json" />
     <Content Remove="Localization\Default\zh-Hans.json" />
     <Content Remove="Localization\Default\zh-Hant.json" />
-    <Content Remove="Pages\Index.cshtml" />
-    <Content Remove="Pages\_ViewImports.cshtml" />
-    <Content Remove="Views\_ViewImports.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Pages\Index.css" />
-    <None Remove="Pages\Index.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -94,11 +89,6 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" VersionOverride="8.0.3" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" VersionOverride="8.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>
