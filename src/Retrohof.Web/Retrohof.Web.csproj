@@ -52,6 +52,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\modules\AgileCms.CanvasTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.Canvas\AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.csproj" />
     <ProjectReference Include="..\..\modules\AgileCms.ErindOnTrackTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.csproj" />
+    <ProjectReference Include="..\..\modules\AgileCms.MdwTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack\AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.csproj" />
     <ProjectReference Include="..\..\modules\Volo.BasicTheme\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj" />
     <ProjectReference Include="..\Retrohof.Application\Retrohof.Application.csproj" />
     <ProjectReference Include="..\Retrohof.HttpApi\Retrohof.HttpApi.csproj" />

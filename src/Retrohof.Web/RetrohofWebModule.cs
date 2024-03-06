@@ -42,8 +42,9 @@ using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas;
 using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
-using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Bundling;
+//using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
+//using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Bundling;
+using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
 
 namespace Retrohof.Web;
 
@@ -55,7 +56,8 @@ namespace Retrohof.Web;
     typeof(AbpIdentityWebModule),
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAccountWebOpenIddictModule),
-    typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
+    //typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
+    typeof(AgileCmsNetCoreMvcUIMdwThemeModule),
     typeof(AgileCmsNetCoreMvcUICanvasThemeModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpTenantManagementWebModule),
