@@ -22,7 +22,7 @@ else
         <ul class="sub-menu-container not-dark" style="">
             @foreach (var childMenuItem in Model.Items)
             {
-                @await Html.PartialAsync("~/Themes/Canvas/Components/Menu/_MenuItem.cshtml", childMenuItem)
+                @await Html.PartialAsync("~/Themes/Mdw/Components/Menu/_MenuItem.cshtml", childMenuItem)
             }
         </ul>
         <button class="sub-menu-trigger fa-solid fa-chevron-right"><span class="visually-hidden">Open Sub-Menu</span></button>
