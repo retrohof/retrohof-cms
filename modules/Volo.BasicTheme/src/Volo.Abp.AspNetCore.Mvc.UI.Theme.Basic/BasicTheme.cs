@@ -30,6 +30,12 @@ public class BasicTheme : ITheme, ITransientDependency
                 return $"~/Themes/ErindOnTrack/Layouts/Account.cshtml";
             case ErindOnTrackLayouts.Empty:
                 return $"~/Themes/ErindOnTrack/Layouts/Empty.cshtml";
+            case MdwLayouts.Application:
+                return $"~/Themes/Mdw/Layouts/Application.cshtml";
+            case MdwLayouts.Account:
+                return $"~/Themes/Mdw/Layouts/Account.cshtml";
+            case MdwLayouts.Empty:
+                return $"~/Themes/Mdw/Layouts/Empty.cshtml";
             default:
                 return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
         }
@@ -59,6 +65,17 @@ public static class CanvasLayouts
     public const string Account = "Canvas.Account";
 
     public const string Empty = "Canvas.Empty";
+}
+
+public static class MdwLayouts
+{
+    public const string Application = "Mdw.Application";
+
+    public const string Account = "Mdw.Account";
+
+    public const string Public = "Mdw.Public";
+
+    public const string Empty = "Mdw.Empty";
 }
 
 public static class BasicLayouts

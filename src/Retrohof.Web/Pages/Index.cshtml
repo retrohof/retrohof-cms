@@ -16,7 +16,7 @@
     var name = Branding.AppName;
     Layout = (name == "Local EOT" || name == "Erind OnTrack") ? ThemeManager.CurrentTheme.GetLayout(ErindOnTrackLayouts.Application)
     : (name == "Local RH" || name == "RetroHof Ltd") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application) 
-    : (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(CanvasLayouts.Application)
+    : (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
     : (name == "Local WBL" || name == "WBL") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application)
     : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application);
 }
