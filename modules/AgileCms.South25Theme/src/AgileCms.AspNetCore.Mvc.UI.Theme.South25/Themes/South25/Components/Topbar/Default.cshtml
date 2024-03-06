@@ -1,4 +1,4 @@
-﻿@using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Themes.ErindOnTrack.Components.Toolbar
+﻿@using AgileCms.AspNetCore.Mvc.UI.Theme.South25.Themes.South25.Components.Toolbar
 @using Volo.Abp.UI.Navigation
 @* @model ApplicationMenu *@
 
@@ -54,7 +54,7 @@
             <ul class="sub-menu-container not-dark" style="">
                 @foreach (var childMenuItem in menuItem.Items)
                 {
-                    @await Html.PartialAsync("~/Themes/ErindOnTrack/Components/Topbar/_MenuItem.cshtml", childMenuItem)
+                    @await Html.PartialAsync("~/Themes/South25/Components/Topbar/_MenuItem.cshtml", childMenuItem)
                 }
             </ul>
 

@@ -1,8 +1,8 @@
 ﻿using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 
-namespace AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Bundling;
+namespace AgileCms.AspNetCore.Mvc.UI.Theme.South25.Bundling;
 
-public class ErindOnTrackThemeGlobalScriptContributor : BundleContributor
+public class South25ThemeGlobalScriptContributor : BundleContributor
 {
     public override void ConfigureBundle(BundleConfigurationContext context)
     {

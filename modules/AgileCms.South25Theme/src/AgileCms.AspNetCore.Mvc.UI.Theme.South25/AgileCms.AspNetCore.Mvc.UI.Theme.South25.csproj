@@ -3,8 +3,8 @@
   <PropertyGroup><LangVersion>latest</LangVersion>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <AssemblyName>AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack</AssemblyName>
-    <PackageId>AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack</PackageId>
+    <AssemblyName>AgileCms.AspNetCore.Mvc.UI.Theme.South25</AssemblyName>
+    <PackageId>AgileCms.AspNetCore.Mvc.UI.Theme.South25</PackageId>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -18,12 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ErindOnTrackLayouts.cs" />
+    <Compile Remove="South25Layouts.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Themes\ErindOnTrack\Components\Footer\Default.cshtml" />
-    <None Include="Themes\ErindOnTrack\Components\Slider\Default.cshtml" />
+    <None Include="Themes\South25\Components\Footer\Default.cshtml" />
+    <None Include="Themes\South25\Components\Slider\Default.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

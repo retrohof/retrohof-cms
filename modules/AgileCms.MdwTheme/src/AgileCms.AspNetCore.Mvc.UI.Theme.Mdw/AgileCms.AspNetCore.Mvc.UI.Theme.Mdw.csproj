@@ -3,8 +3,8 @@
   <PropertyGroup><LangVersion>latest</LangVersion>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <AssemblyName>AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack</AssemblyName>
-    <PackageId>AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack</PackageId>
+    <AssemblyName>AgileCms.AspNetCore.Mvc.UI.Theme.Mdw</AssemblyName>
+    <PackageId>AgileCms.AspNetCore.Mvc.UI.Theme.Mdw</PackageId>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -18,12 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ErindOnTrackLayouts.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Themes\ErindOnTrack\Components\Footer\Default.cshtml" />
-    <None Include="Themes\ErindOnTrack\Components\Slider\Default.cshtml" />
+    <Content Remove="C:\Users\Richard Bone\.nuget\packages\volo.abp.aspnetcore.mvc.ui.multitenancy\8.0.3\contentFiles\any\net8.0\Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.abppkg.analyze.json" />
+    <Content Remove="C:\Users\Richard Bone\.nuget\packages\volo.abp.aspnetcore.mvc.ui.theme.shared\8.0.3\contentFiles\any\net8.0\Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.abppkg.analyze.json" />
   </ItemGroup>
 
   <ItemGroup>

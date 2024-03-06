@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*-----------------------------------------------------------------------------------
 
-    Theme Name: ErindOnTrack
+    Theme Name: South25
     Theme URI: http://themes.semicolonweb.com/html/canvas
     Description: The Multi-Purpose Template
     Author: SemiColonWeb
@@ -18661,7 +18661,7 @@ body:not(.is-expanded-menu) .mega-menu-column .widget {
     border-top: 0;
 }
 
-/* Off ErindOnTrack Menu
+/* Off South25 Menu
 -----------------------------------------------------------------*/
 body:not(.is-expanded-menu) #header:not(.sticky-header) .mobile-menu-off-canvas .menu-container {
     position: fixed;
@@ -18703,7 +18703,7 @@ body:not(.is-expanded-menu) #header:not(.sticky-header) .mobile-menu-off-canvas.
     transform: translate(var(--cnvs-mobile-menu-off-canvas-width), 0);
 }
 
-/* Off ErindOnTrack Menu
+/* Off South25 Menu
 -----------------------------------------------------------------*/
 body:not(.is-expanded-menu) .mobile-menu-floating .menu-container {
     position: absolute;
@@ -31015,7 +31015,7 @@ div#driver-popover-item {
     }
 }
 /* ----------------------------------------------------------------------------
-	ErindOnTrack Cursor
+	South25 Cursor
 ---------------------------------------------------------------------------- */
 .cnvs-cursor {
     --cnvs-cursor-size: 0.75rem;

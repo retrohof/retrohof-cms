@@ -38,16 +38,12 @@ using Retrohof.TenantManagement;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Canvas.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-//using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
-//using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.Bundling;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.Bundling;
 using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl.Bundling;
+using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
+using AgileCms.AspNetCore.Mvc.UI.Theme.South25;
+using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
 
 namespace Retrohof.Web;
 
@@ -59,16 +55,17 @@ namespace Retrohof.Web;
     typeof(AbpIdentityWebModule),
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAccountWebOpenIddictModule),
+    typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+    typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
     typeof(AgileCmsNetCoreMvcUIWblThemeModule),
     typeof(AgileCmsNetCoreMvcUIMdwThemeModule),
-    typeof(AgileCmsNetCoreMvcUICanvasThemeModule),
-    typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+    typeof(AgileCmsNetCoreMvcUISouth25ThemeModule),
     typeof(AbpTenantManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(CmsKitWebModule)
     )]
-[DependsOn(typeof(CmsKitWebModule))]
-    public class RetrohofWebModule : AbpModule
+public class RetrohofWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -238,13 +235,6 @@ namespace Retrohof.Web;
         {
             options.StyleBundles.Configure(
                 BasicThemeBundles.Styles.Global,
-                bundle =>
-                {
-                    //bundle.AddFiles("/global-styles.css");
-                }
-            );
-            options.StyleBundles.Configure(
-                CanvasThemeBundles.Styles.Global,
                 bundle =>
                 {
                     //bundle.AddFiles("/global-styles.css");

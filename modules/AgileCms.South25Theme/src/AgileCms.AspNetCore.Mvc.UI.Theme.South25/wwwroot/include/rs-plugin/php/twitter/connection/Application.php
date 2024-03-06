@@ -57,7 +57,7 @@ class Application extends Base
             $token = base64_encode($token);
 
             $headers = array(
-                "Authorization: ErindOnTrack " . $token
+                "Authorization: South25 " . $token
             );
 
             $options = array (
