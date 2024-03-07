@@ -44,6 +44,9 @@ using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl;
 using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
 using AgileCms.AspNetCore.Mvc.UI.Theme.South25;
 using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
+using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.Bundling;
+using Microsoft.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 
 namespace Retrohof.Web;
 
@@ -98,7 +101,7 @@ public class RetrohofWebModule : AbpModule
 
         PreConfigure<AbpOpenIddictAspNetCoreOptions>(options =>
         {
-            options.AddDevelopmentEncryptionAndSigningCertificate = false;
+            options.AddDevelopmentEncryptionAndSigningCertificate = true;
         });
 
         PreConfigure<OpenIddictServerBuilder>(builder =>
@@ -190,6 +193,21 @@ public class RetrohofWebModule : AbpModule
         ConfigureBlobDatabaseStorage();
         ConfigureTenantResolvers();
 
+        ConfigureAntiForgeryToken(context);
+
+    }
+
+    private void ConfigureAntiForgeryToken(ServiceConfigurationContext context)
+    {
+        context.Services.AddRazorPages(options =>
+        {
+            options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+        });
+
+        Configure<AbpAntiForgeryOptions>(options =>
+        {
+            options.AutoValidate = false;
+        });
     }
 
     private void ConfigureBlobDatabaseStorage()
@@ -237,7 +255,15 @@ public class RetrohofWebModule : AbpModule
                 BasicThemeBundles.Styles.Global,
                 bundle =>
                 {
-                    //bundle.AddFiles("/global-styles.css");
+                    bundle.AddFiles("/global-styles.css");
+                }
+            );
+
+            options.StyleBundles.Configure(
+                MdwThemeBundles.Styles.Global,
+                bundle =>
+                {
+                    bundle.AddFiles("/global-styles.css");
                 }
             );
         });
@@ -316,6 +342,7 @@ public class RetrohofWebModule : AbpModule
         app.UseRouting();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
+        //app.UseJwtTokenMiddleware();
 
         if (MultiTenancyConsts.IsEnabled)
         {

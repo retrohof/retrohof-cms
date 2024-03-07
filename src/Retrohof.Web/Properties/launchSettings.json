@@ -13,15 +13,15 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:44355/"
+      "applicationUrl": "https://localhost:44356/"
     },
     "WSL": {
       "commandName": "WSL2",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44355/",
+      "launchUrl": "https://localhost:44356/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "https://localhost:44355/"
+        "ASPNETCORE_URLS": "https://localhost:44356/"
       },
       "distributionName": ""
     }
@@ -30,8 +30,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44355/",
-      "sslPort": 44355
+      "applicationUrl": "https://localhost:44356/",
+      "sslPort": 44356
     }
   }
 }

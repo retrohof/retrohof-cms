@@ -6,6 +6,6 @@ public class ErindOnTrackThemeGlobalStyleContributor : BundleContributor
 {
     public override void ConfigureBundle(BundleConfigurationContext context)
     {
-        //context.Files.Add("/themes/canvas/layout.css");
+        context.Files.Add("/themes/canvas/layout.css");
     }
 }
