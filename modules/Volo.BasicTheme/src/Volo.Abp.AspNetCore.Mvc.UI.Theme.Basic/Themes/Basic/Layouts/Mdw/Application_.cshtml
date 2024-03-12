@@ -41,26 +41,13 @@
 
     <abp-style-bundle name="@BasicThemeBundles.Styles.Global" />
 
-@*     <link rel="stylesheet" href="/libs/abp/core/abp.css" />
-    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="/libs/@fortawesome/fontawesome-free/css/all.css?_v=638356968317230000" />
-    <link rel="stylesheet" href="/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=638356968317230000" />
-    <link rel="stylesheet" href="/libs/toastr/toastr.min.css" />
-    <link rel="stylesheet" href="/libs/select2/css/select2.min.css" />
-    <link rel="stylesheet" href="/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
-    <link rel="stylesheet" href="/libs/datatables.net-bs5/css/dataTables.bootstrap5.css" />
-    <link rel="stylesheet" href="/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" />
-    <link rel="stylesheet" href="/libs/bootstrap-daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-styles.css" />
-    <link rel="stylesheet" href="/libs/abp/aspnetcore-mvc-ui-theme-shared/date-range-picker/date-range-picker-styles.css" /> *@
-
     <!-- Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Core Style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/themes/mdw/style.css">
 
     <!-- Font Icons -->
     <link rel="stylesheet" href="css/font-icons.css">
@@ -87,9 +74,11 @@
     ============================================= -->
     <div id="wrapper">
 
-        @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>(Branding.ShortName))
+        <b>Brand Name: @Branding?.ShortName</b>
+        <b>Current Tenant: @CurrentTenant?.Name</b>
+        @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
 
-        @(await Component.InvokeAsync<MainNavbarViewComponent>(Branding.ShortName))
+        @(await Component.InvokeAsync<MainNavbarViewComponent>())
 
         @await RenderSectionAsync("content_toolbar", false)
 
@@ -103,54 +92,13 @@
     <!-- Go To Top
     ============================================= -->
     <div id="gotoTop" class="fas fa-angle-up"></div>
-@* 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-            crossorigin="anonymous"></script>
- *@
 
-@*     <abp-script-bundle name="@MdwThemeBundles.Scripts.Global" />
- *@
     <!-- JavaScripts
     ============================================= -->
     <script src="js/jquery.js"></script>
     <script src="js/functions.js"></script>
 
     <abp-script-bundle name="@BasicThemeBundles.Scripts.Global" />
-@*     <script src="/libs/abp/utils/abp-utils.umd.min.js"></script>
-    <script src="/libs/abp/core/abp.js"></script>
-    <script src="/libs/jquery/jquery.js"></script>
-    <script src="/libs/abp/jquery/abp.jquery.js"></script>
-    <script src="/libs/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/libs/lodash/lodash.min.js"></script>
-    <script src="/libs/jquery-validation/jquery.validate.js"></script>
-    <script src="/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script src="/libs/jquery-form/jquery.form.min.js"></script>
-    <script src="/libs/select2/js/select2.min.js"></script>
-    <script src="/libs/datatables.net/js/jquery.dataTables.js"></script>
-    <script src="/libs/datatables.net-bs5/js/dataTables.bootstrap5.js"></script>
-    <script src="/libs/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="/libs/toastr/toastr.min.js"></script>
-    <script src="/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/libs/luxon/luxon.min.js"></script>
-    <script src="/libs/abp/luxon/abp.luxon.js"></script>
-    <script src="/libs/timeago/jquery.timeago.js"></script>
-    <script src="/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="/libs/moment/moment.min.js"></script>
-    <script src="/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/ui-extensions.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/jquery-extensions.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery-form/jquery-form-extensions.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/jquery/widget-manager.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/dom-event-handlers.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/bootstrap/modal-manager.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/datatables/datatables-extensions.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/sweetalert2/abp-sweetalert2.js"></script>
-    <script src="/libs/abp/aspnetcore-mvc-ui-theme-shared/toastr/abp-toastr.js"></script>
-    <script src="/Pages/Abp/MultiTenancy/tenant-switch.js"></script>
-    <script src="/themes/basic/layout.js"></script>
-    <script src="/libs/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.min.js"></script>
-    <script src="/libs/moment/locale/en-GB.js"></script> *@
 
     <script src="~/Abp/ApplicationLocalizationScript?cultureName=@CultureInfo.CurrentUICulture.Name"></script>
     <script src="~/Abp/ApplicationConfigurationScript"></script>

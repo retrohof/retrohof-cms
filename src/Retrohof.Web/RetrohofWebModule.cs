@@ -92,7 +92,7 @@ public class RetrohofWebModule : AbpModule
 
         PreConfigure<AbpOpenIddictAspNetCoreOptions>(options =>
         {
-            options.AddDevelopmentEncryptionAndSigningCertificate = true;
+            options.AddDevelopmentEncryptionAndSigningCertificate = false;
         });
 
         PreConfigure<OpenIddictServerBuilder>(builder =>

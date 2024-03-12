@@ -12,7 +12,7 @@ public class PageAlertsViewComponent : AbpViewComponent
         AlertManager = alertManager;
     }
 
-    public IViewComponentResult Invoke(string name)
+    public IViewComponentResult Invoke()
     {
         return View("~/Themes/Basic/Components/PageAlerts/Default.cshtml", AlertManager.Alerts);
     }

@@ -1,6 +1,9 @@
 ﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Brand
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Menu
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
+@using Volo.Abp.MultiTenancy
+
+@inject ICurrentTenant CurrentTenant
 
 <!-- Header
 ============================================= -->
@@ -14,7 +17,7 @@
 
 				<!-- Logo
 				============================================= -->
-				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>("mdw"))
+				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>())
 				<!-- #logo end -->
 
 				<div class="primary-menu-trigger">
@@ -29,7 +32,7 @@
 
 					<ul class="menu-container">
 
-						@(await Component.InvokeAsync<MainNavbarMenuViewComponent>("mdw"))
+						@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
 
 					</ul>
 

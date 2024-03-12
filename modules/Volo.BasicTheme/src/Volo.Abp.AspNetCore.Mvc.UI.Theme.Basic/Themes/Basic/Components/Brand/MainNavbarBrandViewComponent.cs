@@ -4,8 +4,15 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Brand;
 
 public class MainNavbarBrandViewComponent : AbpViewComponent
 {
-    public virtual IViewComponentResult Invoke(string shortName)
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
+
+    public MainNavbarBrandViewComponent(IAgileCmsBrandingProvider brandingProvider)
     {
-        return View($"~/Themes/Basic/Components/Brand/{shortName}.cshtml");
+        _brandingProvider = brandingProvider;
+    }
+
+    public virtual IViewComponentResult Invoke()
+    {
+        return View($"~/Themes/Basic/Components/Brand/{_brandingProvider.ShortName}.cshtml");
     }
 }

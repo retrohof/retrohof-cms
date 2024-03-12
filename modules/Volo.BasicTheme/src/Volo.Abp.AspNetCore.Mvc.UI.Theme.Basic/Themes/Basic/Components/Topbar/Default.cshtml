@@ -1,5 +1,8 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
 @using Volo.Abp.UI.Navigation
+
+@inject IAgileCmsBrandingProvider Branding
 
 <div id="top-bar" class="transparent-topbar" data-bs-theme="not-dark">
     <div class="container">
@@ -11,7 +14,7 @@
                     <ul class="top-links-container">
                         <li class="top-links-item"><a href="~/">Home</a></li>
                         <li class="top-links-item"><a href="~/Contact">Contact</a></li>
-                        @(await Component.InvokeAsync<MainNavbarToolbarViewComponent>("Default"))
+                        @(await Component.InvokeAsync<MainNavbarToolbarViewComponent>())
                     </ul>
 
                 </div>

@@ -4,8 +4,16 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNav
 
 public class MainNavbarViewComponent : AbpViewComponent
 {
-    public virtual IViewComponentResult Invoke(string shortName = "Default")
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
+
+    public MainNavbarViewComponent(IAgileCmsBrandingProvider brandingProvider)
     {
-        return View($"~/Themes/Basic/Components/MainNavbar/{shortName}.cshtml");
+        _brandingProvider = brandingProvider;
+    }
+
+
+    public virtual IViewComponentResult Invoke()
+    {
+        return View($"~/Themes/Basic/Components/MainNavbar/{_brandingProvider.ShortName}.cshtml");
     }
 }

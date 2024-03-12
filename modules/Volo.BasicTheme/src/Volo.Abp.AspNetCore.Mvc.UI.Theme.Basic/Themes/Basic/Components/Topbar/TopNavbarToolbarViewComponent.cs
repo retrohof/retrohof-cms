@@ -5,10 +5,15 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Topbar;
 
 public class TopNavbarToolbarViewComponent : AbpViewComponent
 {
-    public virtual async Task<IViewComponentResult> InvokeAsync(string shortName)
-    {
-        Check.NotNull(shortName, nameof(shortName));
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
 
-        return View($"~/Themes/Basic/Components/Topbar/{shortName}.cshtml");
+    public TopNavbarToolbarViewComponent(IAgileCmsBrandingProvider brandingProvider)
+    {
+        _brandingProvider = brandingProvider;
+    }
+
+    public virtual async Task<IViewComponentResult> InvokeAsync()
+    {
+        return View($"~/Themes/Basic/Components/Topbar/{_brandingProvider.ShortName}.cshtml");
     }
 }

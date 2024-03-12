@@ -7,12 +7,10 @@ namespace Retrohof.Web;
 [Dependency(ReplaceServices = true)]
 public class RetrohofBrandingProvider : AgileCmsBrandingProvider
 {
-    private readonly ICurrentTenant _currentTenant;
-    public override string AppName => _currentTenant.Name ?? "Agile SEO Admin";
-    public override string? ShortName => "Default";
+    public override string AppName => _currentTenant?.Name?.ToLower() ?? "Agile SEO Admin";
+    public override string? ShortName => _currentTenant?.Name ?? "Default";
 
-    public RetrohofBrandingProvider(ICurrentTenant currentTenant)
+    public RetrohofBrandingProvider(ICurrentTenant currentTenant) : base(currentTenant)
     {
-        _currentTenant = currentTenant;
     }
 }
