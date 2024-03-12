@@ -3,6 +3,7 @@
 @using Volo.Abp.AspNetCore.MultiTenancy
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNavbar
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.PageAlerts
@@ -13,7 +14,7 @@
 @using Volo.Abp.Localization
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Ui.LayoutHooks
-@inject IBrandingProvider BrandingProvider
+@inject IAgileCmsBrandingProvider BrandingProvider
 @inject IOptions<AbpMultiTenancyOptions> MultiTenancyOptions
 @inject ICurrentTenant CurrentTenant
 @inject IStringLocalizer<AbpUiMultiTenancyResource> MultiTenancyStringLocalizer
@@ -42,6 +43,23 @@
         <meta name="description" content="@(ViewBag.Description as string)" />
     }
     <abp-style-bundle name="@BasicThemeBundles.Styles.Global" />
+
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="themes/mdw/style.css">
+
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="css/font-icons.css">
+
+    <!-- Plugins/Components CSS -->
+    <link rel="stylesheet" href="css/swiper.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
 
     @await RenderSectionAsync("styles", false)
 
@@ -93,6 +111,11 @@
             </abp-column>
         </abp-row>
     </div>
+
+    <!-- JavaScripts
+    ============================================= -->
+    <script src="js/jquery.js"></script>
+    <script src="js/functions.js"></script>
 
     <abp-script-bundle name="@BasicThemeBundles.Scripts.Global" />
 

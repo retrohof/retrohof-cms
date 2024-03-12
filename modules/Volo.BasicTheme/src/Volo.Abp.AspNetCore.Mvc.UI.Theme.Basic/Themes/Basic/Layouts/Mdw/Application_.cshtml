@@ -47,7 +47,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Core Style -->
-    <link rel="stylesheet" href="/themes/mdw/style.css">
+    <link rel="stylesheet" href="themes/mdw/style.css">
 
     <!-- Font Icons -->
     <link rel="stylesheet" href="css/font-icons.css">
@@ -74,7 +74,7 @@
     ============================================= -->
     <div id="wrapper">
 
-        <b>Brand Name: @Branding?.ShortName</b>
+        <b>Brand Name: @Branding?.AppName</b>
         <b>Current Tenant: @CurrentTenant?.Name</b>
         @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
 
