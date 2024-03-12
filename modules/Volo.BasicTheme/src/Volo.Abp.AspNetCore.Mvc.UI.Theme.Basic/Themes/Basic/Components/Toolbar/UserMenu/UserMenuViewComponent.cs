@@ -13,9 +13,9 @@ public class UserMenuViewComponent : AbpViewComponent
         MenuManager = menuManager;
     }
 
-    public virtual async Task<IViewComponentResult> InvokeAsync()
+    public virtual async Task<IViewComponentResult> InvokeAsync(string shortName)
     {
         var menu = await MenuManager.GetAsync(StandardMenus.User);
-        return View("~/Themes/Basic/Components/Toolbar/UserMenu/Default.cshtml", menu);
+        return View($"~/Themes/Basic/Components/Toolbar/UserMenu/{shortName}.cshtml", menu);
     }
 }

@@ -4,8 +4,8 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNav
 
 public class MainNavbarViewComponent : AbpViewComponent
 {
-    public virtual IViewComponentResult Invoke()
+    public virtual IViewComponentResult Invoke(string shortName = "Default")
     {
-        return View("~/Themes/Basic/Components/MainNavbar/Default.cshtml");
+        return View($"~/Themes/Basic/Components/MainNavbar/{shortName}.cshtml");
     }
 }

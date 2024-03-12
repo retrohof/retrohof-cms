@@ -17,7 +17,7 @@ public class LanguageSwitchViewComponent : AbpViewComponent
         LanguageProvider = languageProvider;
     }
 
-    public virtual async Task<IViewComponentResult> InvokeAsync()
+    public virtual async Task<IViewComponentResult> InvokeAsync(string shortName)
     {
         var languages = await LanguageProvider.GetLanguagesAsync();
         var currentLanguage = languages.FindByCulture(
@@ -51,6 +51,6 @@ public class LanguageSwitchViewComponent : AbpViewComponent
             OtherLanguages = languages.Where(l => l != currentLanguage).ToList()
         };
 
-        return View("~/Themes/Basic/Components/Toolbar/LanguageSwitch/Default.cshtml", model);
+        return View($"~/Themes/Basic/Components/Toolbar/LanguageSwitch/{shortName}.cshtml", model);
     }
 }

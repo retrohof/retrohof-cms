@@ -1,10 +1,12 @@
 ﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars
-
+@model Toolbar
 @inject IAgileCmsBrandingProvider Branding
 
-@model Toolbar
 @foreach (var toolbarItem in Model.Items.OrderBy(i => i.Order))
 {
-    <li class="nav-item">@(await Component.InvokeAsync(toolbarItem.ComponentType, Branding.ShortName))</li>
+    if (toolbarItem.ComponentType.Name != "LanguageSwitchViewComponent")
+    {
+        <li class="top-links-item">@(await Component.InvokeAsync(toolbarItem.ComponentType, Branding.AppName))</li>
+    }
 }

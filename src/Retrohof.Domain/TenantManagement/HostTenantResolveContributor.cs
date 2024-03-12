@@ -24,6 +24,7 @@ namespace Retrohof.TenantManagement
             }
         }
 
+        public string ShortName => "Default";
         public override string Name => "Host";
     }
 

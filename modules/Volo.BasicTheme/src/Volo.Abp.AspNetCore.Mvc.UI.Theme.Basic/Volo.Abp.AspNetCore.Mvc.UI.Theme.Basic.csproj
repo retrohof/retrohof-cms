@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
+
   <PropertyGroup><LangVersion>latest</LangVersion>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -18,34 +19,42 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Themes\Mdw\**" />
+    <Content Remove="Themes\Mdw\**" />
     <Content Remove="wwwroot\**\*.*" />
+    <EmbeddedResource Remove="Themes\Mdw\**" />
+    <None Remove="Themes\Mdw\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Localization\Default\ar.json" />
-    <Content Remove="Localization\Default\cs.json" />
-    <Content Remove="Localization\Default\de.json" />
-    <Content Remove="Localization\Default\en-GB.json" />
-    <Content Remove="Localization\Default\en.json" />
-    <Content Remove="Localization\Default\es.json" />
-    <Content Remove="Localization\Default\fi.json" />
-    <Content Remove="Localization\Default\fr.json" />
-    <Content Remove="Localization\Default\hi.json" />
-    <Content Remove="Localization\Default\hr.json" />
-    <Content Remove="Localization\Default\hu.json" />
-    <Content Remove="Localization\Default\is.json" />
-    <Content Remove="Localization\Default\it.json" />
-    <Content Remove="Localization\Default\nl.json" />
-    <Content Remove="Localization\Default\pl-PL.json" />
-    <Content Remove="Localization\Default\pt-BR.json" />
-    <Content Remove="Localization\Default\ro-RO.json" />
-    <Content Remove="Localization\Default\ru.json" />
-    <Content Remove="Localization\Default\sk.json" />
-    <Content Remove="Localization\Default\sl.json" />
-    <Content Remove="Localization\Default\tr.json" />
-    <Content Remove="Localization\Default\vi.json" />
-    <Content Remove="Localization\Default\zh-Hans.json" />
-    <Content Remove="Localization\Default\zh-Hant.json" />
+    <Compile Remove="Themes\Basic\Components\AgileCmsViewComponent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Default\ar.json" />
+    <EmbeddedResource Include="Localization\Default\cs.json" />
+    <EmbeddedResource Include="Localization\Default\de.json" />
+    <EmbeddedResource Include="Localization\Default\en-GB.json" />
+    <EmbeddedResource Include="Localization\Default\en.json" />
+    <EmbeddedResource Include="Localization\Default\es.json" />
+    <EmbeddedResource Include="Localization\Default\fi.json" />
+    <EmbeddedResource Include="Localization\Default\fr.json" />
+    <EmbeddedResource Include="Localization\Default\hi.json" />
+    <EmbeddedResource Include="Localization\Default\hr.json" />
+    <EmbeddedResource Include="Localization\Default\hu.json" />
+    <EmbeddedResource Include="Localization\Default\is.json" />
+    <EmbeddedResource Include="Localization\Default\it.json" />
+    <EmbeddedResource Include="Localization\Default\nl.json" />
+    <EmbeddedResource Include="Localization\Default\pl-PL.json" />
+    <EmbeddedResource Include="Localization\Default\pt-BR.json" />
+    <EmbeddedResource Include="Localization\Default\ro-RO.json" />
+    <EmbeddedResource Include="Localization\Default\ru.json" />
+    <EmbeddedResource Include="Localization\Default\sk.json" />
+    <EmbeddedResource Include="Localization\Default\sl.json" />
+    <EmbeddedResource Include="Localization\Default\tr.json" />
+    <EmbeddedResource Include="Localization\Default\vi.json" />
+    <EmbeddedResource Include="Localization\Default\zh-Hans.json" />
+    <EmbeddedResource Include="Localization\Default\zh-Hant.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,7 +67,6 @@
     <EmbeddedResource Include="Localization\Mdw\fi.json" />
     <EmbeddedResource Include="Localization\Mdw\fr.json" />
     <EmbeddedResource Include="Localization\Mdw\hi.json" />
-    <EmbeddedResource Include="Localization\Mdw\hr.json" />
     <EmbeddedResource Include="Localization\Mdw\hu.json" />
     <EmbeddedResource Include="Localization\Mdw\is.json" />
     <EmbeddedResource Include="Localization\Mdw\it.json" />

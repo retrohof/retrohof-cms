@@ -13,9 +13,9 @@ public class MainNavbarToolbarViewComponent : AbpViewComponent
         ToolbarManager = toolbarManager;
     }
 
-    public virtual async Task<IViewComponentResult> InvokeAsync()
+    public virtual async Task<IViewComponentResult> InvokeAsync(string shortName)
     {
         var toolbar = await ToolbarManager.GetAsync(StandardToolbars.Main);
-        return View("~/Themes/Basic/Components/Toolbar/Default.cshtml", toolbar);
+        return View($"~/Themes/Basic/Components/Toolbar/{shortName}.cshtml", toolbar);
     }
 }

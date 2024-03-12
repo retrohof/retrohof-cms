@@ -31,11 +31,11 @@ public class BasicTheme : ITheme, ITransientDependency
             case ErindOnTrackLayouts.Empty:
                 return $"~/Themes/ErindOnTrack/Layouts/Empty.cshtml";
             case MdwLayouts.Application:
-                return $"~/Themes/Mdw/Layouts/Application.cshtml";
+                return $"~/Themes/Basic/Layouts/Mdw/Application_.cshtml";
             case MdwLayouts.Account:
-                return $"~/Themes/Mdw/Layouts/Account.cshtml";
+                return $"~/Themes/Basic/Layouts/Mdw/Account.cshtml";
             case MdwLayouts.Empty:
-                return $"~/Themes/Mdw/Layouts/Empty.cshtml";
+                return $"~/Themes/Basic/Layouts/Mdw/Empty.cshtml";
             default:
                 return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
         }

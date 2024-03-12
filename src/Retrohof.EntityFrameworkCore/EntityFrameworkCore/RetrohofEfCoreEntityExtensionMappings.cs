@@ -16,6 +16,7 @@ public static class RetrohofEfCoreEntityExtensionMappings
         RetrohofModuleExtensionConfigurator.Configure();
 
         ObjectExtensionManager.Instance
-            .MapEfCoreProperty<Tenant, string>(Constant.Host);
+            .MapEfCoreProperty<Tenant, string>(Constant.Host)
+            .MapEfCoreProperty<Tenant, string>(Constant.ShortName);
     }
 }
