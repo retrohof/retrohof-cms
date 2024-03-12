@@ -14,6 +14,6 @@ public class MainNavbarViewComponent : AbpViewComponent
 
     public virtual IViewComponentResult Invoke()
     {
-        return View($"~/Themes/Basic/Components/MainNavbar/{_brandingProvider.ShortName}.cshtml");
+        return View($"~/Themes/Basic/Components/MainNavbar/{_brandingProvider.AppName}.cshtml");
     }
 }

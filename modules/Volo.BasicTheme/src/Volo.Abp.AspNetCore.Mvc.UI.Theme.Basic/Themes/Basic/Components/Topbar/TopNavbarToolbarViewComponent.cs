@@ -14,6 +14,6 @@ public class TopNavbarToolbarViewComponent : AbpViewComponent
 
     public virtual async Task<IViewComponentResult> InvokeAsync()
     {
-        return View($"~/Themes/Basic/Components/Topbar/{_brandingProvider.ShortName}.cshtml");
+        return View($"~/Themes/Basic/Components/Topbar/{_brandingProvider.AppName}.cshtml");
     }
 }

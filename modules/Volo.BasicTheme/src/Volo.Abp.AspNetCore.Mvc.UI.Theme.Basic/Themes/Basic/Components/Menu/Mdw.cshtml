@@ -10,38 +10,23 @@
     {
         if (menuItem.Url != null)
         {
-            <li class="nav-item @cssClass @disabled" @elementId>
-                <a class="nav-link" href="@url" target="@menuItem.Target">
-                    @if (menuItem.Icon != null)
-                    {
-                        if (menuItem.Icon.StartsWith("fa"))
-                        {
-                            <i class="@menuItem.Icon"></i>
-                        }
-                    }
-                    @menuItem.DisplayName
-                </a>
+            <li class="menu-item sub-menu">
+                <a class="menu-link" href="@url"><div>@menuItem.DisplayName</div></a>
             </li>
         }
     }
     else
     {
-        <li class="nav-item">
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="Menu_@(menuItem.Name)" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @if (menuItem.Icon != null)
-                    {
-                        <i class="@menuItem.Icon"></i>
-                    }
-                    @menuItem.DisplayName
-                </a>
-                <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="Menu_@(menuItem.Name)">
-                    @foreach (var childMenuItem in menuItem.Items)
-                    {
-                        @await Html.PartialAsync("~/Themes/Basic/Components/Menu/_MenuItem.cshtml", childMenuItem)
-                    }
-                </div>
-            </div>
+        <li class="menu-item sub-menu">
+            <a class="menu-link" href="#" onclick="checkboxClick(this);"><div>@menuItem.DisplayName</div></a>
+            <ul class="sub-menu-container not-dark" style="">
+                @foreach (var childMenuItem in menuItem.Items)
+                {
+                    @await Html.PartialAsync("~/Themes/Basic/Components/Menu/_MdwMenuItem.cshtml", childMenuItem)
+                }
+            </ul>
+
+            <button class="sub-menu-trigger fa-solid fa-chevron-right"><span class="visually-hidden">Open Sub-Menu</span></button>
         </li>
     }
 }

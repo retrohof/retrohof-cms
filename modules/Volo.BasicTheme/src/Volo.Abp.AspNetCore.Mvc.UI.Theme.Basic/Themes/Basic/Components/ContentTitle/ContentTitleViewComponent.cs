@@ -17,6 +17,6 @@ public class ContentTitleViewComponent : AbpViewComponent
 
     public virtual IViewComponentResult Invoke()
     {
-        return View($"~/Themes/Basic/Components/ContentTitle/{_brandingProvider.ShortName}.cshtml", PageLayout.Content);
+        return View($"~/Themes/Basic/Components/ContentTitle/{_brandingProvider.AppName}.cshtml", PageLayout.Content);
     }
 }

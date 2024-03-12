@@ -13,6 +13,6 @@ public class MainNavbarBrandViewComponent : AbpViewComponent
 
     public virtual IViewComponentResult Invoke()
     {
-        return View($"~/Themes/Basic/Components/Brand/{_brandingProvider.ShortName}.cshtml");
+        return View($"~/Themes/Basic/Components/Brand/{_brandingProvider.AppName}.cshtml");
     }
 }

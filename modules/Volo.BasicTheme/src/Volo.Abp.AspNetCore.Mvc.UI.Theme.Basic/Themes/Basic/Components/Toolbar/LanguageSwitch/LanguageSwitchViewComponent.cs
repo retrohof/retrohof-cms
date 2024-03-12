@@ -54,6 +54,6 @@ public class LanguageSwitchViewComponent : AbpViewComponent
             OtherLanguages = languages.Where(l => l != currentLanguage).ToList()
         };
 
-        return View($"~/Themes/Basic/Components/Toolbar/LanguageSwitch/{_brandingProvider.ShortName}.cshtml", model);
+        return View($"~/Themes/Basic/Components/Toolbar/LanguageSwitch/{_brandingProvider.AppName}.cshtml", model);
     }
 }
