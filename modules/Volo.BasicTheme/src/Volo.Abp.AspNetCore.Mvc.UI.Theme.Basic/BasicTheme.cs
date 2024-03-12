@@ -18,18 +18,18 @@ public class BasicTheme : ITheme, ITransientDependency
                 return $"~/Themes/Basic/Layouts/Account.cshtml";
             case BasicLayouts.Empty:
                 return $"~/Themes/Basic/Layouts/Empty.cshtml";
-            case CanvasLayouts.Application:
-                return $"~/Themes/Canvas/Layouts/Application.cshtml";
-            case CanvasLayouts.Account:
-                return $"~/Themes/Canvas/Layouts/Account.cshtml";
-            case CanvasLayouts.Empty:
-                return $"~/Themes/Canvas/Layouts/Empty.cshtml";
+            //case CanvasLayouts.Application:
+            //    return $"~/Themes/Canvas/Layouts/Application.cshtml";
+            //case CanvasLayouts.Account:
+            //    return $"~/Themes/Canvas/Layouts/Account.cshtml";
+            //case CanvasLayouts.Empty:
+            //    return $"~/Themes/Canvas/Layouts/Empty.cshtml";
             case ErindOnTrackLayouts.Application:
-                return $"~/Themes/ErindOnTrack/Layouts/Application.cshtml";
+                return $"~/Themes/Basic/EoT/Layouts/Application.cshtml";
             case ErindOnTrackLayouts.Account:
-                return $"~/Themes/ErindOnTrack/Layouts/Account.cshtml";
+                return $"~/Themes/Basic/EoT/Layouts/Account.cshtml";
             case ErindOnTrackLayouts.Empty:
-                return $"~/Themes/ErindOnTrack/Layouts/Empty.cshtml";
+                return $"~/Themes/Basic/EoT/Layouts/Empty.cshtml";
             case MdwLayouts.Application:
                 return $"~/Themes/Basic/Layouts/Mdw/Application_.cshtml";
             case MdwLayouts.Account:
