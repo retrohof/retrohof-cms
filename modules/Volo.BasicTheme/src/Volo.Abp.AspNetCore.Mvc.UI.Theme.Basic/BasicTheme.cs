@@ -1,4 +1,5 @@
-﻿using Volo.Abp.AspNetCore.Mvc.UI.Theming;
+﻿using System.IO;
+using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 using Volo.Abp.DependencyInjection;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -18,12 +19,6 @@ public class BasicTheme : ITheme, ITransientDependency
                 return $"~/Themes/Basic/Layouts/Account.cshtml";
             case BasicLayouts.Empty:
                 return $"~/Themes/Basic/Layouts/Empty.cshtml";
-            //case CanvasLayouts.Application:
-            //    return $"~/Themes/Canvas/Layouts/Application.cshtml";
-            //case CanvasLayouts.Account:
-            //    return $"~/Themes/Canvas/Layouts/Account.cshtml";
-            //case CanvasLayouts.Empty:
-            //    return $"~/Themes/Canvas/Layouts/Empty.cshtml";
             case ErindOnTrackLayouts.Application:
                 return $"~/Themes/Basic/EoT/Layouts/Application.cshtml";
             case ErindOnTrackLayouts.Account:
@@ -37,7 +32,8 @@ public class BasicTheme : ITheme, ITransientDependency
             case MdwLayouts.Empty:
                 return $"~/Themes/Basic/Layouts/Mdw/Empty.cshtml";
             default:
-                return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
+                throw new FileNotFoundException(nameof(name));
+                //return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
         }
     }
 }
@@ -80,11 +76,11 @@ public static class MdwLayouts
 
 public static class BasicLayouts
 {
-    public const string Application = "Basic.Application";
+    public const string Application = "Application";
 
-    public const string Account = "Basic.Account";
+    public const string Account = "Account";
 
-    public const string Public = "Basic.Public";
+    public const string Public = "Public";
 
-    public const string Empty = "Basic.Empty";
+    public const string Empty = "Empty";
 }

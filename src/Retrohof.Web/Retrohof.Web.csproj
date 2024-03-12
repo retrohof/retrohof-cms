@@ -24,14 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Account\Login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\Account\Login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

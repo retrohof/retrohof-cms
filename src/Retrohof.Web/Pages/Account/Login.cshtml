@@ -17,7 +17,6 @@
     var name = Branding.AppName;
     Layout = (name == "Local MDW" || name == "MDW" || name == "mdw") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Account)
     : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Account);
-
 }
 
 @section scripts
@@ -29,17 +28,17 @@
 <div class="card mt-3 shadow-sm rounded">
     <div class="card-body p-5">
 
-        <b>Branding: @Branding.AppName </b>
-        <b>Layout: @Layout</b>
+        @*                 <b>Branding: @Branding.AppName </b>
+        <p>Layout: @Layout</p> *@
 
         <h4>@L["Login"]</h4>
-        @if (await SettingProvider.IsTrueAsync(AccountSettingNames.IsSelfRegistrationEnabled))
+@*         @if (await SettingProvider.IsTrueAsync(AccountSettingNames.IsSelfRegistrationEnabled))
         {
             <strong>
                 @L["AreYouANewUser"]
                 <a href="@Url.Page("./Register", new {returnUrl = Model.ReturnUrl, returnUrlHash = Model.ReturnUrlHash})" class="text-decoration-none">@L["Register"]</a>
             </strong>
-        }
+        } *@
         @if (Model.EnableLocalLogin)
         {
             <form method="post" class="mt-4">

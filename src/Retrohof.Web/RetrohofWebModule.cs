@@ -325,7 +325,6 @@ public class RetrohofWebModule : AbpModule
         app.UseRouting();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
-        //app.UseJwtTokenMiddleware();
 
         if (MultiTenancyConsts.IsEnabled)
         {
