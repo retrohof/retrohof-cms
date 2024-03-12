@@ -4,7 +4,7 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 
 public class AgileCmsBrandingProvider : DefaultBrandingProvider, IAgileCmsBrandingProvider
 {
-    public string? ShortName => "Default";
+    public virtual string? ShortName => "Default";
 }
 
 public interface IAgileCmsBrandingProvider : IBrandingProvider

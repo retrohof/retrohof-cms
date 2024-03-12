@@ -32,13 +32,6 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup Condition="Exists('./openiddict.pfx')">
-    <None Remove="openiddict.pfx" />
-    <EmbeddedResource Include="openiddict.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
       <PrivateAssets>all</PrivateAssets>

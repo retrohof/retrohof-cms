@@ -13,7 +13,7 @@
 @inject ICurrentUser CurrentUser
 @inject IThemeManager ThemeManager
 @{
-    var name = "Local MDW";// Branding.AppName;
+    var name = Branding.AppName; //"Local MDW";// Branding.AppName;
     Layout = (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
     // : (name == "Local RH" || name == "RetroHof Ltd") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application) 
     // : (name == "Local EOT" || name == "Erind OnTrack") ? ThemeManager.CurrentTheme.GetLayout(ErindOnTrackLayouts.Application)

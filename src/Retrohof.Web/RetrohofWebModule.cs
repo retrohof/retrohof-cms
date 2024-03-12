@@ -107,7 +107,7 @@ public class RetrohofWebModule : AbpModule
     private X509Certificate2 GetEncryptionCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "encryption-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
 
         var file = Path.Combine(environment.ContentRootPath, fileName);
         if (File.Exists(file))
@@ -139,7 +139,7 @@ public class RetrohofWebModule : AbpModule
     private X509Certificate2 GetSigningCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "signing-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
         var file = Path.Combine(environment.ContentRootPath, fileName);
 
         if (File.Exists(file))
