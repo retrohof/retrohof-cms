@@ -1,8 +1,8 @@
 ﻿@page
-@using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Retrohof.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
 @using Volo.Abp.AspNetCore.Mvc.UI.Theming
@@ -13,12 +13,12 @@
 @inject ICurrentUser CurrentUser
 @inject IThemeManager ThemeManager
 @{
-    var name = Branding.AppName;
-    Layout = (name == "Local EOT" || name == "Erind OnTrack") ? ThemeManager.CurrentTheme.GetLayout(ErindOnTrackLayouts.Application)
-    : (name == "Local RH" || name == "RetroHof Ltd") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application) 
-    : (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
-    : (name == "Local WBL" || name == "WBL") ? ThemeManager.CurrentTheme.GetLayout(WblLayouts.Application)
-    : (name == "Local S25" || name == "S25") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application)
+    var name = "Local MDW";// Branding.AppName;
+    Layout = (name == "Local MDW" || name == "MD Wigmore") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
+    // : (name == "Local RH" || name == "RetroHof Ltd") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application) 
+    // : (name == "Local EOT" || name == "Erind OnTrack") ? ThemeManager.CurrentTheme.GetLayout(ErindOnTrackLayouts.Application)
+    // : (name == "Local WBL" || name == "WBL") ? ThemeManager.CurrentTheme.GetLayout(WblLayouts.Application)
+    // : (name == "Local S25" || name == "S25") ? ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application)
     : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application);
 }
 

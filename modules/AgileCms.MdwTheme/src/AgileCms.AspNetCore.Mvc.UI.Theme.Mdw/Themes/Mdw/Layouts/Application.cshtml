@@ -38,7 +38,7 @@
     <meta name="description" content="@description">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <abp-style-bundle name="@MdwThemeBundles.Styles.Global" />
+    <abp-style-bundle name="Basic.Global" />
 
     <!-- Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,25 +95,24 @@
             crossorigin="anonymous"></script>
  *@
 
-    <abp-script-bundle name="@MdwThemeBundles.Scripts.Global" />
-
+@*     <abp-script-bundle name="@MdwThemeBundles.Scripts.Global" />
+ *@
     <!-- JavaScripts
     ============================================= -->
     <script src="js/jquery.js"></script>
     <script src="js/functions.js"></script>
 
+    <abp-script-bundle name="Basic.Global" />
+
     <script src="~/Abp/ApplicationLocalizationScript?cultureName=@CultureInfo.CurrentUICulture.Name"></script>
     <script src="~/Abp/ApplicationConfigurationScript"></script>
     <script src="~/Abp/ServiceProxyScript"></script>
 
-@*     @await Component.InvokeAsync(typeof(WidgetScriptsViewComponent)) *@
+    @await Component.InvokeAsync(typeof(WidgetScriptsViewComponent))
 
     @await RenderSectionAsync("scripts", false)
 
-@*     @await Component.InvokeLayoutHookAsync(LayoutHooks.Body.Last, StandardLayouts.Application) *@
-
-@*     <script src="js/plugins.js"></script>
-    <script src="js/functions.js"></script> *@
+    @await Component.InvokeLayoutHookAsync(LayoutHooks.Body.Last, StandardLayouts.Application)
 
 </body>
 </html>

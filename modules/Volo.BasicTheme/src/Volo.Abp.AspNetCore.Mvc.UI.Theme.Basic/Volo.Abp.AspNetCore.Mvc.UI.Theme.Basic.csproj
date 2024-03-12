@@ -21,15 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\**" />
-    <Compile Remove="Views\**" />
-    <Content Remove="Pages\**" />
-    <Content Remove="Views\**" />
     <Content Remove="wwwroot\**\*.*" />
-    <EmbeddedResource Remove="Pages\**" />
-    <EmbeddedResource Remove="Views\**" />
-    <None Remove="Pages\**" />
-    <None Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,6 +76,11 @@
     <EmbeddedResource Include="Localization\Default\vi.json" />
     <EmbeddedResource Include="Localization\Default\zh-Hans.json" />
     <EmbeddedResource Include="Localization\Default\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\_ViewImports.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

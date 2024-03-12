@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Mdw.Components.Slider
+
+@inject IHtmlLocalizer<MdwResource> L
+@model SliderResourceViewModel
+
+<!-- slider
+============================================= -->
+
+<section id="slider" class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100 include-header">
+    <div class="slider-inner">
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-bottom">
+                            <h2 data-animate="fadeInDown">@L["SliderCanvas|Index|Slide|1|h2"]</h2>
+                            <h3 class="d-none d-md-block" data-animate="fadeInUp" data-delay="200">@L["SliderCanvas|Index|Slide|1|h3"]</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('images/slider/swiper/1.jpg'); background-position: center top;"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="slider-caption dark">
+                            <h2 data-animate="fadeInUp">@L["SliderCanvas|Index|Slide|2|h2"]</h2>
+                            <h3 class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">@L["SliderCanvas|Index|Slide|2|h3"]</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('images/slider/swiper/4.jpeg');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-top dark">
+                            <h2 data-animate="fadeInLeft">@L["SliderCanvas|Index|Slide|3|h2"]</h2>
+                            <h3 class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">@L["SliderCanvas|Index|Slide|3|h3"]</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('images/slider/swiper/5.jpeg'); background-position: center bottom;"></div>
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="fas fa-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+
+        <a href="#" data-scrollto="#content" class="one-page-arrow dark"><i class="fas fa-angle-double-down infinite animated fadeInDown"></i></a>
+
+    </div>
+</section>
+<!-- #slider end -->

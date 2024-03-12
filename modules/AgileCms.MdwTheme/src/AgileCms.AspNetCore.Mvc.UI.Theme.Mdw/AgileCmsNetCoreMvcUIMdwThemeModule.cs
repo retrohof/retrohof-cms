@@ -34,7 +34,7 @@ public class AgileCmsNetCoreMvcUIMdwThemeModule : AbpModule
 
             if (options.DefaultThemeName == null)
             {
-                options.DefaultThemeName = MdwTheme.Name;
+                options.DefaultThemeName = "Basic";
             }
         });
 
@@ -50,23 +50,23 @@ public class AgileCmsNetCoreMvcUIMdwThemeModule : AbpModule
 
         Configure<AbpBundlingOptions>(options =>
         {
-            options
-                .StyleBundles
-                .Add(MdwThemeBundles.Styles.Global, bundle =>
-                {
-                    bundle
-                        .AddBaseBundles(StandardBundles.Styles.Global)
-                        .AddContributors(typeof(MdwThemeGlobalStyleContributor));
-                });
+            //options
+            //    .StyleBundles
+            //    .Add("Basic.Global", bundle =>
+            //    {
+            //        bundle
+            //            .AddBaseBundles(StandardBundles.Styles.Global)
+            //            .AddContributors(typeof(MdwThemeGlobalStyleContributor));
+            //    });
 
-            options
-                .ScriptBundles
-                .Add(MdwThemeBundles.Scripts.Global, bundle =>
-                {
-                    bundle
-                        .AddBaseBundles(StandardBundles.Scripts.Global)
-                        .AddContributors(typeof(MdwThemeGlobalScriptContributor));
-                });
+            //options
+            //    .ScriptBundles
+            //    .Add("Basic.Global", bundle =>
+            //    {
+            //        bundle
+            //            .AddBaseBundles(StandardBundles.Scripts.Global)
+            //            .AddContributors(typeof(MdwThemeGlobalScriptContributor));
+            //    });
         });
     }
 }

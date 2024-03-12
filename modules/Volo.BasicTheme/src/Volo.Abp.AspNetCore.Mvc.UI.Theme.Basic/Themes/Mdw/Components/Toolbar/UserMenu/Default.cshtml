@@ -1,0 +1,51 @@
+﻿@using Localization.Resources.AbpUi
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.MultiTenancy
+@using Volo.Abp.UI.Navigation
+@using Volo.Abp.Users
+@inject ICurrentUser CurrentUser
+@inject ICurrentTenant CurrentTenant
+@inject IHtmlLocalizer<AbpUiResource> L
+@model ApplicationMenu
+
+<a href="#">
+    @if (CurrentUser.TenantId != null)
+    {
+        <small><i>@CurrentTenant.Name</i>\</small>
+
+        @CurrentUser.UserName
+    }
+    else
+    {
+        @CurrentUser.UserName
+    }
+    <i class="sub-menu-indicator fa-solid fa-caret-down"></i>
+</a>
+
+@if (Model.Items.Any())
+{
+    <ul class="top-links-sub-menu">
+        @foreach (var menuItem in Model.Items)
+        {
+            var elementId = string.IsNullOrEmpty(menuItem.ElementId) ? string.Empty : $"id=\"{menuItem.ElementId}\"";
+            var cssClass = string.IsNullOrEmpty(menuItem.CssClass) ? string.Empty : menuItem.CssClass;
+            var disabled = menuItem.IsDisabled ? "disabled" : string.Empty;
+            var url = string.IsNullOrEmpty(menuItem.Url) ? "#" : Url.Content(menuItem.Url);
+
+            <li class="top-links-item">
+
+                <a href="@url">
+                    @if (menuItem.Icon != null)
+                    {
+                        if (menuItem.Icon.StartsWith("fa"))
+                        {
+                            <i class="@menuItem.Icon"></i>
+                        }
+                    }
+                    &nbsp; @menuItem.DisplayName
+                </a>
+
+            </li>
+        }
+    </ul>
+}

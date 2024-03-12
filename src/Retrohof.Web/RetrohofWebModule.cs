@@ -40,11 +40,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl;
-using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
-using AgileCms.AspNetCore.Mvc.UI.Theme.South25;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.Bundling;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 
@@ -59,10 +54,6 @@ namespace Retrohof.Web;
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAccountWebOpenIddictModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
-    typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
-    typeof(AgileCmsNetCoreMvcUIWblThemeModule),
-    typeof(AgileCmsNetCoreMvcUIMdwThemeModule),
-    typeof(AgileCmsNetCoreMvcUISouth25ThemeModule),
     typeof(AbpTenantManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
@@ -255,15 +246,7 @@ public class RetrohofWebModule : AbpModule
                 BasicThemeBundles.Styles.Global,
                 bundle =>
                 {
-                    bundle.AddFiles("/global-styles.css");
-                }
-            );
-
-            options.StyleBundles.Configure(
-                MdwThemeBundles.Styles.Global,
-                bundle =>
-                {
-                    bundle.AddFiles("/global-styles.css");
+                    //bundle.AddFiles("/global-styles.css");
                 }
             );
         });
@@ -313,7 +296,7 @@ public class RetrohofWebModule : AbpModule
         services.AddAbpSwaggerGen(
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Retrohof API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Agile CMS API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             }
@@ -356,7 +339,7 @@ public class RetrohofWebModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Retrohof API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Agile CMS API");
         });
 
         app.UseAuditing();
