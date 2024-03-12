@@ -1,0 +1,14 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+
+@inject IAgileCmsBrandingProvider Branding
+@inject IThemeManager ThemeManager
+@{
+    var name = Branding.AppName;
+    Layout = (name == "Local MDW" || name == "MDW" || name == "mdw") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Account)
+    : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Account);
+}
+
+<div class="abp-account-container">
+    @RenderBody()
+</div>
