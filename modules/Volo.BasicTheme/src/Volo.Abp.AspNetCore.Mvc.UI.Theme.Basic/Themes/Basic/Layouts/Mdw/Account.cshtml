@@ -50,16 +50,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Core Style -->
-    <link rel="stylesheet" href="themes/mdw/style.css">
+    <link rel="stylesheet" href="~/themes/mdw/style.css">
 
     <!-- Font Icons -->
-    <link rel="stylesheet" href="css/font-icons.css">
+    <link rel="stylesheet" href="~/css/font-icons.css">
 
     <!-- Plugins/Components CSS -->
-    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="~/css/swiper.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="~/css/custom.css">
 
     @await RenderSectionAsync("styles", false)
 
@@ -67,55 +67,64 @@
 
     @await Component.InvokeLayoutHookAsync(LayoutHooks.Head.Last, StandardLayouts.Account)
 </head>
-<body class="abp-account-layout @rtl">
-    @await Component.InvokeLayoutHookAsync(LayoutHooks.Body.First, StandardLayouts.Account)
+<body class="abp-application-layout stretched">
 
-    @(await Component.InvokeAsync<MainNavbarViewComponent>())
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper">
 
-    <div class="@containerClass">
-        <abp-row>
-            <abp-column class="col mx-auto" style="max-width: 440px">
-                @if (MultiTenancyOptions.Value.IsEnabled &&
-                (TenantResolveResultAccessor.Result?.AppliedResolvers?.Contains(CookieTenantResolveContributor.ContributorName) == true ||
-                TenantResolveResultAccessor.Result?.AppliedResolvers?.Contains(QueryStringTenantResolveContributor.ContributorName) == true))
-                {
-                    <div class="card shadow-sm rounded mb-3">
-                        <div class="card-body px-5">
-                            <div class="row">
-                                <div class="col">
-                                    <span style="font-size: .8em;" class="text-uppercase text-muted">@MultiTenancyStringLocalizer["Tenant"]</span><br />
-                                    <h6 class="m-0 d-inline-block">
-                                        @if (CurrentTenant.Id == null)
-                                        {
-                                            <span>
-                                                @MultiTenancyStringLocalizer["NotSelected"]
-                                            </span>
-                                        }
-                                        else
-                                        {
-                                            <strong>@(CurrentTenant.Name ?? CurrentTenant.Id.Value.ToString())</strong>
-                                        }
-                                    </h6>
-                                </div>
-                                <div class="col-auto">
-                                    <a id="AbpTenantSwitchLink" href="javascript:;" class="btn btn-sm mt-3 btn-outline-primary">@MultiTenancyStringLocalizer["Switch"]</a>
+        @await Component.InvokeLayoutHookAsync(LayoutHooks.Body.First, StandardLayouts.Account)
+
+        @(await Component.InvokeAsync<MainNavbarViewComponent>())
+
+        <div class="@containerClass">
+
+            <abp-row>
+                <abp-column class="col mx-auto" style="max-width: 440px">
+                    @if (MultiTenancyOptions.Value.IsEnabled &&
+                    (TenantResolveResultAccessor.Result?.AppliedResolvers?.Contains(CookieTenantResolveContributor.ContributorName) == true ||
+                    TenantResolveResultAccessor.Result?.AppliedResolvers?.Contains(QueryStringTenantResolveContributor.ContributorName) == true))
+                    {
+                        <div class="card shadow-sm rounded mb-3">
+                            <div class="card-body px-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <span style="font-size: .8em;" class="text-uppercase text-muted">@MultiTenancyStringLocalizer["Tenant"]</span><br />
+                                        <h6 class="m-0 d-inline-block">
+                                            @if (CurrentTenant.Id == null)
+                                            {
+                                                <span>
+                                                    @MultiTenancyStringLocalizer["NotSelected"]
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <strong>@(CurrentTenant.Name ?? CurrentTenant.Id.Value.ToString())</strong>
+                                            }
+                                        </h6>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a id="AbpTenantSwitchLink" href="javascript:;" class="btn btn-sm mt-3 btn-outline-primary">@MultiTenancyStringLocalizer["Switch"]</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                }
-                @(await Component.InvokeAsync<PageAlertsViewComponent>())
-                @await Component.InvokeLayoutHookAsync(LayoutHooks.PageContent.First, StandardLayouts.Account)
-                @RenderBody()
-                @await Component.InvokeLayoutHookAsync(LayoutHooks.PageContent.Last, StandardLayouts.Account)
-            </abp-column>
-        </abp-row>
+                    }
+                    @(await Component.InvokeAsync<PageAlertsViewComponent>())
+                    @await Component.InvokeLayoutHookAsync(LayoutHooks.PageContent.First, StandardLayouts.Account)
+                    @RenderBody()
+                    @await Component.InvokeLayoutHookAsync(LayoutHooks.PageContent.Last, StandardLayouts.Account)
+                </abp-column>
+            </abp-row>
+
+        </div>
+
     </div>
 
     <!-- JavaScripts
     ============================================= -->
-    <script src="js/jquery.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/functions.js"></script>
 
     <abp-script-bundle name="@BasicThemeBundles.Scripts.Global" />
 

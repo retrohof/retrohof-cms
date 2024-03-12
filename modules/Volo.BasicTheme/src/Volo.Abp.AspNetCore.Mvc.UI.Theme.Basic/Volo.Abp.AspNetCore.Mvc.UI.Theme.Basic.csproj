@@ -19,10 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Themes\Basic\Layouts\Default\**" />
     <Compile Remove="Themes\Mdw\**" />
+    <Content Remove="Themes\Basic\Layouts\Default\**" />
     <Content Remove="Themes\Mdw\**" />
     <Content Remove="wwwroot\**\*.*" />
+    <EmbeddedResource Remove="Themes\Basic\Layouts\Default\**" />
     <EmbeddedResource Remove="Themes\Mdw\**" />
+    <None Remove="Themes\Basic\Layouts\Default\**" />
     <None Remove="Themes\Mdw\**" />
   </ItemGroup>
 

@@ -14,10 +14,9 @@
 @inject Volo.Abp.Settings.ISettingProvider SettingProvider
 
 @{
-    var name = Branding.AppName; //"Local MDW";// Branding.AppName;
-                                 // Layout = ThemeManager.CurrentTheme.GetAccountLayout();
+    var name = Branding.AppName;
     Layout = (name == "Local MDW" || name == "MDW" || name == "mdw") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Account)
-    : ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Account);
+    : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Account);
 
 }
 
@@ -27,9 +26,12 @@
         <abp-script src="/Pages/Account/Login.js" />
     </abp-script-bundle>
 }
-
 <div class="card mt-3 shadow-sm rounded">
     <div class="card-body p-5">
+
+        <b>Branding: @Branding.AppName </b>
+        <b>Layout: @Layout</b>
+
         <h4>@L["Login"]</h4>
         @if (await SettingProvider.IsTrueAsync(AccountSettingNames.IsSelfRegistrationEnabled))
         {
