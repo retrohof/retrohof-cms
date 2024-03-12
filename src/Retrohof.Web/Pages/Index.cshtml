@@ -13,8 +13,12 @@
 @inject ICurrentUser CurrentUser
 @inject IThemeManager ThemeManager
 @{
-    var name = Branding.AppName; //"Local MDW";// Branding.AppName;
+    var name = Branding.AppName;
+
     Layout = (name == "Local MDW" || name == "MDW" || name == "mdw") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
+    : (name == "Local EoT" || name == "EoT" || name == "eot") ? ThemeManager.CurrentTheme.GetLayout(EoTLayouts.Application)
+    : (name == "Local RetroHof" || name == "RetroHof" || name == "retrohof") ? ThemeManager.CurrentTheme.GetLayout(RetroHofLayouts.Application)
+    : (name == "Local South25" || name == "South25" || name == "south25") ? ThemeManager.CurrentTheme.GetLayout(South25Layouts.Application)
     : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application);
 }
 
