@@ -24,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\_Layout.cshtml" />
+    <Content Remove="Pages\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
