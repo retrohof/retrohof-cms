@@ -2,7 +2,7 @@
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Localization;
 
-[LocalizationResourceName("EOT")]
+[LocalizationResourceName("ErindOnTrack")]
 public class ErindOnTrackResource
 {
     

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Retrohof.Localization;
-using Volo.Abp.Application.Services;
+﻿using Volo.Abp.Application.Services;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof;
 
@@ -12,6 +9,6 @@ public abstract class RetrohofAppService : ApplicationService
 {
     protected RetrohofAppService()
     {
-        LocalizationResource = typeof(RetrohofResource);
+        LocalizationResource = typeof(DefaultResource);
     }
 }

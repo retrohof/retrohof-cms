@@ -2,7 +2,7 @@
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Localization;
 
-[LocalizationResourceName("S25")]
+[LocalizationResourceName("South25")]
 public class South25Resource
 {
     

@@ -1,6 +1,6 @@
-﻿using Retrohof.Localization;
-using Volo.Abp.Authorization.Permissions;
+﻿using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof.Permissions;
 
@@ -15,6 +15,6 @@ public class RetrohofPermissionDefinitionProvider : PermissionDefinitionProvider
 
     private static LocalizableString L(string name)
     {
-        return LocalizableString.Create<RetrohofResource>(name);
+        return LocalizableString.Create<DefaultResource>(name);
     }
 }

@@ -3,7 +3,7 @@
 namespace Retrohof.Localization;
 
 [LocalizationResourceName("Retrohof")]
-public class RetrohofResource
+public class DefaultResource
 {
 
 }

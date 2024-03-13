@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Retrohof.EntityFrameworkCore;
-using Retrohof.Localization;
 using Retrohof.MultiTenancy;
 using Retrohof.Web.Menus;
 using Microsoft.OpenApi.Models;
@@ -42,7 +41,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
-using Volo.Abp.AspNetCore.Mvc.UI.Localization;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof.Web;
 
@@ -70,7 +69,7 @@ public class RetrohofWebModule : AbpModule
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
         {
             options.AddAssemblyResource(
-                typeof(RetrohofResource),
+                typeof(DefaultResource),
                 typeof(RetrohofDomainModule).Assembly,
                 typeof(RetrohofDomainSharedModule).Assembly,
                 typeof(RetrohofApplicationModule).Assembly,

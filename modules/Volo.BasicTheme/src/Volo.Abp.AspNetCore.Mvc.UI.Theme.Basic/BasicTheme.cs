@@ -79,26 +79,3 @@ public enum ThemeType
     RetroHof,
     South25
 }
-
-public interface IThemeLayoutManager
-{
-    string GetThemeLayout(string pageType);
-}
-
-public class ThemeLayoutManager : IThemeLayoutManager, ITransientDependency
-{
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
-
-    public ThemeLayoutManager(IAgileCmsBrandingProvider brandingProvider)
-    {
-        _brandingProvider = brandingProvider;
-    }
-
-    public virtual string GetThemeLayout(string pageType)
-    {
-        var appName = _brandingProvider.AppName == "Default" ? string.Empty : _brandingProvider.AppName;
-        var layout = $"{appName}{pageType}";
-
-        return $"~/Themes/Basic/Layouts/{layout}.cshtml";
-    }
-}

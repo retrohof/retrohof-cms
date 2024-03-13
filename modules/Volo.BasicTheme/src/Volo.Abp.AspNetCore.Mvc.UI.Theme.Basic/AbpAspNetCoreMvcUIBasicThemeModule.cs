@@ -51,7 +51,6 @@ public class AbpAspNetCoreMvcUiBasicThemeModule : AbpModule
             options.Contributors.Add(new BasicThemeMainTopToolbarContributor());
         });
 
-
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources

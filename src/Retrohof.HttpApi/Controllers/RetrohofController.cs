@@ -1,5 +1,5 @@
-﻿using Retrohof.Localization;
-using Volo.Abp.AspNetCore.Mvc;
+﻿using Volo.Abp.AspNetCore.Mvc;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof.Controllers;
 
@@ -9,6 +9,6 @@ public abstract class RetrohofController : AbpControllerBase
 {
     protected RetrohofController()
     {
-        LocalizationResource = typeof(RetrohofResource);
+        LocalizationResource = typeof(DefaultResource);
     }
 }

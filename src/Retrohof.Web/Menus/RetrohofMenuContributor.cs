@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Retrohof.Localization;
 using Retrohof.MultiTenancy;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
@@ -21,13 +20,13 @@ public class RetrohofMenuContributor : IMenuContributor
     private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
         var administration = context.Menu.GetAdministration();
-        var l = context.GetLocalizer<RetrohofResource>();
+        //var l = context.GetLocalizer<RetrohofResource>();
 
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(
                 RetrohofMenus.Home,
-                l["Menu:Home"],
+                "Home",
                 "~/",
                 icon: "fas fa-home",
                 order: 0
