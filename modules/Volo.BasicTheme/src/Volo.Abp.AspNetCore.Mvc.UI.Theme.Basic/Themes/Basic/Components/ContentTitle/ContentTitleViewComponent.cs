@@ -3,7 +3,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Layout;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle;
 
-public class ContentTitleViewComponent : AbpViewComponent
+public class ContentTitleViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;
 
@@ -17,6 +17,6 @@ public class ContentTitleViewComponent : AbpViewComponent
 
     public virtual IViewComponentResult Invoke()
     {
-        return View($"~/Themes/Basic/Components/ContentTitle/{_brandingProvider.AppName}.cshtml", PageLayout.Content);
+        return GetViewName($"~/Themes/Basic/Components/ContentTitle/", _brandingProvider.AppName, PageLayout.Content);
     }
 }

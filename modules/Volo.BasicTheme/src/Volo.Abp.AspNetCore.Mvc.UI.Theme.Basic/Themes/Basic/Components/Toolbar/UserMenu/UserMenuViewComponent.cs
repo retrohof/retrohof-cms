@@ -4,7 +4,7 @@ using Volo.Abp.UI.Navigation;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar.UserMenu;
 
-public class UserMenuViewComponent : AbpViewComponent
+public class UserMenuViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;
 
@@ -19,6 +19,6 @@ public class UserMenuViewComponent : AbpViewComponent
     public virtual async Task<IViewComponentResult> InvokeAsync()
     {
         var menu = await MenuManager.GetAsync(StandardMenus.User);
-        return View($"~/Themes/Basic/Components/Toolbar/UserMenu/{_brandingProvider.AppName}.cshtml", menu);
+        return GetViewName($"~/Themes/Basic/Components/Toolbar/UserMenu/", _brandingProvider.AppName, menu);
     }
 }

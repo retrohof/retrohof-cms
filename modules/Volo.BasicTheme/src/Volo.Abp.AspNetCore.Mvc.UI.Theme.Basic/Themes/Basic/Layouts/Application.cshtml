@@ -1,4 +1,6 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
@@ -14,6 +16,7 @@
 
 @inject IAgileCmsBrandingProvider Branding
 @inject IPageLayout PageLayout
+@inject IHtmlLocalizer<BasicResource> L
 @{
     Layout = null;
     var containerClass = ViewBag.FluidLayout == true ? "container-fluid" : "container"; //TODO: Better and type-safe options

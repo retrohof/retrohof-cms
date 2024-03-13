@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Topbar;
 
-public class TopNavbarToolbarViewComponent : AbpViewComponent
+public class TopNavbarToolbarViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;
 
@@ -14,6 +14,6 @@ public class TopNavbarToolbarViewComponent : AbpViewComponent
 
     public virtual async Task<IViewComponentResult> InvokeAsync()
     {
-        return View($"~/Themes/Basic/Components/Topbar/{_brandingProvider.AppName}.cshtml");
+        return GetViewName($"~/Themes/Basic/Components/Topbar/", _brandingProvider.AppName);
     }
 }

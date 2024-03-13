@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Account\LoginModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\_Layout.cshtml" />
     <Content Remove="Pages\_ViewStart.cshtml" />
   </ItemGroup>

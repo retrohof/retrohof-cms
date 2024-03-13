@@ -5,21 +5,14 @@
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
-@using Volo.Abp.AspNetCore.Mvc.UI.Theming
-
 @model Retrohof.Web.Pages.IndexModel
-@inject IHtmlLocalizer<RetrohofResource> L
+
 @inject IAgileCmsBrandingProvider Branding
 @inject ICurrentUser CurrentUser
-@inject IThemeManager ThemeManager
-@{
-    var name = Branding.AppName;
+@inject IThemeLayoutManager ThemeLayoutManager
 
-    Layout = (name == "Local MDW" || name == "MDW" || name == "mdw") ? ThemeManager.CurrentTheme.GetLayout(MdwLayouts.Application)
-    : (name == "Local EoT" || name == "EoT" || name == "eot") ? ThemeManager.CurrentTheme.GetLayout(EoTLayouts.Application)
-    : (name == "Local RetroHof" || name == "RetroHof" || name == "retrohof") ? ThemeManager.CurrentTheme.GetLayout(RetroHofLayouts.Application)
-    : (name == "Local South25" || name == "South25" || name == "south25") ? ThemeManager.CurrentTheme.GetLayout(South25Layouts.Application)
-    : ThemeManager.CurrentTheme.GetLayout(BasicLayouts.Application);
+@{
+    Layout = ThemeLayoutManager.GetThemeLayout(PageType.Application);
 }
 
 @section styles {
@@ -37,11 +30,11 @@
         <h1>Welcome to the @Branding.AppName</h1>
         <h3>@Branding.ShortName</h3></>
 
-        <p class="lead px-lg-5 mx-lg-5">@L["LongWelcomeMessage"]</p>
+        <p class="lead px-lg-5 mx-lg-5">@Model.LongWelcomeMessage</p>
 
         @if (!CurrentUser.IsAuthenticated)
         {
-            <a abp-button="Primary" href="~/Account/Login"><i class="fa fa-sign-in"></i> @L["Login"]</a>
+            <a abp-button="Primary" href="~/Account/Login"><i class="fa fa-sign-in"></i> @Model.Login</a>
         }
 
     </div>

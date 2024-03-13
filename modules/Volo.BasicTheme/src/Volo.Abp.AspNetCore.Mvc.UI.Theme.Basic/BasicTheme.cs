@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Volo.Abp.AspNetCore.Mvc.UI.Theming;
+﻿using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 using Volo.Abp.DependencyInjection;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -11,98 +10,95 @@ public class BasicTheme : ITheme, ITransientDependency
 
     public virtual string GetLayout(string name, bool fallbackToDefault = true)
     {
-        switch (name)
-        {
-            case BasicLayouts.Application:
-                return $"~/Themes/Basic/Layouts/Application.cshtml";
-            case BasicLayouts.Account:
-                return $"~/Themes/Basic/Layouts/Account.cshtml";
-            case BasicLayouts.Empty:
-                return $"~/Themes/Basic/Layouts/Empty.cshtml";
-            case EoTLayouts.Application:
-                return $"~/Themes/Basic/EoT/Layouts/Application.cshtml";
-            case EoTLayouts.Account:
-                return $"~/Themes/Basic/EoT/Layouts/Account.cshtml";
-            case EoTLayouts.Empty:
-                return $"~/Themes/Basic/EoT/Layouts/Empty.cshtml";
-            case MdwLayouts.Application:
-                return $"~/Themes/Basic/Layouts/Mdw/Application.cshtml";
-            case MdwLayouts.Account:
-                return $"~/Themes/Basic/Layouts/Mdw/Account.cshtml";
-            case MdwLayouts.Empty:
-                return $"~/Themes/Basic/Layouts/Mdw/Empty.cshtml";
-            case RetroHofLayouts.Application:
-                return $"~/Themes/Basic/Layouts/RetroHof/Application.cshtml";
-            case RetroHofLayouts.Account:
-                return $"~/Themes/Basic/Layouts/RetroHof/Account.cshtml";
-            case RetroHofLayouts.Empty:
-                return $"~/Themes/Basic/Layouts/RetroHof/Empty.cshtml";
-            case South25Layouts.Application:
-                return $"~/Themes/Basic/Layouts/South25/Application.cshtml";
-            case South25Layouts.Account:
-                return $"~/Themes/Basic/Layouts/South25/Account.cshtml";
-            case South25Layouts.Empty:
-                return $"~/Themes/Basic/Layouts/South25/Empty.cshtml";
-            default:
-                throw new FileNotFoundException(nameof(name));
-                //return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
-        }
+        var layout = name.Replace(".", string.Empty);
+
+        return $"~/Themes/Basic/Layouts/{layout}.cshtml";
+
+        //switch (name)
+            //{
+            //case LayoutType.Application:
+            //    return $"~/Themes/Basic/Layouts/Application.cshtml";
+            //case LayoutType.Account:
+            //    return $"~/Themes/Basic/Layouts/Account.cshtml";
+            //case LayoutType.Empty:
+            //    return $"~/Themes/Basic/Layouts/Empty.cshtml";
+            //case LayoutType.ErindOnTrackApplication:
+            //    return $"~/Themes/Basic/EoT/Layouts/Application.cshtml";
+            //case LayoutType.ErindOnTrackAccount:
+            //    return $"~/Themes/Basic/EoT/Layouts/Account.cshtml";
+            //case LayoutType.MdwApplication:
+            //    return $"~/Themes/Basic/Layouts/Mdw/Application.cshtml";
+            //case LayoutType.MdwAccount:
+            //    return $"~/Themes/Basic/Layouts/Mdw/Account.cshtml";
+            //case LayoutType.RetroHofApplication:
+            //    return $"~/Themes/Basic/Layouts/RetroHof/Application.cshtml";
+            //case LayoutType.RetroHofAccount:
+            //    return $"~/Themes/Basic/Layouts/RetroHof/Account.cshtml";
+            //case LayoutType.South25Application:
+            //    return $"~/Themes/Basic/Layouts/South25/Application.cshtml";
+            //case LayoutType.South25Account:
+            //    return $"~/Themes/Basic/Layouts/South25/Account.cshtml";
+            //default:
+            //    //throw new FileNotFoundException(nameof(name));
+            //    return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
+        //}
     }
 }
 
-public static class EoTLayouts
-{
-    public const string Application = "ErindOnTrack.Application";
-
-    public const string Admin = "ErindOnTrack.Admin";
-
-    public const string Public = "ErindOnTrack.Public";
-
-    public const string Account = "ErindOnTrack.Account";
-
-    public const string Empty = "ErindOnTrack.Empty";
-}
-public static class South25Layouts
-{
-    public const string Application = "South25.Application";
-
-    public const string Admin = "South25.Admin";
-
-    public const string Public = "South25.Public";
-
-    public const string Account = "South25.Account";
-
-    public const string Empty = "South25.Empty";
-}
-
-public static class RetroHofLayouts
-{
-    public const string Application = "RetroHof.Application";
-
-    public const string Account = "RetroHof.Account";
-
-    public const string Public = "RetroHof.Public";
-
-    public const string Empty = "RetroHof.Empty";
-}
-public static class MdwLayouts
-{
-    public const string Application = "Mdw.Application";
-
-    public const string Account = "Mdw.Account";
-
-    public const string Public = "Mdw.Public";
-
-    public const string Empty = "Mdw.Empty";
-}
-
-public static class BasicLayouts
+public class PageType
 {
     public const string Application = "Application";
-
     public const string Account = "Account";
-
-    public const string Public = "Public";
-
     public const string Empty = "Empty";
+}
+
+public class LayoutType
+{
+    public const string Application = "Application";
+    public const string Account = "Account";
+    public const string Empty = "Empty";
+
+    public const string ErindOnTrackApplication = "ErindOnTrack.Application";
+    public const string ErindOnTrackAccount = "ErindOnTrack.Account";
+
+    public const string MdwApplication = "Mdw.Application";
+    public const string MdwAccount = "Mdw.Account";
+
+    public const string RetroHofApplication = "RetroHof.Application";
+    public const string RetroHofAccount = "RetroHof.Account";
+
+    public const string South25Application = "South25.Application";
+    public const string South25Account = "South25.Account";
+}
+
+public enum ThemeType
+{
+    Default,
+    ErindOnTrack,
+    Mdw,
+    RetroHof,
+    South25
+}
+
+public interface IThemeLayoutManager
+{
+    string GetThemeLayout(string pageType);
+}
+
+public class ThemeLayoutManager : IThemeLayoutManager, ITransientDependency
+{
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
+
+    public ThemeLayoutManager(IAgileCmsBrandingProvider brandingProvider)
+    {
+        _brandingProvider = brandingProvider;
+    }
+
+    public virtual string GetThemeLayout(string pageType)
+    {
+        var appName = _brandingProvider.AppName == "Default" ? string.Empty : _brandingProvider.AppName;
+        var layout = $"{appName}{pageType}";
+
+        return $"~/Themes/Basic/Layouts/{layout}.cshtml";
+    }
 }

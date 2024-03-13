@@ -1,0 +1,30 @@
+{
+  "culture": "en",
+  "texts": {
+    "Welcome_Title": "RH Welcome",
+    "LongWelcomeMessage": "RH This is a minimalist, single layer application startup template for the ABP Framework.",
+    "Menu:Home": "RH Home",
+    "ImageManagement": "RH Image Management",
+    "ThereIsNotAnyImageYet": "RH There is not any image yet!",
+    "Description": "RH Description",
+    "CreationTime": "RH Creation Time",
+    "ThisExtensionIsNotAllowed": "RH File extension is not allowed. Please upload file with the allowed extensions: \"jpg, jpeg and png\"",
+    "TheFileIsTooBig": "RH The file is too big.",
+    "Images": "RH Images",
+    "NewImage": "RH New image",
+    "ImageDeletionConfirmationMessage": "RH Are you sure you want to delete this image?",
+    "SuccessfullyDeleted": "RH Image is successfully deleted.",
+    "Permission:ImageManagement": "RH Image management",
+    "Permission:Create": "RH Create",
+    "Permission:Edit": "RH Edit",
+    "Permission:Delete": "RH Delete",
+    "Permission:Management": "RH Management",
+    "Address|Title": "RH Address Title",
+    "Address|Line|1": "RH Address Line 11",
+    "Address|Line|2": "RH Address Line 12",
+    "Address|Line|3": "RH Address Line 13",
+    "Address|Contact|1": "RH Address Contact 11",
+    "Address|Contact|2": "RH Address Contact 12",
+    "Address|Contact|3": "RH Address Contact 13"
+  }
+}

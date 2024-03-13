@@ -2,8 +2,8 @@
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Localization;
 
-[LocalizationResourceName("MDW")]
-public class MdwResource
+[LocalizationResourceName("S25")]
+public class South25Resource
 {
     
 }

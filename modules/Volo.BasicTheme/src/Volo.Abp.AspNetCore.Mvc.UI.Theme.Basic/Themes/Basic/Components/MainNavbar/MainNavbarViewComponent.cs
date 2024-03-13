@@ -2,7 +2,7 @@
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNavbar;
 
-public class MainNavbarViewComponent : AbpViewComponent
+public class MainNavbarViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;
 
@@ -11,9 +11,8 @@ public class MainNavbarViewComponent : AbpViewComponent
         _brandingProvider = brandingProvider;
     }
 
-
     public virtual IViewComponentResult Invoke()
     {
-        return View($"~/Themes/Basic/Components/MainNavbar/{_brandingProvider.AppName}.cshtml");
+        return GetViewName($"~/Themes/Basic/Components/MainNavbar/", _brandingProvider.AppName);
     }
 }

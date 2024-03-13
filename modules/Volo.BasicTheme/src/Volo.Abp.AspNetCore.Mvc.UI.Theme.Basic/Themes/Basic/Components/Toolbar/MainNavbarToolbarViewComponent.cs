@@ -4,7 +4,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar;
 
-public class MainNavbarToolbarViewComponent : AbpViewComponent
+public class MainNavbarToolbarViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;
 
@@ -19,6 +19,6 @@ public class MainNavbarToolbarViewComponent : AbpViewComponent
     public virtual async Task<IViewComponentResult> InvokeAsync()
     {
         var toolbar = await ToolbarManager.GetAsync(StandardToolbars.Main);
-        return View($"~/Themes/Basic/Components/Toolbar/{_brandingProvider.AppName}.cshtml", toolbar);
+        return GetViewName($"~/Themes/Basic/Components/Toolbar/", _brandingProvider.AppName, toolbar);
     }
 }
