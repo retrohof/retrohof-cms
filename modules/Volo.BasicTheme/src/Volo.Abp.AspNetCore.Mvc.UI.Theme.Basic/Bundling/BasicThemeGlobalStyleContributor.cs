@@ -6,6 +6,9 @@ public class BasicThemeGlobalStyleContributor : BundleContributor
 {
     public override void ConfigureBundle(BundleConfigurationContext context)
     {
-        context.Files.Add("/themes/basic/layout.css");
+        context.Files.Add("/themes/mdw/style.css");
+        context.Files.Add("/css/font-icons.css");
+        context.Files.Add("/css/swiper.css");
+        context.Files.Add("/css/custom.css");
     }
 }

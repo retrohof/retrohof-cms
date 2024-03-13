@@ -42,7 +42,7 @@ public abstract class RetrohofPageModel : AbpPageModel
             case "South25":
                 return typeof(South25Resource);
             default:
-                throw new ArgumentOutOfRangeException(nameof(themeType));
+                throw new ArgumentOutOfRangeException(nameof(themeType), $"{themeType}");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
@@ -51,35 +52,20 @@ public class AbpAspNetCoreMvcUiBasicThemeModule : AbpModule
             options.Contributors.Add(new BasicThemeMainTopToolbarContributor());
         });
 
-        Configure<AbpLocalizationOptions>(options =>
+        Configure((Action<AbpLocalizationOptions>)(options =>
         {
-            options.Resources
-                .Add<BasicResource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/Default");
+            ConfigureResources<BasicResource>(options, "/Localization/Default", "en");
 
-            options.Resources
-                .Add<ErindOnTrackResource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/ErindOnTrack");
+            ConfigureResources<ErindOnTrackResource>(options, "/Localization/ErindOnTrack", "en");
 
-            options.Resources
-                .Add<MdwResource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/Mdw");
+            ConfigureResources<MdwResource>(options, "/Localization/Mdw", "en");
 
-            options.Resources
-                .Add<South25Resource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/South25");
+            ConfigureResources<South25Resource>(options, "/Localization/South25", "en");
 
-            options.Resources
-                .Add<RetroHofResource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/RetroHof");
+            ConfigureResources<RetroHofResource>(options, "/Localization/RetroHof", "en");
 
             options.DefaultResourceType = typeof(BasicResource);
-        });
+        }));
 
         Configure<AbpBundlingOptions>(options =>
         {
@@ -101,5 +87,13 @@ public class AbpAspNetCoreMvcUiBasicThemeModule : AbpModule
                         .AddContributors(typeof(BasicThemeGlobalScriptContributor));
                 });
         });
+    }
+
+    private static void ConfigureResources<TResource>(AbpLocalizationOptions options, string relativeJSonPath, string locale = "en")
+    {
+        options.Resources
+            .Add<TResource>(locale)
+            .AddBaseTypes(typeof(AbpValidationResource))
+            .AddVirtualJson(relativeJSonPath);
     }
 }

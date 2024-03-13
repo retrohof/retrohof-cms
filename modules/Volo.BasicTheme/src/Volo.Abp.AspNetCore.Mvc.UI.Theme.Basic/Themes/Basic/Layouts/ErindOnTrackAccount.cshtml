@@ -1,7 +1,9 @@
-﻿@using Microsoft.Extensions.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
 @using Microsoft.Extensions.Options
 @using Volo.Abp.AspNetCore.MultiTenancy
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
+@using Volo.Abp.AspNetCore.Mvc.UI.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
@@ -19,6 +21,8 @@
 @inject ICurrentTenant CurrentTenant
 @inject IStringLocalizer<AbpUiMultiTenancyResource> MultiTenancyStringLocalizer
 @inject ITenantResolveResultAccessor TenantResolveResultAccessor
+@inject IHtmlLocalizer<ErindOnTrackResource> L
+
 
 @{
     Layout = null;
@@ -36,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>@(ViewBag.Title == null ? $"{BrandingProvider.AppName} Mdw/Account" : ViewBag.Title)</title>
+    <title>@(ViewBag.Title == null ? $"{BrandingProvider.AppName} ErindOnTrack/Account" : ViewBag.Title)</title>
 
     @if (ViewBag.Description != null)
     {
@@ -50,7 +54,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Core Style -->
-    <link rel="stylesheet" href="~/themes/mdw/style.css">
+    <link rel="stylesheet" href="~/themes/erindOnTrack/style.css">
 
     <!-- Font Icons -->
     <link rel="stylesheet" href="~/css/font-icons.css">
