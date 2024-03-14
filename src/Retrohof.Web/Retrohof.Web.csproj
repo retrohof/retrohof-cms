@@ -24,19 +24,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Account\LoginModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\_Layout.cshtml" />
+    <Content Remove="Pages\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Pages\**\*.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup Condition="Exists('./openiddict.pfx')">
-    <None Remove="openiddict.pfx" />
-    <EmbeddedResource Include="openiddict.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -50,10 +52,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\AgileCms.ErindOnTrackTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack\AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack.csproj" />
-    <ProjectReference Include="..\..\modules\AgileCms.MdwTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.Mdw\AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.csproj" />
-    <ProjectReference Include="..\..\modules\AgileCms.South25Theme\src\AgileCms.AspNetCore.Mvc.UI.Theme.South25\AgileCms.AspNetCore.Mvc.UI.Theme.South25.csproj" />
-    <ProjectReference Include="..\..\modules\AgileCms.WblTheme\src\AgileCms.AspNetCore.Mvc.UI.Theme.Wbl\AgileCms.AspNetCore.Mvc.UI.Theme.Wbl.csproj" />
     <ProjectReference Include="..\..\modules\Volo.BasicTheme\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic\Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj" />
     <ProjectReference Include="..\Retrohof.Application\Retrohof.Application.csproj" />
     <ProjectReference Include="..\Retrohof.HttpApi\Retrohof.HttpApi.csproj" />

@@ -1,0 +1,30 @@
+{
+  "culture": "en",
+  "texts": {
+    "Welcome_Title": "MDW Welcome",
+    "LongWelcomeMessage": "MDW This is a minimalist, single layer application startup template for the ABP Framework.",
+    "Menu:Home": "MDW Home",
+    "ImageManagement": "MDW Image Management",
+    "ThereIsNotAnyImageYet": "MDW There is not any image yet!",
+    "Description": "MDW Description",
+    "CreationTime": "MDW Creation Time",
+    "ThisExtensionIsNotAllowed": "MDW File extension is not allowed. Please upload file with the allowed extensions: \"jpg, jpeg and png\"",
+    "TheFileIsTooBig": "MDW The file is too big.",
+    "Images": "MDW Images",
+    "NewImage": "MDW New image",
+    "ImageDeletionConfirmationMessage": "MDW Are you sure you want to delete this image?",
+    "SuccessfullyDeleted": "MDW Image is successfully deleted.",
+    "Permission:ImageManagement": "MDW Image management",
+    "Permission:Create": "MDW Create",
+    "Permission:Edit": "MDW Edit",
+    "Permission:Delete": "MDW Delete",
+    "Permission:Management": "MDW Management",
+    "Address|Title": "MDW Address Title",
+    "Address|Line|1": "MDW Address Line 11",
+    "Address|Line|2": "MDW Address Line 12",
+    "Address|Line|3": "MDW Address Line 13",
+    "Address|Contact|1": "MDW Address Contact 11",
+    "Address|Contact|2": "MDW Address Contact 12",
+    "Address|Contact|3": "MDW Address Contact 13"
+  }
+}

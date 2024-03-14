@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Retrohof.EntityFrameworkCore;
-using Retrohof.Localization;
 using Retrohof.MultiTenancy;
 using Retrohof.Web.Menus;
 using Microsoft.OpenApi.Models;
@@ -40,13 +39,9 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Wbl;
-using AgileCms.AspNetCore.Mvc.UI.Theme.ErindOnTrack;
-using AgileCms.AspNetCore.Mvc.UI.Theme.South25;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw;
-using AgileCms.AspNetCore.Mvc.UI.Theme.Mdw.Bundling;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof.Web;
 
@@ -59,10 +54,6 @@ namespace Retrohof.Web;
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAccountWebOpenIddictModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
-    typeof(AgileCmsNetCoreMvcUIErindOnTrackThemeModule),
-    typeof(AgileCmsNetCoreMvcUIWblThemeModule),
-    typeof(AgileCmsNetCoreMvcUIMdwThemeModule),
-    typeof(AgileCmsNetCoreMvcUISouth25ThemeModule),
     typeof(AbpTenantManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
@@ -78,7 +69,7 @@ public class RetrohofWebModule : AbpModule
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
         {
             options.AddAssemblyResource(
-                typeof(RetrohofResource),
+                typeof(DefaultResource),
                 typeof(RetrohofDomainModule).Assembly,
                 typeof(RetrohofDomainSharedModule).Assembly,
                 typeof(RetrohofApplicationModule).Assembly,
@@ -101,7 +92,7 @@ public class RetrohofWebModule : AbpModule
 
         PreConfigure<AbpOpenIddictAspNetCoreOptions>(options =>
         {
-            options.AddDevelopmentEncryptionAndSigningCertificate = true;
+            options.AddDevelopmentEncryptionAndSigningCertificate = false;
         });
 
         PreConfigure<OpenIddictServerBuilder>(builder =>
@@ -116,7 +107,7 @@ public class RetrohofWebModule : AbpModule
     private X509Certificate2 GetEncryptionCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "encryption-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
 
         var file = Path.Combine(environment.ContentRootPath, fileName);
         if (File.Exists(file))
@@ -148,7 +139,7 @@ public class RetrohofWebModule : AbpModule
     private X509Certificate2 GetSigningCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "signing-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
         var file = Path.Combine(environment.ContentRootPath, fileName);
 
         if (File.Exists(file))
@@ -255,15 +246,7 @@ public class RetrohofWebModule : AbpModule
                 BasicThemeBundles.Styles.Global,
                 bundle =>
                 {
-                    bundle.AddFiles("/global-styles.css");
-                }
-            );
-
-            options.StyleBundles.Configure(
-                MdwThemeBundles.Styles.Global,
-                bundle =>
-                {
-                    bundle.AddFiles("/global-styles.css");
+                    //bundle.AddFiles("/global-styles.css");
                 }
             );
         });
@@ -313,7 +296,7 @@ public class RetrohofWebModule : AbpModule
         services.AddAbpSwaggerGen(
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Retrohof API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Agile CMS API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             }
@@ -342,7 +325,6 @@ public class RetrohofWebModule : AbpModule
         app.UseRouting();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
-        //app.UseJwtTokenMiddleware();
 
         if (MultiTenancyConsts.IsEnabled)
         {
@@ -356,7 +338,7 @@ public class RetrohofWebModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Retrohof API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Agile CMS API");
         });
 
         app.UseAuditing();

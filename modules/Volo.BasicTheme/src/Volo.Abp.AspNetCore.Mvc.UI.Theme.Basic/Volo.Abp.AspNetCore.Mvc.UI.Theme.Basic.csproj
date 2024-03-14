@@ -1,7 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  
-  
 
   <PropertyGroup><LangVersion>latest</LangVersion>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,69 +19,40 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\**" />
-    <Compile Remove="Views\**" />
-    <Content Remove="Pages\**" />
-    <Content Remove="Views\**" />
+    <Compile Remove="Themes\Basic\Layouts\Default\**" />
+    <Compile Remove="Themes\Basic\Layouts\Mdw\**" />
+    <Compile Remove="Themes\Mdw\**" />
+    <Content Remove="Themes\Basic\Layouts\Default\**" />
+    <Content Remove="Themes\Basic\Layouts\Mdw\**" />
+    <Content Remove="Themes\Mdw\**" />
     <Content Remove="wwwroot\**\*.*" />
-    <EmbeddedResource Remove="Pages\**" />
-    <EmbeddedResource Remove="Views\**" />
-    <None Remove="Pages\**" />
-    <None Remove="Views\**" />
+    <EmbeddedResource Remove="Themes\Basic\Layouts\Default\**" />
+    <EmbeddedResource Remove="Themes\Basic\Layouts\Mdw\**" />
+    <EmbeddedResource Remove="Themes\Mdw\**" />
+    <None Remove="Themes\Basic\Layouts\Default\**" />
+    <None Remove="Themes\Basic\Layouts\Mdw\**" />
+    <None Remove="Themes\Mdw\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Localization\Default\ar.json" />
-    <Content Remove="Localization\Default\cs.json" />
-    <Content Remove="Localization\Default\de.json" />
-    <Content Remove="Localization\Default\en-GB.json" />
-    <Content Remove="Localization\Default\en.json" />
-    <Content Remove="Localization\Default\es.json" />
-    <Content Remove="Localization\Default\fi.json" />
-    <Content Remove="Localization\Default\fr.json" />
-    <Content Remove="Localization\Default\hi.json" />
-    <Content Remove="Localization\Default\hr.json" />
-    <Content Remove="Localization\Default\hu.json" />
-    <Content Remove="Localization\Default\is.json" />
-    <Content Remove="Localization\Default\it.json" />
-    <Content Remove="Localization\Default\nl.json" />
-    <Content Remove="Localization\Default\pl-PL.json" />
-    <Content Remove="Localization\Default\pt-BR.json" />
-    <Content Remove="Localization\Default\ro-RO.json" />
-    <Content Remove="Localization\Default\ru.json" />
-    <Content Remove="Localization\Default\sk.json" />
-    <Content Remove="Localization\Default\sl.json" />
-    <Content Remove="Localization\Default\tr.json" />
-    <Content Remove="Localization\Default\vi.json" />
-    <Content Remove="Localization\Default\zh-Hans.json" />
-    <Content Remove="Localization\Default\zh-Hant.json" />
+    <Content Remove="Localization\South25\en.json" />
+    <Content Remove="Localization\RetroHof\en.json" />
+    <Content Remove="Localization\ErindOnTrack\en.json" />
+    <Content Remove="Localization\Mdw\en.json" />
+    <Content Remove="Themes\Basic\Components\Topbar\Default.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Localization\Default\ar.json" />
-    <EmbeddedResource Include="Localization\Default\cs.json" />
-    <EmbeddedResource Include="Localization\Default\de.json" />
-    <EmbeddedResource Include="Localization\Default\en-GB.json" />
     <EmbeddedResource Include="Localization\Default\en.json" />
-    <EmbeddedResource Include="Localization\Default\es.json" />
-    <EmbeddedResource Include="Localization\Default\fi.json" />
-    <EmbeddedResource Include="Localization\Default\fr.json" />
-    <EmbeddedResource Include="Localization\Default\hi.json" />
-    <EmbeddedResource Include="Localization\Default\hr.json" />
-    <EmbeddedResource Include="Localization\Default\hu.json" />
-    <EmbeddedResource Include="Localization\Default\is.json" />
-    <EmbeddedResource Include="Localization\Default\it.json" />
-    <EmbeddedResource Include="Localization\Default\nl.json" />
-    <EmbeddedResource Include="Localization\Default\pl-PL.json" />
-    <EmbeddedResource Include="Localization\Default\pt-BR.json" />
-    <EmbeddedResource Include="Localization\Default\ro-RO.json" />
-    <EmbeddedResource Include="Localization\Default\ru.json" />
-    <EmbeddedResource Include="Localization\Default\sk.json" />
-    <EmbeddedResource Include="Localization\Default\sl.json" />
-    <EmbeddedResource Include="Localization\Default\tr.json" />
-    <EmbeddedResource Include="Localization\Default\vi.json" />
-    <EmbeddedResource Include="Localization\Default\zh-Hans.json" />
-    <EmbeddedResource Include="Localization\Default\zh-Hant.json" />
+    <EmbeddedResource Include="Localization\South25\en.json" />
+    <EmbeddedResource Include="Localization\RetroHof\en.json" />
+    <EmbeddedResource Include="Localization\ErindOnTrack\en.json" />
+    <EmbeddedResource Include="Localization\Mdw\en.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\_ViewImports.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

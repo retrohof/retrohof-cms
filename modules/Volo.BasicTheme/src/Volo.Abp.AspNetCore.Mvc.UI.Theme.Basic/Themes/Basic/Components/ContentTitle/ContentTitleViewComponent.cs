@@ -3,17 +3,20 @@ using Volo.Abp.AspNetCore.Mvc.UI.Layout;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle;
 
-public class ContentTitleViewComponent : AbpViewComponent
+public class ContentTitleViewComponent : AgileCmsViewComponent
 {
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
+
     protected IPageLayout PageLayout { get; }
 
-    public ContentTitleViewComponent(IPageLayout pageLayout)
+    public ContentTitleViewComponent(IPageLayout pageLayout, IAgileCmsBrandingProvider brandingProvider)
     {
+        _brandingProvider = brandingProvider;
         PageLayout = pageLayout;
     }
 
     public virtual IViewComponentResult Invoke()
     {
-        return View("~/Themes/Basic/Components/ContentTitle/Default.cshtml", PageLayout.Content);
+        return GetViewName($"~/Themes/Basic/Components/ContentTitle/", _brandingProvider.AppName, PageLayout.Content);
     }
 }

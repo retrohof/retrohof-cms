@@ -1,4 +1,8 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
+﻿@using Microsoft.AspNetCore.Mvc.ApplicationModels
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle
@@ -10,13 +14,15 @@
 @using Volo.Abp.Localization
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Ui.LayoutHooks
-@inject IBrandingProvider BrandingProvider
+
+@inject IAgileCmsBrandingProvider Branding
 @inject IPageLayout PageLayout
+@inject IHtmlLocalizer<BasicResource> L
 @{
     Layout = null;
     var containerClass = ViewBag.FluidLayout == true ? "container-fluid" : "container"; //TODO: Better and type-safe options
 
-    var pageTitle = ViewBag.Title == null ? BrandingProvider.AppName : ViewBag.Title; //TODO: Discard to get from Title
+    var pageTitle = ViewBag.Title == null ? Branding.AppName : ViewBag.Title; //TODO: Discard to get from Title
 
     if (PageLayout.Content.Title != null)
     {
@@ -41,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>@pageTitle</title>
+    <title>@pageTitle ./Application</title>
 
     <abp-style-bundle name="@BasicThemeBundles.Styles.Global" />
 

@@ -10,81 +10,72 @@ public class BasicTheme : ITheme, ITransientDependency
 
     public virtual string GetLayout(string name, bool fallbackToDefault = true)
     {
-        switch (name)
-        {
-            case BasicLayouts.Application:
-                return $"~/Themes/Basic/Layouts/Application.cshtml";
-            case BasicLayouts.Account:
-                return $"~/Themes/Basic/Layouts/Account.cshtml";
-            case BasicLayouts.Empty:
-                return $"~/Themes/Basic/Layouts/Empty.cshtml";
-            case CanvasLayouts.Application:
-                return $"~/Themes/Canvas/Layouts/Application.cshtml";
-            case CanvasLayouts.Account:
-                return $"~/Themes/Canvas/Layouts/Account.cshtml";
-            case CanvasLayouts.Empty:
-                return $"~/Themes/Canvas/Layouts/Empty.cshtml";
-            case ErindOnTrackLayouts.Application:
-                return $"~/Themes/ErindOnTrack/Layouts/Application.cshtml";
-            case ErindOnTrackLayouts.Account:
-                return $"~/Themes/ErindOnTrack/Layouts/Account.cshtml";
-            case ErindOnTrackLayouts.Empty:
-                return $"~/Themes/ErindOnTrack/Layouts/Empty.cshtml";
-            case MdwLayouts.Application:
-                return $"~/Themes/Mdw/Layouts/Application.cshtml";
-            case MdwLayouts.Account:
-                return $"~/Themes/Mdw/Layouts/Account.cshtml";
-            case MdwLayouts.Empty:
-                return $"~/Themes/Mdw/Layouts/Empty.cshtml";
-            default:
-                return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
-        }
+        var layout = name.Replace(".", string.Empty);
+
+        return $"~/Themes/Basic/Layouts/{layout}.cshtml";
+
+        //switch (name)
+            //{
+            //case LayoutType.Application:
+            //    return $"~/Themes/Basic/Layouts/Application.cshtml";
+            //case LayoutType.Account:
+            //    return $"~/Themes/Basic/Layouts/Account.cshtml";
+            //case LayoutType.Empty:
+            //    return $"~/Themes/Basic/Layouts/Empty.cshtml";
+            //case LayoutType.ErindOnTrackApplication:
+            //    return $"~/Themes/Basic/EoT/Layouts/Application.cshtml";
+            //case LayoutType.ErindOnTrackAccount:
+            //    return $"~/Themes/Basic/EoT/Layouts/Account.cshtml";
+            //case LayoutType.MdwApplication:
+            //    return $"~/Themes/Basic/Layouts/Mdw/Application.cshtml";
+            //case LayoutType.MdwAccount:
+            //    return $"~/Themes/Basic/Layouts/Mdw/Account.cshtml";
+            //case LayoutType.RetroHofApplication:
+            //    return $"~/Themes/Basic/Layouts/RetroHof/Application.cshtml";
+            //case LayoutType.RetroHofAccount:
+            //    return $"~/Themes/Basic/Layouts/RetroHof/Account.cshtml";
+            //case LayoutType.South25Application:
+            //    return $"~/Themes/Basic/Layouts/South25/Application.cshtml";
+            //case LayoutType.South25Account:
+            //    return $"~/Themes/Basic/Layouts/South25/Account.cshtml";
+            //default:
+            //    //throw new FileNotFoundException(nameof(name));
+            //    return fallbackToDefault ? "~/Themes/Basic/Layouts/Application.cshtml" : null;
+        //}
     }
 }
 
-public static class ErindOnTrackLayouts
+public class PageType
 {
-    public const string Application = "ErindOnTrack.Application";
-
-    public const string Admin = "ErindOnTrack.Admin";
-
-    public const string Public = "ErindOnTrack.Public";
-
-    public const string Account = "ErindOnTrack.Account";
-
-    public const string Empty = "ErindOnTrack.Empty";
-}
-public static class CanvasLayouts
-{
-    public const string Application = "Canvas.Application";
-
-    public const string Admin = "Canvas.Admin";
-
-    public const string Public = "Canvas.Public";
-
-    public const string Account = "Canvas.Account";
-
-    public const string Empty = "Canvas.Empty";
+    public const string Application = "Application";
+    public const string Account = "Account";
+    public const string Empty = "Empty";
 }
 
-public static class MdwLayouts
+public class LayoutType
 {
-    public const string Application = "Mdw.Application";
+    public const string Application = "Application";
+    public const string Account = "Account";
+    public const string Empty = "Empty";
 
-    public const string Account = "Mdw.Account";
+    public const string ErindOnTrackApplication = "ErindOnTrack.Application";
+    public const string ErindOnTrackAccount = "ErindOnTrack.Account";
 
-    public const string Public = "Mdw.Public";
+    public const string MdwApplication = "Mdw.Application";
+    public const string MdwAccount = "Mdw.Account";
 
-    public const string Empty = "Mdw.Empty";
+    public const string RetroHofApplication = "RetroHof.Application";
+    public const string RetroHofAccount = "RetroHof.Account";
+
+    public const string South25Application = "South25.Application";
+    public const string South25Account = "South25.Account";
 }
 
-public static class BasicLayouts
+public enum ThemeType
 {
-    public const string Application = "Basic.Application";
-
-    public const string Account = "Basic.Account";
-
-    public const string Public = "Basic.Public";
-
-    public const string Empty = "Basic.Empty";
+    Default,
+    ErindOnTrack,
+    Mdw,
+    RetroHof,
+    South25
 }

@@ -8,12 +8,15 @@ using Volo.Abp.Localization;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar.LanguageSwitch;
 
-public class LanguageSwitchViewComponent : AbpViewComponent
+public class LanguageSwitchViewComponent : AgileCmsViewComponent
 {
+    private readonly IAgileCmsBrandingProvider _brandingProvider;
+
     protected ILanguageProvider LanguageProvider { get; }
 
-    public LanguageSwitchViewComponent(ILanguageProvider languageProvider)
+    public LanguageSwitchViewComponent(ILanguageProvider languageProvider, IAgileCmsBrandingProvider brandingProvider)
     {
+        _brandingProvider = brandingProvider;
         LanguageProvider = languageProvider;
     }
 
@@ -51,6 +54,7 @@ public class LanguageSwitchViewComponent : AbpViewComponent
             OtherLanguages = languages.Where(l => l != currentLanguage).ToList()
         };
 
-        return View("~/Themes/Basic/Components/Toolbar/LanguageSwitch/Default.cshtml", model);
+        return GetViewName($"~/Themes/Basic/Components/Toolbar/LanguageSwitch/", _brandingProvider.AppName, model);
+        //return View($"~/Themes/Basic/Components/Toolbar/LanguageSwitch/{_brandingProvider.AppName}.cshtml", model);
     }
 }

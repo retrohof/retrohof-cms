@@ -1,0 +1,30 @@
+﻿@using Volo.Abp.UI.Navigation
+@model ApplicationMenuItem
+@{
+    var elementId = string.IsNullOrEmpty(Model.ElementId) ? string.Empty : $"id=\"{Model.ElementId}\"";
+    var cssClass = string.IsNullOrEmpty(Model.CssClass) ? string.Empty : Model.CssClass;
+    var disabled = Model.IsDisabled ? "disabled" : string.Empty;
+    var url = string.IsNullOrEmpty(Model.Url) ? "#" : Url.IsLocalUrl(Model.Url) ? Url.Content(Model.Url.EnsureStartsWith('~')) : Model.Url;
+}
+@if (Model.IsLeaf)
+{
+    if (Model.Url != null)
+    {
+        <li class="menu-item sub-menu" style="">
+            <a class="menu-link" href="@url"><div>@Model.DisplayName</div></a>
+        </li>
+    }
+}
+else
+{
+    <li class="menu-item sub-menu">
+        <a class="menu-link" href="#" onclick="checkboxClick(this);"><div>@Model.DisplayName</div></a>
+        <ul class="sub-menu-container not-dark" style="">
+            @foreach (var childMenuItem in Model.Items)
+            {
+                @await Html.PartialAsync("~/Themes/Basic/Components/Menu/_RetroHofMenuItem.cshtml", childMenuItem)
+            }   
+        </ul>
+        <button class="sub-menu-trigger fa-solid fa-chevron-right"><span class="visually-hidden">Open Sub-Menu</span></button>
+    </li>
+}
