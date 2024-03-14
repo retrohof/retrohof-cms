@@ -4,7 +4,12 @@
 
 <div id="logo">
     <a asp-page="Index">
-        <img class="logo-default" srcset="/themes/@BrandingProvider.AppName/images/logo.png, /themes/@BrandingProvider.AppName/images/logo@2x.png 2x" src="/themes/@BrandingProvider.AppName/images/logo@2x.png" alt="@BrandingProvider.AppName Logo">
-        <img class="logo-dark" srcset="/themes/@BrandingProvider.AppName/images/logo-dark.png, /themes/@BrandingProvider.AppName/images/logo-dark@2x.png 2x" src="/themes/@BrandingProvider.AppName/images/logo-dark@2x.png" alt="@BrandingProvider.AppName Logo">
+        <picture>
+            <source media="(max-width: 480px)" srcset="/themes/@BrandingProvider.AppName/images/logo_.png, /themes/@BrandingProvider.AppName/images/logo-dark_.png" />
+            <source media="(max-width: 799px)" srcset="/themes/@BrandingProvider.AppName/images/logo_.png /themes/@BrandingProvider.AppName/images/logo-dark_.png" />
+            <img src="/themes/@BrandingProvider.AppName/images/logo_.png" alt="@BrandingProvider.AppName Logo" />
+        </picture>
+@*         <img class="logo-default" srcset="/themes/@BrandingProvider.AppName/images/logo_.png 480w, /themes/@BrandingProvider.AppName/images/logo.png 600w, /themes/@BrandingProvider.AppName/images/logo@2x.png 2x" src="/themes/@BrandingProvider.AppName/images/logo_.png" alt="@BrandingProvider.AppName Logo">
+        <img class="logo-dark" srcset="/themes/@BrandingProvider.AppName/images/logo-dark_.png 480w, /themes/@BrandingProvider.AppName/images/logo-dark.png 600w, /themes/@BrandingProvider.AppName/images/logo-dark@2x.png 2x" src="/themes/@BrandingProvider.AppName/images/logo-dark_.png" alt="@BrandingProvider.AppName Logo"> *@
     </a>
 </div>
