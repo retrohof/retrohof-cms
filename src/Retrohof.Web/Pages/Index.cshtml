@@ -8,11 +8,13 @@
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.OpeningHours
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.RecentPosts
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Testimonials
+@using Volo.Abp.MultiTenancy
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
 @model Retrohof.Web.Pages.IndexModel
 
 @inject IAgileCmsBrandingProvider Branding
+@inject ICurrentTenant CurrentTenant
 @inject ICurrentUser CurrentUser
 @inject IThemeLayoutManager ThemeLayoutManager
 
@@ -32,6 +34,8 @@
 
 	<div class="content-wrap">
 
+		<b>TENANT INFO: @Model.DisplayTenant(CurrentTenant)</b>
+		<b>USER INFO: @Model.DisplayUser(CurrentUser)</b>
 
 		<!-- Introduction
 		============================================= -->
