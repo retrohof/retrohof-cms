@@ -17,11 +17,11 @@ public class SuppliersModel
 
     public List<string> Urls =
     [
-        @"images/suppliers/integra-logo.png",
-        @"images/suppliers/hallis-hudson-logo.png",
-        @"images/suppliers/lexaflux-logo.png",
-        @"images/suppliers/silent-gliss-logo.png",
-        @"images/suppliers/the-bradley-collection-logo.png",
-        @"images/suppliers/velux-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/integra-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/hallis-hudson-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/lexaflux-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/silent-gliss-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/the-bradley-collection-logo.png",
+        @"/themes/erindOnTrack/images/suppliers/velux-logo.png",
     ];
 }
