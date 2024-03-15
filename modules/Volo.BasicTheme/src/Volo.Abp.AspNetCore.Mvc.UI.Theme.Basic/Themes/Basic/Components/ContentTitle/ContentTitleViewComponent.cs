@@ -2,7 +2,6 @@
 using Volo.Abp.AspNetCore.Mvc.UI.Layout;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle;
-
 public class ContentTitleViewComponent : AgileCmsViewComponent
 {
     private readonly IAgileCmsBrandingProvider _brandingProvider;

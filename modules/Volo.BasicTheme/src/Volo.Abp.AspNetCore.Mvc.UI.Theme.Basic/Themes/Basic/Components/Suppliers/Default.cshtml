@@ -1,0 +1,14 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Suppliers
+
+@model SuppliersModel
+
+<div class="container">
+
+    <ul class="clients-grid row row-cols-6">
+        @foreach (var item in Model.Urls)
+        {
+            <li class="col"><a href="#"><img src="@item" alt="Clients"></a></li>
+        }
+    </ul>
+
+</div>  

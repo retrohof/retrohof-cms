@@ -1,12 +1,16 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @using Volo.Abp.AspNetCore.Mvc.UI.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Footer
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNavbar
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.PageAlerts
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Slider
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Suppliers
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Topbar
 @using Volo.Abp.AspNetCore.Mvc.UI.Theming
 @using Volo.Abp.AspNetCore.Mvc.UI.Widgets.Components.WidgetScripts
@@ -16,10 +20,11 @@
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Ui.LayoutHooks
 
-@inject IAgileCmsBrandingProvider Branding
+@* @inject IAgileCmsBrandingProvider Branding
 @inject ICurrentTenant CurrentTenant
-@inject IPageLayout PageLayout
+@inject IPageLayout PageLayout *@
 @inject IHtmlLocalizer<ErindOnTrackResource> L
+@inject IHttpContextAccessor httpContext;
 
 @{
     Layout = null;
@@ -27,6 +32,9 @@
     var pageTitle = L["Index|Meta|Title"].Value;
 
     var description = L["Index|Meta|Description"].Value;
+    var routeValue = @httpContext?.HttpContext?.Request.RouteValues.First().Value;
+
+    const string IndexRoute = "/Index";
 }
 
 <!DOCTYPE html>
@@ -46,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-    <title>@pageTitle ErindOnTrack/Account</title>
+    <title>@pageTitle ErindOnTrack/Application</title>
 
     @await RenderSectionAsync("styles", false)
 
@@ -58,14 +66,33 @@
     ============================================= -->
     <div id="wrapper">
 
+        <!-- Header
+        ============================================= -->
         @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
 
-        @(await Component.InvokeAsync<MainNavbarViewComponent>())
+        @(await Component.InvokeAsync<MainNavbarViewComponent>())<!-- #header end -->
+
+        <!-- Slider
+        ============================================= -->
+        @if (routeValue!.Equals(IndexRoute))
+        {
+            @(await Component.InvokeAsync<SliderViewComponent>())
+
+        }<!-- #slider end -->
 
         @await RenderSectionAsync("content_toolbar", false)
 
-        @RenderBody()
+        <!-- Content
+        ============================================= -->
+        @RenderBody()<!-- #content end -->
 
+        <!-- Suppliers
+        ============================================= -->
+        @(await Component.InvokeAsync<SuppliersViewComponent>())<!-- #suppliers end -->
+
+        <!-- Footer
+        ============================================= -->
+        @(await Component.InvokeAsync<FooterViewComponent>())<!-- #footer end -->
 
     </div><!-- #wrapper end -->
 

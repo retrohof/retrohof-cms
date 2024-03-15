@@ -1,0 +1,51 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Slider
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@model SliderViewModel
+
+<!-- slider
+============================================= -->
+
+<section id="slider" class="slider-element swiper_wrapper min-vh-60 min-vh-md-100">
+
+    <div class="slider-inner">
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center not-dark">
+                            <h2 data-animate="fadeInDown">@Model.Slides.First().Title</h2>
+                            <h3 class="d-none d-md-block" data-animate="fadeInUp" data-delay="200">@Model.Slides.First().SubTitle</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('themes/erindOnTrack/images/slider/2x-bend-window-bay.jpeg'); background-position: center top;"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center dark">
+                            <h2 data-animate="fadeInUp">@Model.Slides.Skip(1).First().Title</h2>
+                            <h3 class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">@Model.Slides.Skip(1).First().SubTitle</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('themes/erindOnTrack/images/slider/full-width-curtain-track.jpg');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInLeft">@Model.Slides.Skip(2).First().Title</h2>
+                            <h3 class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">@Model.Slides.Skip(2).First().SubTitle</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('themes/erindOnTrack/images/slider/5-side-bay-window-curtain-track.jpg'); background-position: center bottom;"></div>
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="fas fa-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+
+        <a href="#" data-scrollto="#content" class="one-page-arrow dark"><i class="fas fa-angle-double-down infinite animated fadeInDown"></i></a>
+
+    </div>
+</section>
+<!-- #slider end -->
