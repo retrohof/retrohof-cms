@@ -42,6 +42,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using DefaultResource = Retrohof.Localization.DefaultResource;
+using Polly;
 
 namespace Retrohof.Web;
 
@@ -242,13 +243,35 @@ public class RetrohofWebModule : AbpModule
     {
         Configure<AbpBundlingOptions>(options =>
         {
+			options.Mode = BundlingMode.None;
+
             options.StyleBundles.Configure(
-                BasicThemeBundles.Styles.Global,
+                "Canvas.Global",
                 bundle =>
                 {
-                    //bundle.AddFiles("/global-styles.css");
-                }
-            );
+                    bundle.AddFiles(
+                        "/themes/erindOnTrack/style.css",
+                        "/css/font-icons.css",
+                        "/css/swiper.css",
+                        "/css/custom.css");
+                });
+
+            options.ScriptBundles.Configure(
+                "Canvas.Global",
+                bundle =>
+                {
+                    bundle.AddFiles(
+                        "/js/jquery.js",
+                        "/js/functions.js");
+                });
+
+            //options.StyleBundles.Configure(
+            //    BasicThemeBundles.Styles.Global,
+            //    bundle =>
+            //    {
+            //        bundle.AddFiles("/global-styles.css");
+            //    }
+            //);
         });
     }
 

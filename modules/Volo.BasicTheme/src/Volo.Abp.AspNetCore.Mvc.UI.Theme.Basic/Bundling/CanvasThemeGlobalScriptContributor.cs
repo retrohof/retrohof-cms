@@ -6,7 +6,7 @@ public class CanvasThemeGlobalScriptContributor : BundleContributor
 {
     public override void ConfigureBundle(BundleConfigurationContext context)
     {
-        context.Files.Insert(0, "/js/functions.js");
-        context.Files.Insert(0, "/js/jquery.js");
+        //context.Files.Insert(0, "/js/jquery.js");
+        //context.Files.Insert(0, "/js/functions.js");
     }
 }

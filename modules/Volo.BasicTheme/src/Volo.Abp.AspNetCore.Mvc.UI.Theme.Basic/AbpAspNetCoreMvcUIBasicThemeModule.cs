@@ -87,23 +87,23 @@ public class AbpAspNetCoreMvcUiBasicThemeModule : AbpModule
                         .AddContributors(typeof(BasicThemeGlobalScriptContributor));
                 });
 
-            options
-                .StyleBundles
-                .Add("Canvas.Global", bundle =>
-                {
-                    bundle
-                        .AddBaseBundles(StandardBundles.Styles.Global)
-                        .AddContributors(typeof(CanvasThemeGlobalStyleContributor));
-                });
+            //options
+            //    .StyleBundles
+            //    .Add("Canvas.Global", bundle =>
+            //    {
+            //        bundle
+            //            .AddBaseBundles(StandardBundles.Styles.Global)
+            //            .AddContributors(typeof(CanvasThemeGlobalStyleContributor));
+            //    });
 
-            options
-                .ScriptBundles
-                .Add("Canvas.Global", bundle =>
-                {
-                    bundle
-                        .AddBaseBundles(StandardBundles.Scripts.Global)
-                        .AddContributors(typeof(CanvasThemeGlobalScriptContributor));
-                });
+            //options
+            //    .ScriptBundles
+            //    .Add("Canvas.Global", bundle =>
+            //    {
+            //        bundle
+            //            .AddBaseBundles(StandardBundles.Scripts.Global)
+            //            .AddContributors(typeof(CanvasThemeGlobalScriptContributor));
+            //    });
         });
     }
 
