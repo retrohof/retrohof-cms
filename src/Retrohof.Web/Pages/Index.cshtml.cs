@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Text;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.TenantManagement;
@@ -21,12 +22,12 @@ public class IndexModel : RetrohofPageModel
 
 	public string DisplayUser(ICurrentUser user)
 	{
-		return $"User ID:{Environment.NewLine} ID:{user.Id}{Environment.NewLine} {Environment.NewLine}  Name:{user.Name}";
+		return new StringBuilder($"User ID:{Environment.NewLine} {user.Id}{Environment.NewLine} {Environment.NewLine} Name:{user.Name}").ToString();
 	}
 
 	public string DisplayTenant(ICurrentTenant tenant)
 	{
-		return $"Tenant ID:{Environment.NewLine} ID:{tenant.Id}{Environment.NewLine} {Environment.NewLine}  Name:{tenant.Name}";
+		return new StringBuilder($"Tenant ID:{Environment.NewLine} {tenant.Id}{Environment.NewLine} {Environment.NewLine} Name:{tenant.Name}").ToString();
 	}
 
 	public void OnGet()
