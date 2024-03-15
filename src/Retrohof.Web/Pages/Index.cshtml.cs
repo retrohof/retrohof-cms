@@ -22,12 +22,12 @@ public class IndexModel : RetrohofPageModel
 
 	public string DisplayUser(ICurrentUser user)
 	{
-		return new StringBuilder($"User ID:{Environment.NewLine} {user.Id}{Environment.NewLine} {Environment.NewLine} Name:{user.Name}").ToString();
+		return new StringBuilder($"<b>USER INFO:</b> <p>User ID: {user.Id}:</p><p>Name:{user.Name}</p>").ToString();
 	}
 
 	public string DisplayTenant(ICurrentTenant tenant)
 	{
-		return new StringBuilder($"Tenant ID:{Environment.NewLine} {tenant.Id}{Environment.NewLine} {Environment.NewLine} Name:{tenant.Name}").ToString();
+		return new StringBuilder($"<b>TENANT INFO:</b> <p>Tenant ID: {tenant.Id}</p><p>Name:{tenant.Name}</p>").ToString();
 	}
 
 	public void OnGet()

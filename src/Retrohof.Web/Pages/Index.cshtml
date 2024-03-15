@@ -34,8 +34,9 @@
 
 	<div class="content-wrap">
 
-		<b>TENANT INFO: @Model.DisplayTenant(CurrentTenant)</b>
-		<b>USER INFO: @Model.DisplayUser(CurrentUser)</b>
+		@Html.Raw(Model.DisplayTenant(CurrentTenant))
+		
+		@Html.Raw(@Model.DisplayUser(CurrentUser))
 
 		<!-- Introduction
 		============================================= -->
