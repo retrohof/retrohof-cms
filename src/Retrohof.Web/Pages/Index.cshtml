@@ -42,14 +42,14 @@
 
 		<!-- About Us
 		============================================= -->
-		@(await Component.InvokeAsync<AboutUsViewComponent>()) <!-- #about us end -->
+		@* @(await Component.InvokeAsync<AboutUsViewComponent>()) <!-- #about us end --> *@
 
 		<div class="line"></div>
 
 
 		<!-- ChooseUs
 		============================================= -->
-		@(await Component.InvokeAsync<ChooseUsViewComponent>()) <!-- #choose us end -->
+		@* @(await Component.InvokeAsync<ChooseUsViewComponent>()) <!-- #choose us end --> *@
 
 
 		<div class="container">
@@ -60,7 +60,7 @@
 
 					<!-- Recent Posts
 					============================================= -->
-					@(await Component.InvokeAsync<RecentPostsViewComponent>()) <!-- #recent posts end -->
+					@* @(await Component.InvokeAsync<RecentPostsViewComponent>()) <!-- #recent posts end --> *@
 
 				</div>
 
@@ -68,11 +68,11 @@
 
 					<!-- Opening Hours
 					============================================= -->
-					@(await Component.InvokeAsync<OpeningHoursViewComponent>()) <!-- #opening hours end -->
+					@* @(await Component.InvokeAsync<OpeningHoursViewComponent>()) <!-- #opening hours end --> *@
 
 					<!-- Testimonials
 					============================================= -->
-					@(await Component.InvokeAsync<TestimonialsViewComponent>()) <!-- #testimonials end -->
+					@* @(await Component.InvokeAsync<TestimonialsViewComponent>()) <!-- #testimonials end --> *@
 
 				</div>
 
