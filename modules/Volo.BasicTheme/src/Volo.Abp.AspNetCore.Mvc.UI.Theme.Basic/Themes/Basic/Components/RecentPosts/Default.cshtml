@@ -1,0 +1,35 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.RecentPosts
+
+@model RecentPostsModel
+
+<div class="fancy-title title-border">
+	<h4>@Model.Title</h4>
+</div>
+
+<div class="row posts-md">
+
+	@foreach (var item in Model.Posts)
+	{
+		<div class="entry col-md-6">
+			<div class="grid-inner">
+				<div class="entry-image">
+					<a href="#"><img src="@item.ImageSrc" alt="Image"></a>
+				</div>
+				<div class="entry-meta">
+					<ul>
+						<li><i class="uil uil-schedule"></i> @item.Date.ToShortDateString()</li>
+						<li><a href="#"><i class="uil uil-comments-alt"></i> @item.CommentCount</a></li>
+					</ul>
+				</div>
+				<div class="entry-title title-sm text-transform-none">
+					<h3><a href="#">@item.Title</a></h3>
+				</div>
+
+@* 				<div class="entry-content">
+					<p>@item.Introduction</p>
+				</div> *@
+			</div>
+		</div>
+	}
+
+</div>
