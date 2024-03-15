@@ -6,7 +6,9 @@
 
 @inject IAgileCmsBrandingProvider BrandingProvider
 
-<header id="header" class="full-header">
+<!-- Header
+============================================= -->
+<header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
 
 	<div id="header-wrap">
 
@@ -18,32 +20,11 @@
 				============================================= -->
 				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>())<!-- #logo end -->
 
-				<div class="primary-menu-trigger">
-					<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
-						<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
-					</button>
-				</div>
-
-				<!-- Primary Navigation
-				============================================= -->
-				<nav class="primary-menu">
-
-					<ul class="menu-container">
-
-						@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
-
-					</ul>
-
-				</nav>
-
-				<!-- #primary-menu end -->
-
 			</div>
-
 		</div>
 
 	</div>
 
 	<div class="header-wrap-clone"></div>
 
-</header>
+</header><!-- #header end -->

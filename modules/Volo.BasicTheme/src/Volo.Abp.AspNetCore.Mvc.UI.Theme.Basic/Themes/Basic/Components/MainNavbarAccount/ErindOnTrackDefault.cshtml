@@ -5,6 +5,7 @@
 @using Volo.Abp.MultiTenancy
 
 @inject IAgileCmsBrandingProvider BrandingProvider
+@model bool
 
 <header id="header" class="full-header">
 
@@ -17,26 +18,6 @@
 				<!-- Logo
 				============================================= -->
 				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>())<!-- #logo end -->
-
-				<div class="primary-menu-trigger">
-					<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
-						<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
-					</button>
-				</div>
-
-				<!-- Primary Navigation
-				============================================= -->
-				<nav class="primary-menu">
-
-					<ul class="menu-container">
-
-						@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
-
-					</ul>
-
-				</nav>
-
-				<!-- #primary-menu end -->
 
 			</div>
 
