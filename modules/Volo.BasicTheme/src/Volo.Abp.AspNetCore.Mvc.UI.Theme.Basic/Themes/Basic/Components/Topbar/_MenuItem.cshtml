@@ -1,5 +1,7 @@
-﻿@using Volo.Abp.UI.Navigation
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.UI.Navigation
 @model ApplicationMenuItem
+@inject IAgileCmsBrandingProvider Branding
 @{
     var elementId = string.IsNullOrEmpty(Model.ElementId) ? string.Empty : $"id=\"{Model.ElementId}\"";
     var cssClass = string.IsNullOrEmpty(Model.CssClass) ? string.Empty : Model.CssClass;
@@ -22,7 +24,7 @@ else
         <ul class="sub-menu-container not-dark" style="">
             @foreach (var childMenuItem in Model.Items)
             {
-                @await Html.PartialAsync("~/Themes/Basic/Components/Menu/_MdwMenuItem.cshtml", childMenuItem)
+                @await Html.PartialAsync($"~/Themes/Basic/Components/Menu/_{Branding.AppName}MenuItem.cshtml", childMenuItem)
             }
         </ul>
         <button class="sub-menu-trigger fa-solid fa-chevron-right"><span class="visually-hidden">Open Sub-Menu</span></button>
