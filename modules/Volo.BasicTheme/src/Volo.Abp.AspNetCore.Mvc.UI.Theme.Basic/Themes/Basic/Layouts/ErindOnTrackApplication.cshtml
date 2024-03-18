@@ -1,13 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Mvc.Localization
+@using System.ComponentModel
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @using Volo.Abp.AspNetCore.Mvc.UI.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Providers
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Footer
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNavbar
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.PageAlerts
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Slider
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Suppliers
@@ -19,12 +22,13 @@
 @using Volo.Abp.MultiTenancy
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Ui.LayoutHooks
+@using Retrohof.Features
 
-@* @inject IAgileCmsBrandingProvider Branding
-@inject ICurrentTenant CurrentTenant
-@inject IPageLayout PageLayout *@
+@inject IAgileCmsBrandingProvider Branding
 @inject IHtmlLocalizer<ErindOnTrackResource> L
 @inject IHttpContextAccessor httpContext;
+@inject IDefaultPageComponentsProvider PageComponentsProvider;
+@inject IViewComponentsFeatureProvider<ViewComponent> Features
 
 @{
     Layout = null;
@@ -56,25 +60,13 @@
 
     <abp-style-bundle name="Canvas.Global" />
 
-@*     <!-- Core Style -->
-    <link rel="stylesheet" href="/themes/erindOnTrack/style.css">
-
-    <!-- Font Icons -->
-    <link rel="stylesheet" href="/css/font-icons.css">
-
-    <!-- Plugins/Components CSS -->
-    <link rel="stylesheet" href="/css/swiper.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/custom.css"> *@
-
     <title>@pageTitle ErindOnTrack/Application</title>
 
     @await RenderSectionAsync("styles", false)
 
 </head>
 
-<body class="abp-application-layout">
+<body class="abp-application-layout @(await Features.DisplayViewComponent<MaintenanceViewComponent>() ? "stretched" : "")">
 
     <!-- Document Wrapper
     ============================================= -->
@@ -82,31 +74,52 @@
 
         <!-- Header
         ============================================= -->
-        @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
-
-        @(await Component.InvokeAsync<MainNavbarViewComponent>())<!-- #header end -->
-
-        <!-- Slider
-        ============================================= -->
-        @if (routeValue!.Equals(IndexRoute))
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
         {
-            @(await Component.InvokeAsync<SliderViewComponent>())
+            @if (await Features.DisplayViewComponent<TopNavbarToolbarViewComponent>())
+                @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
+        }
 
-        }<!-- #slider end -->
+        @if (await Features.DisplayViewComponent<MainNavbarViewComponent>())
+            @(await Component.InvokeAsync<MainNavbarViewComponent>())
+
+
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        {
+            <!-- Slider
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<SliderViewComponent>())
+            {
+                @if (routeValue!.Equals(IndexRoute))
+                {
+                    @(await Component.InvokeAsync<SliderViewComponent>())
+                }
+            }
+        }
 
         @await RenderSectionAsync("content_toolbar", false)
+
 
         <!-- Content
         ============================================= -->
         @RenderBody()<!-- #content end -->
 
-        <!-- Suppliers
-        ============================================= -->
-        @(await Component.InvokeAsync<SuppliersViewComponent>())<!-- #suppliers end -->
 
-        <!-- Footer
-        ============================================= -->
-        @(await Component.InvokeAsync<FooterViewComponent>())<!-- #footer end -->
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        {
+            <!-- Suppliers
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<SuppliersViewComponent>())
+                @(await Component.InvokeAsync<SuppliersViewComponent>())
+
+
+
+            <!-- Footer
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<FooterViewComponent>())
+                @(await Component.InvokeAsync<FooterViewComponent>())
+
+        }
 
     </div><!-- #wrapper end -->
 
@@ -116,9 +129,6 @@
 
     <!-- JavaScripts
     ============================================= -->
-@*     <script src="js/jquery.js"></script>
-    <script src="js/functions.js"></script> *@
-
     <abp-script-bundle name="Canvas.Global" />
     <abp-script-bundle name="@BasicThemeBundles.Styles.Global" />
 

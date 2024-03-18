@@ -1,0 +1,56 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance;
+
+@inject IAgileCmsBrandingProvider Branding
+
+@{
+    var appInfo = AppInfoFactory.Create(Branding.AppName);
+}
+
+<div class="content-wrap py-0">
+    <div class="container">
+        @* <div class="vh-100"> *@
+            <div class="vertical-top">
+                <div class="heading-block text-center border-bottom-0">
+                    <h1>Site is Under Maintenance</h1>
+                    <span>Please check back in sometime.</span>
+                </div>
+                <div class="row justify-content-center col-mb-50">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="feature-box fbox-center fbox-light fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="bi-exclamation-diamond-fill"></i></a>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>Why is the Site Down?</h3>
+                                <p>The site is under maintenance probably because we are working to improve this website drastically.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="feature-box fbox-center fbox-light fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="bi-clock"></i></a>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>What is the Downtime?</h3>
+                                <p>We are usually back within 10-15 minutes however we are launching a new version on @DateTime.Today.AddDays(2).ToLongDateString() with completely new infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="feature-box fbox-center fbox-light fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>Do you need Support?</h3>
+                            <p>You may simply send us an Email at <a href="mailto:{@appInfo.Email}">@appInfo.Email</a> if you need urgent support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @* </div> *@
+    </div>
+</div>
