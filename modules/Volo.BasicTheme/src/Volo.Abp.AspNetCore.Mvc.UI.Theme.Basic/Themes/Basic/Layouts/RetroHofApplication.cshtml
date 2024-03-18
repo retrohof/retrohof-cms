@@ -1,12 +1,18 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Retrohof.Features
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Components.LayoutHook
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @using Volo.Abp.AspNetCore.Mvc.UI.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ContentTitle
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Footer
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNavbar
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.PageAlerts
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Slider
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Suppliers
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Topbar
 @using Volo.Abp.AspNetCore.Mvc.UI.Theming
 @using Volo.Abp.AspNetCore.Mvc.UI.Widgets.Components.WidgetScripts
@@ -20,6 +26,8 @@
 @inject ICurrentTenant CurrentTenant
 @inject IPageLayout PageLayout
 @inject IHtmlLocalizer<MdwResource> L
+@inject IHttpContextAccessor httpContext;
+@inject IViewComponentsFeatureProvider<ViewComponent> Features
 
 @{
     Layout = null;
@@ -27,6 +35,9 @@
     var pageTitle = L["Index|Meta|Title"].Value;
 
     var description = L["Index|Meta|Description"].Value;
+    var routeValue = @httpContext?.HttpContext?.Request.RouteValues.First().Value;
+
+    const string IndexRoute = "/Index";
 }
 
 <!DOCTYPE html>
@@ -54,19 +65,62 @@
 
 </head>
 
-<body class="abp-application-layout">
+<body class="abp-application-layout @(await Features.DisplayViewComponent<MaintenanceViewComponent>() ? "stretched" : "")">
 
     <!-- Document Wrapper
     ============================================= -->
     <div id="wrapper">
 
-        @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
+        <!-- Header
+        ============================================= -->
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        {
+            @if (await Features.DisplayViewComponent<TopNavbarToolbarViewComponent>())
+                @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
 
-        @(await Component.InvokeAsync<MainNavbarViewComponent>())
+        }
+
+        @if (await Features.DisplayViewComponent<MainNavbarViewComponent>())
+            @(await Component.InvokeAsync<MainNavbarViewComponent>())
+
+
+
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        {
+            <!-- Slider
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<SliderViewComponent>())
+            {
+                @if (routeValue!.Equals(IndexRoute))
+                {
+                    @(await Component.InvokeAsync<SliderViewComponent>())
+                }
+            }
+        }
 
         @await RenderSectionAsync("content_toolbar", false)
 
-        @RenderBody()
+
+        <!-- Content
+        ============================================= -->
+        @RenderBody()<!-- #content end -->
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        {
+            <!-- Suppliers
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<SuppliersViewComponent>())
+                @(await Component.InvokeAsync<SuppliersViewComponent>())
+
+
+
+
+            <!-- Footer
+            ============================================= -->
+            @if (await Features.DisplayViewComponent<FooterViewComponent>())
+                @(await Component.InvokeAsync<FooterViewComponent>())
+
+
+        }
 
     </div><!-- #wrapper end -->
 

@@ -1,10 +1,14 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+﻿@using Microsoft.AspNetCore.Mvc.ViewComponents
+@using Retrohof.Features
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Brand
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Menu
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
 @using Volo.Abp.MultiTenancy
 
-@inject IAgileCmsBrandingProvider BrandingProvider
+@inject IAgileCmsBrandingProvider Branding
+@inject IViewComponentsFeatureProvider<ViewComponent> Features
 
 <header id="header" class="full-header">
 
@@ -24,19 +28,22 @@
 					</button>
 				</div>
 
-				<!-- Primary Navigation
-				============================================= -->
-				<nav class="primary-menu">
+				@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+				{
+					<!-- Primary Navigation
+					============================================= -->
+					<nav class="primary-menu">
 
-					<ul class="menu-container">
+						<ul class="menu-container">
 
-						@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
+							@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
 
-					</ul>
+						</ul>
 
-				</nav>
+					</nav>
 
-				<!-- #primary-menu end -->
+					<!-- #primary-menu end -->
+				}
 
 			</div>
 

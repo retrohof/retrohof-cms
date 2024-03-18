@@ -1,112 +1,90 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Mvc.Localization
+@using Retrohof.Features
 @using Volo.Abp.AspNetCore.Mvc.UI.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Providers
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.AboutUs
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ChooseUs
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Introduction
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Newsletter
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.OpeningHours
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.RecentPosts
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Testimonials
 @using Volo.Abp.MultiTenancy
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
-@model Retrohof.Web.Pages.IndexModel
 
 @inject IAgileCmsBrandingProvider Branding
 @inject ICurrentTenant CurrentTenant
 @inject ICurrentUser CurrentUser
 @inject IThemeLayoutManager ThemeLayoutManager
+@inject IHttpContextAccessor httpContext;
+@inject IHomePageComponentsProvider PageComponentsProvider;
+@inject IViewComponentsFeatureProvider<ViewComponent> Features;
+
+@model Retrohof.Web.Pages.IndexModel
 
 @{
-    Layout = ThemeLayoutManager.GetThemeLayout(PageType.Application);
+	Layout = ThemeLayoutManager.GetThemeLayout(PageType.Application);
+	var isLive = @httpContext?.HttpContext?.Request.QueryString.HasValue;
 }
 
 @section styles {
-    <abp-style src="/Pages/Index.css" />
+	<abp-style src="/Pages/Index.css" />
 }
 
 @section scripts {
-<abp-script src="/Pages/Index.js" />
+	<abp-script src="/Pages/Index.js" />
 }
 
 <section id="content">
 
 	<div class="content-wrap">
 
-		@Html.Raw(Model.DisplayTenant(CurrentTenant))
-		
-		@Html.Raw(@Model.DisplayUser(CurrentUser))
+		@if (isLive.Value)
+		{
+			@Html.Raw(Model.DisplayTenant(CurrentTenant))
 
-		<!-- Introduction
-		============================================= -->
-		@(await Component.InvokeAsync<IntroductionViewComponent>()) <!-- #introduction end -->
+			@Html.Raw(@Model.DisplayUser(CurrentUser))
+		}
 
-		<div class="line"></div>
-
-
-		<!-- About Us
-		============================================= -->
-		@* @(await Component.InvokeAsync<AboutUsViewComponent>()) <!-- #about us end --> *@
-
-		<div class="line"></div>
-
-
-		<!-- ChooseUs
-		============================================= -->
-		@* @(await Component.InvokeAsync<ChooseUsViewComponent>()) <!-- #choose us end --> *@
+		@if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
+		{
+			@(await Component.InvokeAsync<MaintenanceViewComponent>())
+		}
+		else
+		{
+			<!-- Introduction
+			============================================= -->
+			@if (await Features.DisplayViewComponent<IntroductionViewComponent>())
+				@(await Component.InvokeAsync<IntroductionViewComponent>())
 
 
-		<div class="container">
 
-			<div class="row g-5 col-mb-50">
+			<!-- About Us
+			============================================= -->
+			@if (await Features.DisplayViewComponent<AboutUsViewComponent>())
+				@(await Component.InvokeAsync<AboutUsViewComponent>())
 
-				<div class="col-lg-8">
 
-					<!-- Recent Posts
-					============================================= -->
-					@* @(await Component.InvokeAsync<RecentPostsViewComponent>()) <!-- #recent posts end --> *@
 
-				</div>
+			<!-- ChooseUs
+			============================================= -->
+			@if (await Features.DisplayViewComponent<ChooseUsViewComponent>())
+				@(await Component.InvokeAsync<ChooseUsViewComponent>())
 
-				<div class="col-lg-4">
 
-					<!-- Opening Hours
-					============================================= -->
-					@* @(await Component.InvokeAsync<OpeningHoursViewComponent>()) <!-- #opening hours end --> *@
 
-					<!-- Testimonials
-					============================================= -->
-					@* @(await Component.InvokeAsync<TestimonialsViewComponent>()) <!-- #testimonials end --> *@
+			<!-- NewsLetter
+			============================================= -->
+            @if (await Features.DisplayViewComponent<NewsLetterViewComponent>())
+                @(await Component.InvokeAsync<NewsLetterViewComponent>())
 
-				</div>
 
-			</div>
-
-		</div>
-
-		<div class="section mb-0">
-
-			<div class="container">
-
-				<div class="heading-block text-center">
-					<h3>Subscribe to our <span>Newsletter</span></h3>
-				</div>
-
-				<div class="subscribe-widget">
-					<div class="widget-subscribe-form-result"></div>
-					<form id="widget-subscribe-form2" action="include/subscribe.php" method="post" class="mb-0">
-						<div class="input-group input-group-lg mx-auto" style="max-width:600px;">
-							<div class="input-group-text"><i class="bi-envelope-plus"></i></div>
-							<input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-							<button class="btn btn-secondary" type="submit">Subscribe Now</button>
-						</div>
-					</form>
-				</div>
-
-			</div>
-
-		</div>
+		}
 
 	</div>
 

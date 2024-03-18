@@ -19,16 +19,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Themes\Basic\Components\MainNavbarAccount\**" />
     <Compile Remove="Themes\Basic\Layouts\Default\**" />
     <Compile Remove="Themes\Basic\Layouts\Mdw\**" />
     <Compile Remove="Themes\Mdw\**" />
+    <Content Remove="Themes\Basic\Components\MainNavbarAccount\**" />
     <Content Remove="Themes\Basic\Layouts\Default\**" />
     <Content Remove="Themes\Basic\Layouts\Mdw\**" />
     <Content Remove="Themes\Mdw\**" />
     <Content Remove="wwwroot\**\*.*" />
+    <EmbeddedResource Remove="Themes\Basic\Components\MainNavbarAccount\**" />
     <EmbeddedResource Remove="Themes\Basic\Layouts\Default\**" />
     <EmbeddedResource Remove="Themes\Basic\Layouts\Mdw\**" />
     <EmbeddedResource Remove="Themes\Mdw\**" />
+    <None Remove="Themes\Basic\Components\MainNavbarAccount\**" />
     <None Remove="Themes\Basic\Layouts\Default\**" />
     <None Remove="Themes\Basic\Layouts\Mdw\**" />
     <None Remove="Themes\Mdw\**" />
