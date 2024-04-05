@@ -10,7 +10,7 @@ public class PageAlertsViewComponent : AgileCmsViewComponent
 
     protected IAlertManager AlertManager { get; }
 
-    public PageAlertsViewComponent(IAlertManager alertManager, IAgileCmsBrandingProvider brandingProvider)
+    public PageAlertsViewComponent(IAlertManager alertManager, ICanvasThemeBrandingProvider brandingProvider)
     {
         AlertManager = alertManager;
         _brandingProvider = brandingProvider;

@@ -1,7 +1,7 @@
 ﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.UI.Navigation
 @model ApplicationMenuItem
-@inject IAgileCmsBrandingProvider Branding
+@inject ICanvasThemeBrandingProvider Branding
 @{
     var elementId = string.IsNullOrEmpty(Model.ElementId) ? string.Empty : $"id=\"{Model.ElementId}\"";
     var cssClass = string.IsNullOrEmpty(Model.CssClass) ? string.Empty : Model.CssClass;

@@ -5,7 +5,7 @@ using Volo.Abp.MultiTenancy;
 namespace Retrohof.Web;
 
 [Dependency(ReplaceServices = true)]
-public class RetrohofBrandingProvider : AgileCmsBrandingProvider
+public class RetrohofBrandingProvider : CanvasThemeBrandingProvider
 {
     public override string AppName => _currentTenant?.Name ?? "Default";
 

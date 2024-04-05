@@ -10,9 +10,9 @@ namespace Retrohof.Web.Pages;
  */
 public abstract class RetrohofPageModel : AbpPageModel
 {
-    protected readonly IAgileCmsBrandingProvider _brandingProvider;
+    protected readonly ICanvasThemeBrandingProvider _brandingProvider;
 
-    protected RetrohofPageModel(IAgileCmsBrandingProvider brandingProvider)
+    protected RetrohofPageModel(ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
 

@@ -6,11 +6,11 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
 
 public class UserMenuViewComponent : AgileCmsViewComponent
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
     protected IMenuManager MenuManager { get; }
 
-	public UserMenuViewComponent(IMenuManager menuManager, IAgileCmsBrandingProvider brandingProvider)
+	public UserMenuViewComponent(IMenuManager menuManager, ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
         MenuManager = menuManager;

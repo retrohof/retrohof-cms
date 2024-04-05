@@ -10,11 +10,11 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
 
 public class LanguageSwitchViewComponent : AgileCmsViewComponent
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
     protected ILanguageProvider LanguageProvider { get; }
 
-    public LanguageSwitchViewComponent(ILanguageProvider languageProvider, IAgileCmsBrandingProvider brandingProvider)
+    public LanguageSwitchViewComponent(ILanguageProvider languageProvider, ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
         LanguageProvider = languageProvider;

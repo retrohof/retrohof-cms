@@ -33,6 +33,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Gallery\Detail.cshtml" />
+    <None Include="Pages\Gallery\Index.cshtml" />
+    <None Include="Pages\Gallery\Management\CreateModal.cshtml" />
+    <None Include="Pages\Gallery\Management\Index.cshtml" />
+    <None Include="Pages\Public\CmsKit\Blogs\BlogPost.cshtml" />
+    <None Include="Pages\Public\CmsKit\Blogs\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

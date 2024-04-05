@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -7,6 +7,10 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Retrohof</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ImageGallery\Dtos\.gitkeep" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Retrohof.Domain.Shared\Retrohof.Domain.Shared.csproj" />

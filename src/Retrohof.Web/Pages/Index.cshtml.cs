@@ -8,7 +8,7 @@ namespace Retrohof.Web.Pages;
 
 public class IndexModel : RetrohofPageModel
 {
-    public IndexModel(IAgileCmsBrandingProvider brandingProvider) : base(brandingProvider)
+    public IndexModel(ICanvasThemeBrandingProvider brandingProvider) : base(brandingProvider)
     {
     }
 

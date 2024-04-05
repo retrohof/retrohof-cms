@@ -6,9 +6,9 @@ namespace Retrohof.Web.Pages;
 
 public class ApplicationModel : PageModel
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
-    public ApplicationModel(IAgileCmsBrandingProvider brandingProvider)
+    public ApplicationModel(ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
     }

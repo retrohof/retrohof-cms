@@ -5,9 +5,9 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Topbar;
 
 public class TopNavbarToolbarViewComponent : AgileCmsViewComponent
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
-    public TopNavbarToolbarViewComponent(IAgileCmsBrandingProvider brandingProvider)
+    public TopNavbarToolbarViewComponent(ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
     }

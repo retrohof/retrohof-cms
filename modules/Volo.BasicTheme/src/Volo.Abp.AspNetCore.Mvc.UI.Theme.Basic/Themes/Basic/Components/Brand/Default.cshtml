@@ -1,6 +1,6 @@
 ﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
 @using Volo.Abp.Ui.Branding
-@inject IAgileCmsBrandingProvider BrandingProvider
+@inject ICanvasThemeBrandingProvider BrandingProvider
 <a class="navbar-brand" href="/">
     @if (!BrandingProvider.LogoUrl.IsNullOrWhiteSpace())
     {

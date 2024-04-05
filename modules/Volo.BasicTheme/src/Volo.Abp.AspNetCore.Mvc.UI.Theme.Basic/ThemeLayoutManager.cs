@@ -4,9 +4,9 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 
 public class ThemeLayoutManager : IThemeLayoutManager, ITransientDependency
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
-    public ThemeLayoutManager(IAgileCmsBrandingProvider brandingProvider)
+    public ThemeLayoutManager(ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
     }

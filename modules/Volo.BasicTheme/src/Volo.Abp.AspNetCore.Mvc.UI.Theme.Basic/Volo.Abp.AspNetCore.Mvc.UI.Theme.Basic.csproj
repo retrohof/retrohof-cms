@@ -39,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="AgileCmsBrandingProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Localization\South25\en.json" />
     <Content Remove="Localization\RetroHof\en.json" />
     <Content Remove="Localization\ErindOnTrack\en.json" />

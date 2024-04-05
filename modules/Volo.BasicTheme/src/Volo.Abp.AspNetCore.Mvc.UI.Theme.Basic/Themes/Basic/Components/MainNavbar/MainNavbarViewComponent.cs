@@ -4,9 +4,9 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.MainNav
 
 public class MainNavbarViewComponent : AgileCmsViewComponent
 {
-    private readonly IAgileCmsBrandingProvider _brandingProvider;
+    private readonly ICanvasThemeBrandingProvider _brandingProvider;
 
-    public MainNavbarViewComponent(IAgileCmsBrandingProvider brandingProvider)
+    public MainNavbarViewComponent(ICanvasThemeBrandingProvider brandingProvider)
     {
         _brandingProvider = brandingProvider;
     }
