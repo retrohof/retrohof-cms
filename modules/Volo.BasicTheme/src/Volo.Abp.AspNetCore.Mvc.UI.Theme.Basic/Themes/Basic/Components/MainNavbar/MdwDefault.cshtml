@@ -29,7 +29,7 @@
 						</button>
 					</div>
 
-				@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+				@if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
 				{
 					<!-- Primary Navigation
 					============================================= -->

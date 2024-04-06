@@ -51,7 +51,8 @@
 			@Html.Raw(@Model.DisplayUser(CurrentUser))
 		}
 
-		@if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
+		<!-- Remove ! for maintenance page -->
+		@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
 		{
 			@(await Component.InvokeAsync<MaintenanceViewComponent>())
 		}
@@ -76,6 +77,31 @@
 			@if (await Features.DisplayViewComponent<ChooseUsViewComponent>())
 				@(await Component.InvokeAsync<ChooseUsViewComponent>())
 
+
+			<div class="container">
+
+				<div class="row g-5 col-mb-50">
+					<div class="col-lg-8">
+
+						<!-- Recent Posts
+						============================================= -->
+						@(await Component.InvokeAsync<RecentPostsViewComponent>()) <!-- #recent posts end -->
+
+					</div>
+
+					<div class="col-lg-4">
+
+						<!-- Opening Hours
+						============================================= -->
+						@(await Component.InvokeAsync<OpeningHoursViewComponent>()) <!-- #opening hours end -->
+						<!-- Testimonials
+						============================================= -->
+						@(await Component.InvokeAsync<TestimonialsViewComponent>()) <!-- #testimonials end -->
+
+					</div>
+				</div>
+
+			</div>
 
 
 			<!-- NewsLetter

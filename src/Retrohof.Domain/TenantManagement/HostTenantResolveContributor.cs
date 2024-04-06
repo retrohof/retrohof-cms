@@ -24,7 +24,7 @@ namespace Retrohof.TenantManagement
             }
         }
 
-        public string ShortName => "Default";
+        public string ShortName => "Mdw";
         public override string Name => "Host";
     }
 

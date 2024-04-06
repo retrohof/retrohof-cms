@@ -77,7 +77,7 @@
 
         <!-- Header
         ============================================= -->
-        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        @if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
         {
             @if (await Features.DisplayViewComponent<TopNavbarToolbarViewComponent>())
                 @(await Component.InvokeAsync<TopNavbarToolbarViewComponent>())
@@ -89,7 +89,7 @@
 
 
 
-        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        @if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
         {
             <!-- Slider
             ============================================= -->
@@ -109,7 +109,7 @@
         ============================================= -->
         @RenderBody()<!-- #content end -->
 
-        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        @if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
         {
             <!-- Suppliers
             ============================================= -->

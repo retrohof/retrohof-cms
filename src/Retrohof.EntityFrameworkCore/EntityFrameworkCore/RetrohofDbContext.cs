@@ -24,6 +24,8 @@ using Volo.CmsKit.Reactions;
 using Volo.CmsKit.Tags;
 using Volo.CmsKit.Users;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
+using Retrohof.GalleryImages;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Retrohof.EntityFrameworkCore;
 
@@ -37,6 +39,8 @@ public class RetrohofDbContext :
     ICmsKitDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
+    public DbSet<GalleryImage> GalleryImages { get; set; }
+
 
     #region Entities from the modules
 
@@ -119,5 +123,12 @@ public class RetrohofDbContext :
 
         builder.ConfigureCmsKit();
         builder.ConfigureBlobStoring();
+
+        /* Configure your own entities here */
+        builder.Entity<GalleryImage>(b =>
+        {
+            b.ToTable(Constant.DbTablePrefix + "CmsImages", Constant.DbSchema);
+            b.ConfigureByConvention();
+        });
     }
 }

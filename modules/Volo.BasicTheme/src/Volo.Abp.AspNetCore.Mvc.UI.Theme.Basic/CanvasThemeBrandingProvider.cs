@@ -1,4 +1,5 @@
-﻿using Volo.Abp.MultiTenancy;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Volo.Abp.MultiTenancy;
 using Volo.Abp.Ui.Branding;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
