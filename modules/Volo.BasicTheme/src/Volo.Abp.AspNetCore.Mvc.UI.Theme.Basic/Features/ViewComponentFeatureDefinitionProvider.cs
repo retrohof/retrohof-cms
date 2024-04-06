@@ -65,7 +65,21 @@ namespace Retrohof.Features
                 valueType: new ToggleStringValueType()
             );
 
-            myGroup.AddFeature(
+			myGroup.AddFeature(
+				ViewComponentFeatures.ClientReviews,
+				defaultValue: "true",
+				//displayName: "ChooseUs",
+				valueType: new ToggleStringValueType()
+			);
+
+			myGroup.AddFeature(
+				ViewComponentFeatures.FeaturedWorks,
+				defaultValue: "true",
+				//displayName: "ChooseUs",
+				valueType: new ToggleStringValueType()
+			);
+
+			myGroup.AddFeature(
                 ViewComponentFeatures.RecentPosts,
                 defaultValue: "true",
                 //displayName: "RecentPosts",

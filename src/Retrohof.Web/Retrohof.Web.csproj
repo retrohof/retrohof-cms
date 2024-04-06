@@ -51,13 +51,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-    <PackageReference Include="Volo.CmsKit.Web" Version="8.0.3" />
+    <PackageReference Include="Volo.CmsKit.Web" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,13 +65,13 @@
     <ProjectReference Include="..\Retrohof.Application\Retrohof.Application.csproj" />
     <ProjectReference Include="..\Retrohof.HttpApi\Retrohof.HttpApi.csproj" />
     <ProjectReference Include="..\Retrohof.EntityFrameworkCore\Retrohof.EntityFrameworkCore.csproj" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.Swashbuckle" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.Identity.Web" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="8.0.3" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="8.0.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="8.1.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="8.1.0" />
   </ItemGroup>
 
 </Project>

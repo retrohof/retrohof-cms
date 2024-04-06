@@ -217,8 +217,8 @@ public class RetrohofWebModule : AbpModule
     {
         Configure<AbpTenantResolveOptions>(options =>
         {
-            options.TenantResolvers.Clear();
-            options.TenantResolvers.Add(new HostTenantResolveContributor());
+            //options.TenantResolvers.Clear();
+            //options.TenantResolvers.Add(new HostTenantResolveContributor());
         });
     }
 

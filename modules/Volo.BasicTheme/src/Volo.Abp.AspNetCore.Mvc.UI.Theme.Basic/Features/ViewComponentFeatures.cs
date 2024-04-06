@@ -13,7 +13,9 @@
         public const string Introduction = "Introduction";
         public const string AboutUs = "AboutUs";
         public const string ChooseUs = "ChooseUs";
-        public const string RecentPosts = "RecentPosts";
+		public const string ClientReviews = "ClientReviews";
+		public const string FeaturedWorks = "FeaturedWorks";
+		public const string RecentPosts = "RecentPosts";
         public const string OpeningHours = "OpeningHours";
         public const string Testimonials = "Testimonials";
         public const string NewsLetter = "NewsLetter";

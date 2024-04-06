@@ -2,124 +2,131 @@
 
 @model ChooseUsModel
 
-<div class="container mb-5">
+<div class="section mt-6">
+	<div class="container mb-5">
 
-	<div class="heading-block mt-4 text-center">
+		<div class="heading-block text-center">
+			<h3>Why <span>Choose</span> Us?</h3>
+			<span>Canvas comes with 100+ Feature oriented Shortcodes that are easy to use too.</span>
+		</div>
+
+		@* 	<div class="heading-block mt-4 text-center">
 		<h3>Why <span>Choose</span> Us?</h3>
-	</div>
-
-	<div class="row justify-content-center col-mb-50">
-
-		@foreach (var item in Model.Choices)
-		{
-			<div class="col-sm-6 col-lg-4">
-				<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn">
-					<div class="fbox-icon">
-						<a href="#"><i class="bi-check-circle"></i></a>
-					</div>
-					<div class="fbox-content">
-						<h3>@item.Title</h3>
-						<p>@item.Additional</p>
-					</div>
-				</div>
-			</div>
-		}
-
-@* 
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="200">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-eye"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Retina Ready Graphics</h3>
-					<p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="400">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-star"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Powerful Performance</h3>
-					<p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="600">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-camera-video"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>HTML5 Video</h3>
-					<p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="800">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-mouse"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Parallax Support</h3>
-					<p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1000">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-fire"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Endless Possibilities</h3>
-					<p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1200">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-lightbulb"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Light &amp; Dark Color Schemes</h3>
-					<p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1400">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-heart"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Boxed &amp; Wide Layouts</h3>
-					<p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-lg-4">
-			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1600">
-				<div class="fbox-icon">
-					<a href="#"><i class="bi-card-text"></i></a>
-				</div>
-				<div class="fbox-content">
-					<h3>Extensive Documentation</h3>
-					<p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
-				</div>
-			</div>
 		</div> *@
+
+		<div class="row justify-content-center col-mb-50">
+
+			@foreach (var item in Model.Choices)
+			{
+				<div class="col-sm-6 col-lg-4">
+					<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn">
+						<div class="fbox-icon">
+							<a href="#"><i class="bi-check-circle"></i></a>
+						</div>
+						<div class="fbox-content">
+							<h3>@item.Title</h3>
+							<p>@item.Additional</p>
+						</div>
+					</div>
+				</div>
+			}
+
+			@*
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="200">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-eye"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Retina Ready Graphics</h3>
+			<p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="400">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-star"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Powerful Performance</h3>
+			<p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="600">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-camera-video"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>HTML5 Video</h3>
+			<p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="800">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-mouse"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Parallax Support</h3>
+			<p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1000">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-fire"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Endless Possibilities</h3>
+			<p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1200">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-lightbulb"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Light &amp; Dark Color Schemes</h3>
+			<p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1400">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-heart"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Boxed &amp; Wide Layouts</h3>
+			<p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-4">
+			<div class="feature-box fbox-sm fbox-plain" data-animate="fadeIn" data-delay="1600">
+			<div class="fbox-icon">
+			<a href="#"><i class="bi-card-text"></i></a>
+			</div>
+			<div class="fbox-content">
+			<h3>Extensive Documentation</h3>
+			<p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
+			</div>
+			</div>
+			</div> *@
+		</div>
 	</div>
 </div>

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ChooseUs;
+
 public class ChooseUsViewComponent : ViewComponent
 {
     public virtual IViewComponentResult Invoke()

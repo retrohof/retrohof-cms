@@ -47,6 +47,8 @@
     <Content Remove="Localization\RetroHof\en.json" />
     <Content Remove="Localization\ErindOnTrack\en.json" />
     <Content Remove="Localization\Mdw\en.json" />
+    <Content Remove="Themes\Basic\Components\FeaturedWorks\Default.cshtml" />
+    <Content Remove="Themes\Basic\Components\ClientReviews\Default.cshtml" />
     <Content Remove="Themes\Basic\Components\Topbar\Default.cshtml" />
   </ItemGroup>
 
@@ -61,6 +63,7 @@
   <ItemGroup>
     <None Include="Pages\_ViewImports.cshtml" />
     <None Include="Themes\Basic\Components\AboutUs\Default.cshtml" />
+    <None Include="Themes\Basic\Components\FeaturedWorks\Default.cshtml" />
     <None Include="Themes\Basic\Components\ChooseUs\Default.cshtml" />
     <None Include="Themes\Basic\Components\FooterContact\Default.cshtml" />
     <None Include="Themes\Basic\Components\Footer\Default.cshtml" />
@@ -73,6 +76,7 @@
     <None Include="Themes\Basic\Components\SocialMedia\Default.cshtml" />
     <None Include="Themes\Basic\Components\Strength\Default.cshtml" />
     <None Include="Themes\Basic\Components\Suppliers\Default.cshtml" />
+    <None Include="Themes\Basic\Components\ClientReviews\Default.cshtml" />
     <None Include="Themes\Basic\Components\Testimonials\Default.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>

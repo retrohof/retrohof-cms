@@ -89,7 +89,7 @@
 
 
 
-        @if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
+        @if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
         {
             <!-- Slider
             ============================================= -->

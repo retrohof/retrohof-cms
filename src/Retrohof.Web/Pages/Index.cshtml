@@ -13,6 +13,8 @@
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.OpeningHours
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.RecentPosts
 @using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Testimonials
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.FeaturedWorks
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ClientReviews
 @using Volo.Abp.MultiTenancy
 @using Volo.Abp.Ui.Branding
 @using Volo.Abp.Users
@@ -78,7 +80,23 @@
 				@(await Component.InvokeAsync<ChooseUsViewComponent>())
 
 
-			<div class="container">
+
+@* 			<!-- FeaturedWorks
+			============================================= -->
+			@if (await Features.DisplayViewComponent<FeaturedWorksViewComponent>())
+				@(await Component.InvokeAsync<FeaturedWorksViewComponent>())
+
+ *@
+
+
+			<!-- ClientReviews
+			============================================= -->
+			@if (await Features.DisplayViewComponent<ClientReviewsViewComponent>())
+				@(await Component.InvokeAsync<ClientReviewsViewComponent>())
+
+
+
+@* 			<div class="container">
 
 				<div class="row g-5 col-mb-50">
 					<div class="col-lg-8">
@@ -101,7 +119,7 @@
 					</div>
 				</div>
 
-			</div>
+			</div> *@
 
 
 			<!-- NewsLetter
