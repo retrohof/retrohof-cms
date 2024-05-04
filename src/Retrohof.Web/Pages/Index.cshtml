@@ -54,7 +54,7 @@
 		}
 
 		<!-- Remove ! for maintenance page -->
-		@if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
+		@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
 		{
 			@(await Component.InvokeAsync<MaintenanceViewComponent>())
 		}
