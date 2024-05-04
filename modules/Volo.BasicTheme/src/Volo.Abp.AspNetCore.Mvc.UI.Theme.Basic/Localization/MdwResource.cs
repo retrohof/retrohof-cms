@@ -5,5 +5,4 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Localization;
 [LocalizationResourceName("Mdw")]
 public class MdwResource
 {
-    
 }

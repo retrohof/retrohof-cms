@@ -40,6 +40,7 @@
 
   <ItemGroup>
     <Compile Remove="AgileCmsBrandingProvider.cs" />
+    <Compile Remove="Themes\Basic\Components\Introduction\Default.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,8 +48,6 @@
     <Content Remove="Localization\RetroHof\en.json" />
     <Content Remove="Localization\ErindOnTrack\en.json" />
     <Content Remove="Localization\Mdw\en.json" />
-    <Content Remove="Themes\Basic\Components\FeaturedWorks\Default.cshtml" />
-    <Content Remove="Themes\Basic\Components\ClientReviews\Default.cshtml" />
     <Content Remove="Themes\Basic\Components\Topbar\Default.cshtml" />
   </ItemGroup>
 
@@ -63,7 +62,6 @@
   <ItemGroup>
     <None Include="Pages\_ViewImports.cshtml" />
     <None Include="Themes\Basic\Components\AboutUs\Default.cshtml" />
-    <None Include="Themes\Basic\Components\FeaturedWorks\Default.cshtml" />
     <None Include="Themes\Basic\Components\ChooseUs\Default.cshtml" />
     <None Include="Themes\Basic\Components\FooterContact\Default.cshtml" />
     <None Include="Themes\Basic\Components\Footer\Default.cshtml" />
@@ -76,7 +74,6 @@
     <None Include="Themes\Basic\Components\SocialMedia\Default.cshtml" />
     <None Include="Themes\Basic\Components\Strength\Default.cshtml" />
     <None Include="Themes\Basic\Components\Suppliers\Default.cshtml" />
-    <None Include="Themes\Basic\Components\ClientReviews\Default.cshtml" />
     <None Include="Themes\Basic\Components\Testimonials\Default.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
@@ -84,6 +81,21 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" VersionOverride="8.0.3" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" VersionOverride="8.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="HtmlResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HtmlResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="HtmlResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HtmlResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

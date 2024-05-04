@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Volo.Abp.MultiTenancy;
+﻿using Volo.Abp.MultiTenancy;
 using Volo.Abp.Ui.Branding;
 
 namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -7,7 +6,7 @@ namespace Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 public class CanvasThemeBrandingProvider : DefaultBrandingProvider, ICanvasThemeBrandingProvider
 {
     protected readonly ICurrentTenant _currentTenant;
-    public override string AppName => _currentTenant?.Name ?? ThemeType.Mdw.ToString();
+    public override string AppName => _currentTenant?.Name ?? ThemeType.Default.ToString();
 
     public CanvasThemeBrandingProvider(ICurrentTenant currentTenant)
     {

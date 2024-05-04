@@ -1,22 +1,33 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.AboutUs;
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.AboutUs;
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Extensions;
 
-@model AboutUsModel
+@inject ILocalizationManager LocalizationManager
+@{
+    var L = LocalizationManager.GetHtmlLocalizer("AboutUs");
+
+    var img = L["vc:about-us:img"].Value;
+    var h3 = L["vc:about-us:h3"].Value;
+    var p1 = L["vc:about-us:p1"].Value;
+    var p2 = L["vc:about-us:p2"].Value;
+    var a1 = L["vc:about-us:a1"].Value;
+}
 
 <div class="container">
 
     <div class="row align-items-center col-mb-50">
 
         <div class="col-md-4 text-center">
-            <img data-animate="fadeInLeftBig" src="/themes/erindOnTrack/images/about/erind.jpg" alt="Erind" class="fadeInLeft animated">
+            @Html.RenderImage(img)
         </div>
 
         <div class="col-md-8 text-center text-md-start">
             <div class="heading-block border-bottom-0">
-                <h3>@Html.Raw(Model.Title)</h3>
+                @Html.RenderH3(h3)
             </div>
-            <p>@Model.Paragraphs.First()</p>
-            <p>@Model.Paragraphs.Skip(1).First()</p>
-            <a href="#" class="button button-border button-danger button-rounded button-large ms-0 mt-4">Call Me</a>
+            @Html.RenderParagraph(p1)
+            @Html.RenderParagraph(p2)
+            @Html.RenderAnchor(a1)
         </div>
 
     </div>

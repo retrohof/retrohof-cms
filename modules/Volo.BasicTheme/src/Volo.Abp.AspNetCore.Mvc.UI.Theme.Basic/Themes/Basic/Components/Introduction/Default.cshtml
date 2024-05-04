@@ -1,16 +1,27 @@
-﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Introduction;
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Introduction;
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Extensions;
 
-@model IntroductionModel
+@inject ILocalizationManager LocalizationManager
+@{
+	var L = LocalizationManager.GetHtmlLocalizer("Introduction");
 
+	var img = L["vc:introduction:img"].Value;
+	var h1 = L["vc:introduction:h1"].Value;
+	var h2 = L["vc:introduction:h2"].Value;
+	var a1 = L["vc:introduction:a1"].Value;
+	var a2 = L["vc:introduction:a2"].Value;
+}
 
 <div class="container">
 
 	<div class="mx-auto text-center" style="max-width: 900px;">
-		<img class="mb-5" src="/themes/erindOnTrack/images/logo.png" alt="Image">
-		<h1>Welcome! This is Erind<span>onTrack</span>.</h1>
-		<h2>We specialise in fitting straight and window bay tracks, roller & Roman blinds.</h2>
-		<a href="#" class="button button-3d button-dark button-large ">Browse Services</a>
-		<a href="#" class="button button-3d button-large">Call Us</a>
+		@Html.RenderImage(img)
+		@Html.RenderH1(h1)
+		@Html.RenderH2(h2)
+		@Html.RenderAnchor(a1)
+		@Html.RenderAnchor(a2)
 	</div>
 
 </div>

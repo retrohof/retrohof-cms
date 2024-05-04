@@ -1,6 +1,21 @@
 {
   "culture": "en",
   "texts": {
+    "VC:Introduction:img": "css:mb-5,src:/themes/mdw/images/logo.png,alt:MD Wigmore Introduction Alt,title:MD Wigmore Introduction Title",
+    "VC:Introduction:h1": "Welcome! This is MD <span>Wigmore</span>.",
+    "VC:Introduction:h2": "Painting & Decorating Contractor",
+    "VC:Introduction:a1": "css:button button-3d button-dark button-large,href:/Services,text:Services,title:Our Services",
+    "VC:Introduction:a2": "css:button button-3d button-large,href:tel:07930 645 116,text:Call Matt,title:Call Matt for friendly advise",
+    "vc:about-us:img": "css:fadeInLeft animated,src:/themes/erindOnTrack/images/about/erind.jpg,alt:Erind onTrack About Us Alt,title:Erind onTrack About Us Title",
+    "vc:about-us:h3": "About <span>Us</span>",
+    "vc:about-us:p1": "Hello there! My name is Matt and I have been fitting curtains and blinds as a professional for over 15-years in London and surrounding areas. During this time I have gained extensive experience in measuring and installing curtain rails & poles for most bay window shapes & sizes.",
+    "vc:about-us:p2": "Thank you for taking the time to visit our website. We look forward to hearing from you with regards to your curtain tracks or blind queries and will do our best to assist and advise.",
+    "vc:about-us:a1": "css:button button-border button-danger button-rounded button-large ms-0 mt-4,href:tel:0207 112 7588,text:Call Erind,title:Call Erind"
+  }
+}
+
+/*
+
     "Welcome_Title": "MDW Welcome",
     "LongWelcomeMessage": "MDW This is a minimalist, single layer application startup template for the ABP Framework.",
     "Menu:Home": "MDW Home",
@@ -25,6 +40,4 @@
     "Address|Line|3": "MDW Address Line 13",
     "Address|Contact|1": "MDW Address Contact 11",
     "Address|Contact|2": "MDW Address Contact 12",
-    "Address|Contact|3": "MDW Address Contact 13"
-  }
-}
+    "Address|Contact|3": "MDW Address Contact 13"*/

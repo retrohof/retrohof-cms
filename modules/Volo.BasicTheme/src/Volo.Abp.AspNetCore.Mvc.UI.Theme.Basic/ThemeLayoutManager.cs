@@ -11,8 +11,18 @@ public class ThemeLayoutManager : IThemeLayoutManager, ITransientDependency
         _brandingProvider = brandingProvider;
     }
 
+    public virtual string GetThemeLayout()
+    {
+        return GetThemeLayout(null);
+    }
+
     public virtual string GetThemeLayout(string pageType)
     {
+        if (string.IsNullOrEmpty(pageType))
+        {
+            return $"~/Themes/Basic/Layouts/Empty.cshtml";
+        }
+
         var appName = _brandingProvider.AppName == "Default" ? string.Empty : _brandingProvider.AppName;
         var layout = $"{appName}{pageType}";
 

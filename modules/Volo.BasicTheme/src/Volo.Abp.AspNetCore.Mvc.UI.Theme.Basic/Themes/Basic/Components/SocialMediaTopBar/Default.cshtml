@@ -1,0 +1,16 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Providers
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.SocialMediaTopBar
+
+@model SocialMediaTopBarModel
+
+<ul id="top-social">
+    <li><a href="@Model.Facebook" class="h-bg-facebook"><span class="ts-icon"><i class="fa-brands fa-facebook-f"></i></span><span class="ts-text">Facebook</span></a></li>
+    @*<li><a href="@Model.Twitter" class="h-bg-x-twitter"><span class="ts-icon"><i class="fa-brands fa-x-twitter"></i></span><span class="ts-text">Twitter</span></a></li> *@
+    @*<li><a href="@Model.Pinterest" class="h-bg-pinterest"><span class="ts-icon"><i class="fa-brands fa-pinterest-p"></i></span><span class="ts-text">Pinterest</span></a></li> *@
+    <li><a href="@Model.Instagram" class="h-bg-instagram"><span class="ts-icon"><i class="fa-brands fa-instagram"></i></span><span class="ts-text">Instagram</span></a></li>
+    <li><a href="tel:07930 645 116" class="h-bg-call"><span class="ts-icon"><i class="fa-solid fa-phone"></i></span><span class="ts-text">@Model.Telephone</span></a></li>
+    <li><a href="mailto:mdwigmore@gmail.com" class="h-bg-email3"><span class="ts-icon"><i class="bi-envelope-fill"></i></span><span class="ts-text">@Model.Email</span></a></li>
+</ul>
+
+<!-- SocialMedia end -->
