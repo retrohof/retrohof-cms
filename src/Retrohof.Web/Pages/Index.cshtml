@@ -51,7 +51,7 @@
 			@Html.Raw(@Model.DisplayUser(CurrentUser))
 		}
 
-		@if (await Features.DisplayViewComponent<MaintenanceViewComponent>())
+		@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
 		{
 			@(await Component.InvokeAsync<MaintenanceViewComponent>())
 		}
