@@ -8,7 +8,7 @@ namespace Retrohof.Web;
 public class RetrohofBrandingProvider : DefaultBrandingProvider
 {
     private readonly ICurrentTenant _currentTenant;
-    public override string AppName => _currentTenant.Name ?? "CustomHost";
+    public override string AppName => _currentTenant.Name ?? "Admin";
 
     public RetrohofBrandingProvider(ICurrentTenant currentTenant)
     {
