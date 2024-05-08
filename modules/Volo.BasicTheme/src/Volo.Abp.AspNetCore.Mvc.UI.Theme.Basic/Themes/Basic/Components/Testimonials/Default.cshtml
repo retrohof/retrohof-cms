@@ -1,0 +1,30 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Testimonials
+
+@model TestimonialsModel
+
+<div class="fancy-title title-border mt-5">
+	<h4>@Model.Title</h4>
+</div>
+
+<div class="fslider testimonial p-0 border-0 shadow-none" data-animation="slide" data-arrows="false">
+	<div class="flexslider">
+		<div class="slider-wrap">
+			@foreach (var item in Model.Testimonials)
+			{
+				<div class="slide">
+					<div class="row gx-3">
+						<div class="col-auto pt-1">
+							<img class="rounded-circle" src="@item.ImageSrc" width="56" height="56" alt="Customer Testimonails">
+						</div>
+						<div class="col">
+							<p class="mb-3 font-secondary">@item.Comment</p>
+							<h4 class="h6 mb-0 fw-medium">@item.Name</h4>
+							<small class="text-muted">@item.Date.ToShortDateString()</small>
+						</div>
+					</div>
+					<div class="bg-icon bi-quote op-02"></div>
+				</div>
+			}
+		</div>
+	</div>
+</div>

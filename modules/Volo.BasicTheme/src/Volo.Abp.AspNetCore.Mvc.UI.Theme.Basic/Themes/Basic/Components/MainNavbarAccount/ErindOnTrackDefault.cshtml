@@ -1,0 +1,29 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Brand
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Menu
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
+@using Volo.Abp.MultiTenancy
+
+@inject IAgileCmsBrandingProvider BrandingProvider
+
+<header id="header" class="full-header">
+
+	<div id="header-wrap">
+
+		<div class="container">
+
+			<div class="header-row">
+
+				<!-- Logo
+				============================================= -->
+				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>())<!-- #logo end -->
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="header-wrap-clone"></div>
+
+</header>

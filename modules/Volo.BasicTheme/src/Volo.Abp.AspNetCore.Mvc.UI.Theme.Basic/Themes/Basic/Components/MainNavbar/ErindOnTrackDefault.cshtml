@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewComponents
+@using Retrohof.Features
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Brand
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Maintenance
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Menu
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.Toolbar
+@using Volo.Abp.MultiTenancy
+
+@inject IAgileCmsBrandingProvider Branding
+@inject IViewComponentsFeatureProvider<ViewComponent> Features
+
+<header id="header" class="full-header">
+
+	<div id="header-wrap">
+
+		<div class="container">
+
+			<div class="header-row">
+
+				<!-- Logo
+				============================================= -->
+				@(await Component.InvokeAsync<MainNavbarBrandViewComponent>())<!-- #logo end -->
+
+				<div class="primary-menu-trigger">
+					<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+						<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+					</button>
+				</div>
+
+				@if (!await Features.DisplayViewComponent<MaintenanceViewComponent>())
+				{
+					<!-- Primary Navigation
+					============================================= -->
+					<nav class="primary-menu">
+
+						<ul class="menu-container">
+
+							@(await Component.InvokeAsync<MainNavbarMenuViewComponent>())
+
+						</ul>
+
+					</nav>
+
+					<!-- #primary-menu end -->
+				}
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="header-wrap-clone"></div>
+
+</header>

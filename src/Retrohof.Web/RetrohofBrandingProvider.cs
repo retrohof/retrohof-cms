@@ -1,17 +1,15 @@
-﻿using Volo.Abp.Ui.Branding;
+﻿using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.MultiTenancy;
 
 namespace Retrohof.Web;
 
 [Dependency(ReplaceServices = true)]
-public class RetrohofBrandingProvider : DefaultBrandingProvider
+public class RetrohofBrandingProvider : AgileCmsBrandingProvider
 {
-    private readonly ICurrentTenant _currentTenant;
-    public override string AppName => _currentTenant.Name ?? "CustomHost";
+    public override string AppName => _currentTenant?.Name ?? "Default";
 
-    public RetrohofBrandingProvider(ICurrentTenant currentTenant)
+    public RetrohofBrandingProvider(ICurrentTenant currentTenant) : base(currentTenant)
     {
-        _currentTenant = currentTenant;
     }
 }

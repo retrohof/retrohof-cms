@@ -1,0 +1,9 @@
+﻿@using Volo.Abp.Ui.Branding
+@inject IBrandingProvider BrandingProvider
+
+<div id="logo">
+    <a asp-page="Index">
+        <img class="logo-default" srcset="~/logo/logo.png, ~/logo/logo@2x_.png 2x" src="~/logo/logo@2x_.png" alt="Canvas Logo">
+        <img class="logo-dark" srcset="~/logo/logo-dark.png, ~/logo/logo-dark@2x_.png 2x" src="~/logo/logo-dark@2x_.png" alt="Canvas Logo">
+    </a>
+</div>

@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+
+  <PropertyGroup><LangVersion>latest</LangVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyName>Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic</AssemblyName>
+    <PackageId>Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic</PackageId>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <IsPackable>true</IsPackable>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Themes\Basic\Components\MainNavbarAccount\**" />
+    <Compile Remove="Themes\Basic\Layouts\Default\**" />
+    <Compile Remove="Themes\Basic\Layouts\Mdw\**" />
+    <Compile Remove="Themes\Mdw\**" />
+    <Content Remove="Themes\Basic\Components\MainNavbarAccount\**" />
+    <Content Remove="Themes\Basic\Layouts\Default\**" />
+    <Content Remove="Themes\Basic\Layouts\Mdw\**" />
+    <Content Remove="Themes\Mdw\**" />
+    <Content Remove="wwwroot\**\*.*" />
+    <EmbeddedResource Remove="Themes\Basic\Components\MainNavbarAccount\**" />
+    <EmbeddedResource Remove="Themes\Basic\Layouts\Default\**" />
+    <EmbeddedResource Remove="Themes\Basic\Layouts\Mdw\**" />
+    <EmbeddedResource Remove="Themes\Mdw\**" />
+    <None Remove="Themes\Basic\Components\MainNavbarAccount\**" />
+    <None Remove="Themes\Basic\Layouts\Default\**" />
+    <None Remove="Themes\Basic\Layouts\Mdw\**" />
+    <None Remove="Themes\Mdw\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Localization\South25\en.json" />
+    <Content Remove="Localization\RetroHof\en.json" />
+    <Content Remove="Localization\ErindOnTrack\en.json" />
+    <Content Remove="Localization\Mdw\en.json" />
+    <Content Remove="Themes\Basic\Components\Topbar\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Default\en.json" />
+    <EmbeddedResource Include="Localization\South25\en.json" />
+    <EmbeddedResource Include="Localization\RetroHof\en.json" />
+    <EmbeddedResource Include="Localization\ErindOnTrack\en.json" />
+    <EmbeddedResource Include="Localization\Mdw\en.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\_ViewImports.cshtml" />
+    <None Include="Themes\Basic\Components\AboutUs\Default.cshtml" />
+    <None Include="Themes\Basic\Components\ChooseUs\Default.cshtml" />
+    <None Include="Themes\Basic\Components\FooterContact\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Footer\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Guarantee\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Introduction\Default.cshtml" />
+    <None Include="Themes\Basic\Components\OpeningHours\Default.cshtml" />
+    <None Include="Themes\Basic\Components\RecentPosts\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Services\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Slider\Default.cshtml" />
+    <None Include="Themes\Basic\Components\SocialMedia\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Strength\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Suppliers\Default.cshtml" />
+    <None Include="Themes\Basic\Components\Testimonials\Default.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" VersionOverride="8.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" VersionOverride="8.0.3" />
+  </ItemGroup>
+
+</Project>

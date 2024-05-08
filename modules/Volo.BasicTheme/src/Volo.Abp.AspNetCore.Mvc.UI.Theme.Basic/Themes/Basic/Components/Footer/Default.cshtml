@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.FooterContact
+
+@model Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.DefaultFooterProvider
+
+<!-- Footer
+============================================= -->
+<footer id="footer" class="dark" data-bs-theme="dark" data-onepage-settings="{&quot;offset&quot;:0,&quot;speed&quot;:1250,&quot;easing&quot;:false}">
+    <div class="container">
+
+        <div class="footer-widgets-wrap">
+            <div class="row col-mb-50">
+                <div class="col-lg-6">
+
+                    <!-- FooterContact
+                    ============================================= -->
+                    @(await Component.InvokeAsync<FooterContactViewComponent>())<!-- #FooterContact end -->
+
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4>Recent Posts</h4>
+                        <div class="posts-sm row col-mb-30" id="post-list-footer">
+                            <div class="entry col-12">
+                                <div class="grid-inner row">
+                                    <div class="col">
+                                        <div class="entry-title">
+                                            <h4><a href="#">Custom made SG 3900 corded bay curtain rail. Pulleys at both ends for independent movement. Great fit!</a></h4>
+                                        </div>
+                                        <div class="entry-meta">
+                                            <ul>
+                                                <li>February 29, 2024</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="entry col-12">
+                                <div class="grid-inner row">
+                                    <div class="col">
+                                        <div class="entry-title">
+                                            <h4><a href="#">Bay Window fitted with 5x Bend Made to Measure Metal Curtain Rail in Long Ditton KT6</a></h4>
+                                        </div>
+                                        <div class="entry-meta">
+                                            <ul>
+                                                <li>January 12, 2024</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="entry col-12">
+                                <div class="grid-inner row">
+                                    <div class="col">
+                                        <div class="entry-title">
+                                            <h4><a href="#">Bay window curtain pole with 2x bends in black powered coated finish !</a></h4>
+                                        </div>
+                                        <div class="entry-meta">
+                                            <ul>
+                                                <li>January 11, 2024</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget quick-contact-widget form-widget">
+                        <h4>Send Message</h4>
+                        <div class="form-result"></div>
+                        <form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form mb-0" novalidate="novalidate">
+                            <div class="form-process">
+                                <div class="css3-spinner">
+                                    <div class="css3-spinner-scaler"></div>
+                                </div>
+                            </div>
+                            <div class="input-group mx-auto">
+                                <div class="input-group-text"><i class="uil uil-user"></i></div>
+                                <input type="text" class="required form-control" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
+                            </div>
+                            <div class="input-group mx-auto">
+                                <div class="input-group-text"><i class="bi-envelope-plus"></i></div>
+                                <input type="text" class="required form-control email" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
+                            </div>
+<textarea class="required form-control mb-2 short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+                            <input type="text" class="d-none" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
+                            <input type="hidden" name="prefix" value="quick-contact-form-">
+                            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger m-0" value="submit">Send Email</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="copyrights">
+        <div class="container">
+            <div class="w-100 text-center">
+                <div class="copyrights-menu copyright-links">
+                    <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+                </div>
+                Copyrights © 2024 All Rights Reserved by ErindOnTrack.com.
+            </div>
+        </div>
+    </div>
+</footer><!-- #footer end -->

@@ -1,4 +1,3 @@
-using Retrohof.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -10,10 +9,11 @@ using Volo.Abp.OpenIddict;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
-using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using Volo.CmsKit;
 using Volo.Abp.BlobStoring.Database;
+using Volo.Abp.Validation.Localization;
+using DefaultResource = Retrohof.Localization.DefaultResource;
 
 namespace Retrohof;
 
@@ -47,16 +47,16 @@ namespace Retrohof;
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Add<RetrohofResource>("en")
+                .Add<DefaultResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Retrohof");
 
-            options.DefaultResourceType = typeof(RetrohofResource);
+            options.DefaultResourceType = typeof(DefaultResource);
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>
         {
-            options.MapCodeNamespace("Retrohof", typeof(RetrohofResource));
+            options.MapCodeNamespace("Retrohof", typeof(DefaultResource));
         });
     }
 }

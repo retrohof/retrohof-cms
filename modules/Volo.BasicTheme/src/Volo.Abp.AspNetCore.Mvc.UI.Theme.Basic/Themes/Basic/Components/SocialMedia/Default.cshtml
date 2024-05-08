@@ -1,0 +1,18 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Providers
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject ISocialMediaIconsProvider socialMedia;
+@{
+}
+
+    @foreach (var icon in socialMedia.Icons)
+    {
+    var textColor = icon.Fa != "fa-x" ? "text-white" : "";
+
+        <a href="@icon.HRef" class="social-icon si-small rounded-circle @textColor @icon.Bg">
+            <i class="fa-brands @icon.Fa"></i>
+            <i class="fa-brands @icon.Fa"></i>
+        </a>
+
+    }
+
+<!-- SocialMedia end -->

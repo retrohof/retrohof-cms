@@ -1,0 +1,21 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.OpeningHours
+
+@model OpeningHoursModel
+
+<div class="fancy-title title-border">
+	<h4>@Model.Title</h4>
+</div>
+
+
+<div class="position-relative overflow-hidden pb-4">
+	<p>@Model.TagLine</p>
+
+	<ul class="iconlist mb-0">
+		@foreach (var item in Model.Hours)
+		{
+			<li><i class="bi-clock color"></i> <strong class="me-2">@item.Days</strong> @item.Times</li>
+		}
+	</ul>
+
+	<i class="bi-clock bg-icon" style="bottom: -70px;"></i>
+</div>

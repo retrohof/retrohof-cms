@@ -1,0 +1,55 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Providers
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.SocialMedia
+@inject IContactInformationProvider provider;
+@{
+    var office = provider.GetContact(0);
+    var mobile = provider.GetContact(1);
+    var email = provider.GetContact(2);
+    var offices = provider.GetAddressLine(0);
+    var line1 = provider.GetAddressLine(1);
+    var line2 = provider.GetAddressLine(2);
+}
+<!-- FooterContact -->
+
+<div class="widget">
+
+    <p>@provider.TagLine</p>
+
+    <div class="py-2" style="background: url('/themes/erindOnTrack/images/world-map.png') no-repeat center center;">
+
+        <div class="row col-mb-30">
+
+            <div class="col-6">
+
+                <address class="mb-0">
+                    <abbr title="@offices.Key" style="display: inline-block;margin-bottom: 7px;">
+                        <strong>@offices.Key:</strong>
+                    </abbr><br />
+                    @line1.Value<br />
+                    @line2.Value<br />
+                </address>
+
+            </div>
+
+            <div class="col-6">
+
+                <abbr title="@office.Key"><strong>@office.Key:</strong></abbr> @office.Value<br />
+                <abbr title="@mobile.Key"><strong>@mobile.Key:</strong></abbr> @mobile.Value<br />
+                <abbr title="@email.Key"><strong>@email.Key:</strong></abbr> @email.Value
+
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex mt-4">
+        
+        <!-- SocialMedia
+        ============================================= -->
+        @(await Component.InvokeAsync<SocialMediaViewComponent>())
+        <!-- #SocialMedia end -->
+
+    </div>
+</div>
+
+<!-- end FooterContact -->

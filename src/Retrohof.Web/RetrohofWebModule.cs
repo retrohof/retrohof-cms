@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Retrohof.EntityFrameworkCore;
-using Retrohof.Localization;
 using Retrohof.MultiTenancy;
 using Retrohof.Web.Menus;
 using Microsoft.OpenApi.Models;
@@ -15,28 +14,17 @@ using Volo.Abp;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.Localization;
-using Volo.Abp.AspNetCore.Mvc.UI;
-using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
-using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity.Web;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.Web;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.OpenIddict;
 using Volo.Abp.UI.Navigation.Urls;
-using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using System.Security.Cryptography.X509Certificates;
@@ -47,6 +35,14 @@ using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.Database;
 using Retrohof.TenantManagement;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
+using Microsoft.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using DefaultResource = Retrohof.Localization.DefaultResource;
+using Polly;
 
 namespace Retrohof.Web;
 
@@ -61,10 +57,10 @@ namespace Retrohof.Web;
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpTenantManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(CmsKitWebModule)
     )]
-[DependsOn(typeof(CmsKitWebModule))]
-    public class RetrohofWebModule : AbpModule
+public class RetrohofWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -74,7 +70,7 @@ namespace Retrohof.Web;
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
         {
             options.AddAssemblyResource(
-                typeof(RetrohofResource),
+                typeof(DefaultResource),
                 typeof(RetrohofDomainModule).Assembly,
                 typeof(RetrohofDomainSharedModule).Assembly,
                 typeof(RetrohofApplicationModule).Assembly,
@@ -112,7 +108,7 @@ namespace Retrohof.Web;
     private X509Certificate2 GetEncryptionCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "encryption-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
 
         var file = Path.Combine(environment.ContentRootPath, fileName);
         if (File.Exists(file))
@@ -144,7 +140,7 @@ namespace Retrohof.Web;
     private X509Certificate2 GetSigningCertificate(IWebHostEnvironment environment, IConfiguration config)
     {
         var fileName = "signing-certificate.pfx";
-        var password = config["AgileCmsCertificate:X590:Password"];
+        var password = config["AgileCmsCertificate:X509:Password"];
         var file = Path.Combine(environment.ContentRootPath, fileName);
 
         if (File.Exists(file))
@@ -189,6 +185,21 @@ namespace Retrohof.Web;
         ConfigureBlobDatabaseStorage();
         ConfigureTenantResolvers();
 
+        ConfigureAntiForgeryToken(context);
+
+    }
+
+    private void ConfigureAntiForgeryToken(ServiceConfigurationContext context)
+    {
+        context.Services.AddRazorPages(options =>
+        {
+            options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+        });
+
+        Configure<AbpAntiForgeryOptions>(options =>
+        {
+            options.AutoValidate = false;
+        });
     }
 
     private void ConfigureBlobDatabaseStorage()
@@ -232,13 +243,35 @@ namespace Retrohof.Web;
     {
         Configure<AbpBundlingOptions>(options =>
         {
+			options.Mode = BundlingMode.None;
+
             options.StyleBundles.Configure(
-                BasicThemeBundles.Styles.Global,
+                "Canvas.Global",
                 bundle =>
                 {
-                    bundle.AddFiles("/global-styles.css");
-                }
-            );
+                    bundle.AddFiles(
+                        "/themes/erindOnTrack/style.css",
+                        "/css/font-icons.css",
+                        "/css/swiper.css",
+                        "/css/custom.css");
+                });
+
+            options.ScriptBundles.Configure(
+                "Canvas.Global",
+                bundle =>
+                {
+                    bundle.AddFiles(
+                        "/js/jquery.js",
+                        "/js/functions.js");
+                });
+
+            //options.StyleBundles.Configure(
+            //    BasicThemeBundles.Styles.Global,
+            //    bundle =>
+            //    {
+            //        bundle.AddFiles("/global-styles.css");
+            //    }
+            //);
         });
     }
 
@@ -286,7 +319,7 @@ namespace Retrohof.Web;
         services.AddAbpSwaggerGen(
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Retrohof API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Agile CMS API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             }
@@ -328,7 +361,7 @@ namespace Retrohof.Web;
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Retrohof API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Agile CMS API");
         });
 
         app.UseAuditing();
